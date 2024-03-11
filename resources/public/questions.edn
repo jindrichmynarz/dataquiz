@@ -1,0 +1,387 @@
+#{
+  {:type :yesno
+   :text "Mají muži nižší hustotu kostí než ženy?"
+   :answer false}
+  {:type :yesno
+   :text "Mohly se ženy vlastnící velkostatek účastnit voleb v habsburské monarchii již od roku 1873?"
+   :answer true}
+  {:type :multiple
+   :text "Při autonehodě jsou ženy vážně zraněny o kolik % častěji než muži?"
+   :choices [{:text "47 %" :correct? true}
+             {:text "204 %"}
+             {:text "2 %"}
+             {:text "16 %"}]}
+  {:type :multiple
+   :text "Do kterého roku nepožadovala FDA, aby v klinických studiích byly zastoupeny ženy?"
+   :choices [{:text "1993" :correct? true}
+             {:text "1948"}
+             {:text "2013"}
+             {:text "Stále to nepožaduje"}]}
+  {:type :multiple
+   :text "Jaký je v současnosti v Česku rozdíl mezi průměrným platem mužů a průměrným platem žen?"
+   :choices [{:text "16 %" :correct? true}
+             {:text "Rozdíl není"}
+             {:text "68 %"}
+             {:text "7 %"}]}
+  {:type :multiple
+   :text "Kdo získal cenu Genderman 2023?"
+   :choices [{:text "Michal Zuna a Daniel Bartoň" :correct? true}
+             {:text "Ivan Bartoš"}
+             {:text "Boleslav Polívka"}
+             {:text "Petr Pavel"}]}
+  {:type :multiple
+   :text "Která z následujících kultur byla matriarchát?"
+   :choices [{:text "Žádná" :correct? true}
+             {:text "Sovětská"}
+             {:text "Kmene Hopi"}
+             {:text "Kmene Irokézů"}]}
+  {:type :multiple
+   :text "Co testuje Bechdel test?"
+   :choices [{:text "Jestli jsou ve filmu ženy, které se baví o něčem jiném než mužích" :correct? true}
+             {:text "Ztuhlost páteře"}
+             {:text "Jestli je protagonistkou uměleckého díla žena"}
+             {:text "Emoční inteligenci"}]}
+  {:type :multiple
+   :text "Co je to “polomanželství”?"
+   :choices [{:text "Rozšíření registrovaného partnerství o většinu práv manželů bez práva na název “manželství”" :correct? true}
+             {:text "Manželství pololidí"}
+             {:text "Manželství s restriktivní předmanželskou smlouvou"}
+             {:text "Manželství pro všechny slušné lidi"}]}
+  {:type :multiple
+   :text "Jak dlouho průměrně trvá menstruace?"
+   :choices [{:text "2-7 dní" :correct? true}
+             {:text "20-25 dní"}
+             {:text "12-36 hodin"}
+             {:text "2-4 dny"}]}
+  {:type :multiple
+   :text "Jaký z těchto jazyků nerozlišuje rod?"
+   :choices [{:text "Turečtina" :correct? true}
+             {:text "Vietnamština" :correct? true}
+             {:text "Portugalština"}
+             {:text "Bulharština"}]}
+  {:type :multiple
+   :text "Ve které zemi ženy získaly nejdříve volební právo?"
+   :choices [{:text "Nový Zéland" :correct? true} ; Roku 1893
+             {:text "Sovětský svaz"}
+             {:text "Norsko"}
+             {:text "Velká Británie"}]}
+  {:type :multiple
+   :text "O kolik let se ženy v Česku průměrně dožívají déle než muži?"
+   :choices [{:text "6 let" :correct? true} ; 81 let ženy, 75 let muži (2021)
+             {:text "14 let"}
+             {:text "2 roky"}
+             {:text "Dožívají se méně"}]}
+  {:type :multiple
+   :text "Ve kterém roce ženy získaly volební právo v českých zemích?"
+   :choices [{:text "1919" :correct? true}
+             {:text "1933"}
+             {:text "1911"}
+             {:text "1889"}]}
+  {:type :multiple
+   :text "Která země první zvolila ženu za prezidentku?"
+   :choices [{:text "Island" :correct? true} ; Roku 1980
+             {:text "Indie"}
+             {:text "Nizozemsko"}
+             {:text "Chile"}]}
+  {:type :multiple
+   :text "Co je to polykula?"
+   :choices [{:text "Polyamorická rodina" :correct? true}
+             {:text "Seskupení molekul"}
+             {:text "Všehoschopný šikula"}
+             {:text "Rozpor v polyamorním vztahu"}]}
+  {:type :multiple
+   :text "Do kolika týdnů od početí je v Česku interrupce na vyžádání legální?"
+   :choices [{:text "12 týdnů" :correct? true}
+             {:text "2 týdny"}
+             {:text "5 měsíců"}
+             {:text "Kdykoli"}]}
+  {:type :multiple
+   :text "Jak se jmenovala jedna z prvních filosofek a matematiček, která žila v Alexandrii na přelomu 4. a 5. století n.l.?"
+   :choices [{:text "Hypatia" :correct? true}
+             {:text "Svatá Agáta"}
+             {:text "Nestoria"}
+             {:text "Sapfó"}]}
+  {:type :yesno
+   :text "Platil roku 1900 na českém území celibát učitelek?"
+   :answer true} ; Do roku 1919.
+  {:type :yesno
+   :text "Je v USA nutno dezagregovat výsledky klinických studií dle pohlaví?"
+   :answer true} ; Od roku 2016.
+  {:type :yesno
+   :text "Mají muži průměrně delší tlusté střevo než ženy?"
+   :answer false}
+  {:type :yesno
+   :text "Mají ženy průměrně vyšší podíl tuku v těle než muži?"
+   :answer true}
+  {:type :yesno
+   :text "Ženy jsou na antidepresivech 2,5-krát častěji než muži."
+   :answer true}
+  {:type :yesno
+   :text "O erektilní dysfunkci bylo napsáno 2-krát více vědeckých článků než o premenstruačním syndromu."
+   :answer false} ; 5-krát více.
+  {:type :yesno
+   :text "Menstruační bolesti má 50 % žen."
+   :answer false} ; Ne, 90 %.
+  {:type :yesno
+   :text "Porodní úmrtnost je stejná pro afroamerické ženy v USA jako pro ženy v Uzbekistánu nebo Mexiku."
+   :answer true}
+  {:type :yesno
+   :text "Celosvětový podíl nezaměstnaných mužů je vyšší než nezaměstnaných žen."
+   :answer false} ; Ne. Nezaměstnaných žen je o 27 % více.
+  {:type :multiple
+   :text "Co bylo podnětem k ustanovení Mezinárodního dne žen?"
+   :choices [{:text "Výročí demonstrace žen 'Chléb a mír' v Petrohradě"}
+             {:text "Výročí protestu švadlen v New Yorku roku 1908" :correct? true} ; TODO: Ověřit
+             {:text "Výročí korunovaci britské královny Anny"}
+             {:text "Datum bylo ustaveno Komunistickou stranou Sovětského svazu"}]}
+  {:type :multiple
+   :text "Co není druhem ženské antikoncepce?"
+   :choices [{:text "Rotavátor" :correct? true}
+             {:text "Nitroděložní tělísko"}
+             {:text "Vaginální kroužek"}
+             {:text "Medroxyprogesteron acetát"}]}
+  {:type :multiple
+   :text "Jakému zdanění podléhají v Česku menstruační potřeby?"
+   :choices [{:text "21 %" :correct? true}
+             {:text "Spotřební daň se na ně nevztahuje"}
+             {:text "5 %"}
+             {:text "15 %"}]}
+  {:type :yesno
+   :text "Poslední soudní proces, kdy byla žena nařčena z čarodějnictví, proběhl v roce 1850."
+   :answer false} ; Bylo to v roce 1950 v belgickém městě Turnhout.
+  {:type :multiple
+   :text "Který český politik se proslavil hláškou 'Se ženami spolupracuji od svých čtyř nebo pěti let'?"
+   :choices [{:text "Jaroslav Kubera" :correct? true}
+             {:text "Gustáv Husák"}
+             {:text "Marián Jurečka"}
+             {:text "Miroslav Sládek"}]}
+  {:type :yesno
+   :text "Evropská unie roku 1995 projednávala návrh na označení nežádoucích valentýnek jako sexuálního obtěžování."
+   :answer false}
+  {:type :multiple
+   :text "Kdo je Kučisake-onna?"
+   :choices [{:text "Žena z japonských městských legend, znetvořená žárlivým a zlým manželem, která se vrací jako zlý duch." :correct? true}
+             {:text "Čarodějnice z japonských pohádek"}
+             {:text "Japonská pacifistka a bojovnice za férové mzdy pro geiši"}
+             {:text "Korejsko-japonská aktivistka a zakladatelka Korejského revolučního hnutí"}]}
+  {:type :multiple
+   :text "Kde se na území českých zemí odehrály nejrozsáhlejší čarodějnických procesy?"
+   :choices [{:text "Velké Losiny" :correct? true}
+             {:text "Ústí nad Labem"}
+             {:text "Broumov"}
+             {:text "Cheb"}]}
+  {:type :multiple
+   :text "Která politická strana v Česku měla do roku 2019 kvótu alespoň 40 % pro zastoupení menšinového pohlaví na kandidátních listinách?"
+   :choices [{:text "Česká strana sociálně demokratická" :correct? true}
+             {:text "Pirátská strana"}
+             {:text "Dělnická strana sociální spravedlnosti"}
+             {:text "Svoboda a přímá demokracie"}]}
+  {:type :yesno
+   :text "Jak odpověděla Táňa Malá (ANO) v anketě Refresher.cz na otázku 'Považujete se za feministu či feministku?'"
+   :answer false}
+  {:type :multiple
+   :text "Jak odpověděl poslanec ODS Karel Krejza v anketě Refresher.cz na otázku 'Považujete se za feministu či feministku?'"
+   :choices [{:text "Nezlobte se na mě, ale naše vláda teď řeší, aby občané v zimě nezmrzli." :correct? true}
+             {:text "Ano"}
+             {:text "Ne"}
+             {:text "Mezi liberálním a radikálním viděním světa je diametrální rozdíl a nelze tak přesně odpovědět."}]}
+  {:type :yesno
+   :text "Dle jednoho výzkumu Viagra poskytuje úlevu od menstruačních bolestí."
+   :answer true}
+  {:type :yesno
+   :text "V Saúdské Arábie je zavedena kvóta 20 % na zastoupení žen v parlamentu."
+   :answer true} ; https://www.idea.int/data-tools/data/gender-quotas-database/country?country=196
+  {:type :yesno
+   :text "Sálový počítač ENIAC programovaly většinou ženy."
+   :answer true}
+  {:type :multiple
+   :text "Podíl žen studujících computer science v Saúdské Arábii v roce 2014 byl:"
+   :choices [{:text "59 %" :correct? true}
+             {:text "2 %"}
+             {:text "21 %"}
+             {:text "0,3 %"}]}
+  {:type :multiple
+   :text "Jaký je v Česku rozsah výše výživného v procentech čisté mzdy rodiče?"
+   :choices [{:text "8 - 20 %" :correct? true}
+             {:text "2 - 8 %"}
+             {:text "12 - 36 %"}
+             {:text "35 - 45 %"}]}
+  {:type :yesno
+   :text "Kapsy dámských džín jsou průměrně o 48 % kratší a o 6,5 % užší než kapsy mužských džín."
+   :answer true}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/ovary.svg"}]
+          [:p "Jak se nazývá tato část ženské anatomie?"]]
+   :choices [{:text "Vaječník" :correct? true}
+             {:text "Děložní hrdlo"}
+             {:text "Děloha"}
+             {:text "Děložní sliznice"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/endometrium.svg"}]
+          [:p "Jak se nazývá tato část ženské anatomie?"]]
+   :choices [{:text "Děložní sliznice" :correct? true}
+             {:text "Vagína"}
+             {:text "Panenská blána"}
+             {:text "Velké stydké pysky"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/hymen.svg"}]
+          [:p "Jak se nazývá tato část ženské anatomie?"]]
+   :choices [{:text "Panenská blána" :correct? true}
+             {:text "Bartholiniho žláza"}
+             {:text "Malé stydké pysky"}
+             {:text "Velké stydké pysky"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/uterine_tube.svg"}]
+          [:p "Jak se nazývá tato část ženské anatomie?"]]
+   :choices [{:text "Vejcovod" :correct? true}
+             {:text "Bartholiniho žláza"}
+             {:text "Vaječník"}
+             {:text "Děloha"}]}
+  {:type :multiple
+   :text "Co je předmětem Istanbulské úmluvy?"
+   :choices [{:text "Prevence a potírání násilí vůči ženám a domácího násilí" :correct? true}
+             {:text "Redefinice znásilnění"}
+             {:text "Kvóty na přijímání uprchlíků v EU"}
+             {:text "Zákaz nošení islámského šátku ve školách"}]}
+  {:type :multiple
+   :text "Kdo je 'sufražetka'?"
+   :choices [{:text "Radikální bojovnice za politická práva žen" :correct? true}
+             {:text "Švadlena specializovaná na spodní prádlo"}
+             {:text "Přívrženkyně súfijského učení"}
+             {:text "Feministka před svým coming outem"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/frantiska_plaminkova.jpg"}]
+          [:p "Jak se jmenovala česká politička a novinářka, která se zasadila se o zrušení celibátu učitelek a o zakotvení všeobecného (tedy i ženského) volebního práva do ústavy První republiky? Byla popravena během heydrichiády."]]
+   :choices [{:text "Františka Plamínková" :correct? true}
+             {:text "Milada Horáková"}
+             {:text "Alena Schillerová"}
+             {:text "Albína Honzáková"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/clara_zetkin.jpg"}]
+          [:p "Jak se jmenovala prominentní německá socialistická politička, novinářka, učitelka a bojovnice za ženská práva, poslankyně Reichstagu za Komunistickou stranu Německa za Výmarské republiky?"]]
+   :choices [{:text "Clara Zetkin" :correct? true}
+             {:text "Rosa Luxemburg"}
+             {:text "Angela Merkel"}
+             {:text "Alexandra Kollontai"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/grace_hopper.jpg"}]
+          [:p "Jak se jmenovala americká matematička, informatička a důstojnice námořnictva Spojených států, která vyvinula vůbec první kompilátor pro programovací jazyk?"]]
+   :choices [{:text "Grace Hopper" :correct? true}
+             {:text "Hedy Lamarr"}
+             {:text "Maria Weller"}
+             {:text "Ada Lovelace"}]}
+  {:type :yesno
+   :text "Výskyt anorexie u žen se v celosvětové populaci odhaduje na 0,3 %."
+   :answer false}
+  {:type :yesno
+   :text "Výskyt anorexie u mužů se v celosvětové populaci odhaduje na 0,3 %."
+   :answer true}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/irena_hulova.jpg"}]
+          [:p "Irena Hůlová je význačná feministka, která pracuje pro Amnesty International jako:"]]
+   :choices [{:text "Vedoucí advokační činnosti" :correct? true}
+             {:text "Vedoucí lobbyingu" :correct? true}
+             {:text "Vedoucí advokátní činnosti"}
+             {:text "Vedoucí zeměkoule"}]}
+  {:type :multiple
+   :text "Jak se jmenuje československý normalizační televizní seriál, který sleduje starosti obyčejné prodavačky Anny Holubové a jejích kolegyň z prodejny potravin?"
+   :choices [{:text "Žena za pultem" :correct? true}
+             {:text "Žena pod pultem"}
+             {:text "Ženy v offsidu"}
+             {:text "Malý pitaval z velkého města"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/olga_hepnarova.jpg"}]
+          [:p "Kdo byla Olga Hepnarová?"]]
+   :choices [{:text "Masová vražedkyně" :correct? true}
+             {:text "Radikální feministka"}
+             {:text "Předsedkyně Socialistického svazu mládeže"}
+             {:text "Herečka známá z detektivek"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/marie_kabrhelova.jpg"}]
+          [:p "Kdo byla Marie Kabrhelová?"]]
+   :choices [{:text "Předsedkyně Československého svazu žen" :correct? true}
+             {:text "Poslankyně Sněmovny národů Federálního shromáždění za normalizace" :correct? true}
+             {:text "Partyzánka během 2. světové války"}
+             {:text "Československá disidentka a pacifistka"}]}
+  {:type :multiple
+   :text "Co je to 'menstruační chudoba'?"
+   :choices [{:text "Nedostatečný přístup k menstruačním potřebám a vzdělání jak je správně používat" :correct? true}
+             {:text "Výpadky menstruačního cyklu"}
+             {:text "Vynakládání více než 10 % svého čistého příjmu na menstruační potřeby"}
+             {:text "Vysoké daňové zatížení menstruačních potřeb"}]}
+  {:type :yesno
+   :text "Mužská obřízka může být na rozdíl od ženské obřízky zdravotně prospěšná."
+   :answer true}
+  {:type :multiple
+   :text "Kolik procent žen na východním pobřeží Afriky se odhaduje, že podstoupilo ženskou obřízku?"
+   :choices [{:text "95 %" :correct? true}
+             {:text "15 %"}
+             {:text "45 %"}
+             {:text "3 %"}]}
+  {:type :multiple
+   :text "Kdy zákon v Egyptě zakázal ženskou obřízku?"
+   :choices [{:text "2008" :correct? true}
+             {:text "1922"}
+             {:text "1984"}
+             {:text "Ženská obřízka je stále legální."}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/simone_de_beauvoir.png"}]
+          [:p "Jak se nazývá kniha existenciální filosofky Simone de Beauvoir, kde popisuje ženu jako vždy relativní vůči muži?"]]
+   :choices [{:text "Druhé pohlaví" :correct? true}
+             {:text "Příběh služebnice"}
+             {:text "Sexuální politika"}
+             {:text "SCUM Manifesto"}]}
+  {:type :multiple
+   :text "Která země EU nabízí nejdelší otcovskou dovolenou?"
+   :choices [{:text "Finsko, 19 týdnů" :correct? true}
+             {:text "Estonsko, 20 týdnů"}
+             {:text "Holandsko, 7 týdnů"}
+             {:text "Portugalsko, 9 týdnů"}]}
+  {:type :multiple
+   :text "Za jakých okolností je legální interrupce v Polsku?"
+   :choices [{:text "Těhotenství je způsobeno znásilněním" :correct? true}
+             {:text "Ženě požehná katolický duchovní"}
+             {:text "Nezletilá žena získá souhlas zákonného zástupce"}
+             {:text "Život ženy by byl pokračováním těhotenství ohrožen" :correct? true}]}
+  {:type :multiple
+   :text "Která země EU měla roku 2022 nejnižší zastoupení žen ve státním parlamentu?"
+   :choices [{:text "Maďarsko" :correct? true}
+             {:text "Česká republika"}
+             {:text "Polsko"}
+             {:text "Španělsko"}]}
+  {:type :multiple
+   :text "Kdo pronesl 'It is not good enough for a woman to say: \"I'm a woman! Vote for me!\"'"
+   :choices [{:text "Bernie Sanders" :correct? true}
+             {:text "Donald Trump"}
+             {:text "Viktor Orbán"}
+             {:text "Jeremy Corbyn"}]}
+  {:type :yesno
+   :text "Britské sociální služby pro lidi bez domova si mohou zažádat o kondomy zdarma, ale ne o menstruační potřeby zdarma."
+   :answer true}
+  ; {:type :multiple
+  ;  :text "Co je to Jako doma?"
+  ;  :choices [{:text "Neziskovka pomáhající ženám bez domova" :correct? true}
+  ;            {:text "Televizní pořad o interiérovém designu"}
+  ;            {:text "Program sociálního bydlení Ministerstva práce a sociálních věcí"}
+  ;            {:text ""}]}
+  {:type :yesno
+   :text "New York je prvním americkým městem, které začalo poskytovat menstruační potřeby zdarma ve veřejných školách, sociálních zařízeních pro lidi bez domova a věznicích."
+   :answer true}
+  {:type :multiple
+   :text "Kdo řekl “Human rights are women’s rights, and women’s rights are human rights”?"
+   :choices [{:text "Hillary Clinton" :correct? true}
+             {:text "Margaret Thatcher"}
+             {:text "Martin Luther King"}
+             {:text "Barack Obama"}]}
+}

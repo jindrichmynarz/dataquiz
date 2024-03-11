@@ -1,0 +1,18 @@
+{
+  "name": "net.mynarz/dataquiz",
+  "description": "Generate AZ-kvíz from data",
+  "version": "0.0.1",
+  "scripts": {
+    "repl": "npx shadow-cljs browser-repl",
+    "watch": "npx shadow-cljs watch client",
+    "release": "npx shadow-cljs release client",
+    "build-report": "npx shadow-cljs run shadow.cljs.build-report client target/build-report.html"
+  },
+  "devDependencies": {
+    "shadow-cljs": "2.27.5"
+  },
+  "dependencies": {
+    "react": "^18.2.0-1",
+    "react-dom": "^18.2.0-1"
+  }
+}

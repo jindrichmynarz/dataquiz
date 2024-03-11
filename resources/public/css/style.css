@@ -1,0 +1,182 @@
+h1 {
+  font-size: 3em;
+  margin: 1em 0 .5em 0;
+}
+
+#app {
+  height: 100vh;
+  width: 80%;
+  min-width: 700px;
+}
+
+footer {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  color: #202020;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  color: #000;
+}
+
+.enter * {
+  margin: .2em 0 .3em 0;
+}
+
+.button {
+  border: solid 1px #202020;
+  border-bottom-width: 5px;
+  font-size: 2em;
+  padding: .5em .75em;
+  margin-bottom: .3em;
+  background: #fff;
+}
+
+.button:hover, .button:focus {
+  box-shadow: 0 1px 3px #202020;
+}
+
+.button:active {
+  top: 5px;
+}
+
+.rc-input-text-field {
+  font-size: 2em;
+  height: 2em;
+}
+
+#app > * {
+  height: 100vh;
+}
+
+.controls {
+  width: 50%;
+  justify-items: start;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  padding: .5em;
+  font-size: 1.5em;
+  align-items: center;
+}
+
+.question * {
+  padding: .2em;
+}
+
+ul.choices {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+ul.choices li {
+  list-style-type: none;
+  font-size: 1.3em;
+  margin: 0.2em;
+}
+
+ul.choices li button {
+  width: 100%;
+  height: 100%;
+}
+
+#player-name {
+  margin: 0;
+  padding: .5em 1em;
+  text-align: center;
+  color: #fff;
+}
+
+.player-1 {
+  background: #fc4349;
+}
+
+.player-2 {
+  background: #1e60a2;
+}
+
+.tile {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+#az-kviz:has(g.tile.active) .tile:not(.active) {
+  opacity: 0.3;
+}
+
+.timer {
+  position: relative;
+  height: 1em;
+}
+
+.timer .progress-bar, .timer .progress-shade {
+  top: 0;
+  height: 10px;
+  width: 100%;
+  position: absolute;
+}
+
+.timer .progress-shade {
+  background-color: #fff;
+  margin-left: 0%;
+  width: 100%;
+  animation: timer 45s linear;
+}
+
+@keyframes timer {
+  from  {
+    width: 100%;
+    left: 0%;
+  }
+  to {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+.timer .progress-bar.player-1 {
+  background-color: #fc4349;
+  background-image: linear-gradient(to right, #fc4349, #1e60a2);
+}
+
+.timer .progress-bar.player-2 {
+  background-color: #1e60a2;
+  background-image: linear-gradient(to right, #1e60a2, #fc4349);
+}
+
+.zmdi {
+  padding: 0 .25em;
+}
+
+.choices .zmdi {
+  opacity: 0;
+  animation: show 600ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+}
+
+@keyframes show {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+#next {
+  align-self: end;
+  font-size: 2em;
+  width: 20%;
+  min-height: 1.5em;
+}

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:700&subset=latin-ext');
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Quicksand, Helvetica, Arial, sans-serif;
+  height: 100vh;
+  background: #fff;
+  color: #202020;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+#az-kviz {
+  flex: auto;
+  width: 100vh;
+}
+
+#az-kviz .tile {
+  cursor: default;
+}
+
+#az-kviz .tile.available {
+  cursor: grab;
+}
+
+#az-kviz .tile.available:hover {
+  filter: url(#drop-shadow);
+}
+
+#az-kviz .tile .outer {
+  stroke: #000;
+}
+
+#az-kviz .tile text {
+  alignment-baseline: middle;
+  font-weight: bold;
+  text-anchor: middle;
+  filter: url(#white-etch);
+}
+
+#az-kviz .tile.available:hover .inner {
+  fill: url(#hover-inner);
+}
+
+#az-kviz .tile.available:hover .outer {
+  fill: url(#hover-outer);
+}
