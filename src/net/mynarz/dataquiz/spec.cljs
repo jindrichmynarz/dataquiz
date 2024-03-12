@@ -21,9 +21,15 @@
 
 (s/def ::text ::hiccup)
 
-(s/def ::guess string?)
+(s/def ::guess
+  (s/or :string string?
+        :number number?))
 
 (s/def ::correct? boolean?)
+
+(s/def ::answer string?)
+
+(s/def ::numeric-answer number?)
 
 (s/def ::choice
   (s/keys :req-un [::text]
@@ -52,6 +58,13 @@
 
 (defmethod question :open [_]
   (s/keys :req-un [::answer]))
+
+(s/def ::threshold
+  (s/and number? pos?))
+
+(defmethod question :percent-range [_]
+  (s/keys :req-un [::numeric-answer]
+          :opt-un [::threshold]))
 
 (s/def ::question
   (s/and

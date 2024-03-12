@@ -25,12 +25,20 @@
    [db]
    (dissoc db :question :guess :next-player :answer-revealed?))
 
-(defn guess-matches-answer?
-  [guess answer & {:keys [threshold]
-                   :or {threshold 0.94}}]
+(defmulti guess-matches-answer? :type)
+
+(defmethod guess-matches-answer? :open
+  [{:keys [answer]} guess & {:keys [threshold]
+                             :or {threshold 0.94}}]
   (> (jaro-winkler (normalize-answer guess)
                    (normalize-answer answer))
      threshold))
+
+(defmethod guess-matches-answer? :percent-range
+  [{:keys [numeric-answer threshold]
+    :or {threshold 5}}
+   guess]
+  (<= (abs (- numeric-answer guess)) threshold))
 
 (rf/reg-event-fx
   ::initialize
@@ -141,8 +149,9 @@
                               first
                               :id)
           correct? (or correct?
-                       (and (#{:open} (:type question) guess)
-                            (guess-matches-answer? guess (:answer question))))
+                       (and guess
+                            (#{:open :percent-range} (:type question))
+                            (guess-matches-answer? question guess)))
           [new-tile-state next-player] (if correct?
                                          [is-playing other-player]
                                          (if (= (:type question) :yesno)

@@ -197,3 +197,7 @@ ul.choices li button {
   margin-bottom: .5em;
   font-size: 1.5em;
 }
+
+.guess:has(.rc-slider) {
+  margin-bottom: 2em;
+}

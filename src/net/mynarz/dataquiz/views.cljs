@@ -51,7 +51,7 @@
                                   [:i.zmdi.zmdi-play]
                                   "Další otázka"]
 
-                                 (#{:open} (:type data))
+                                 (#{:open :percent-range} (:type data))
                                  [[::events/answer-question]
                                   [:i.zmdi.zmdi-check]
                                   "Hádej"]

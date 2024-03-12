@@ -5,12 +5,13 @@
   {:type :yesno
    :text "Mohly se ženy vlastnící velkostatek účastnit voleb v habsburské monarchii již od roku 1873?"
    :correct? true}
-  {:type :multiple
+  {:type :range
    :text "Při autonehodě jsou ženy vážně zraněny o kolik % častěji než muži?"
-   :choices [{:text "47 %" :correct? true}
-             {:text "204 %"}
-             {:text "2 %"}
-             {:text "16 %"}]}
+   :numeric-answer 47}
+   ; :choices [{:text "47 %" :correct? true}
+   ;           {:text "204 %"}
+   ;           {:text "2 %"}
+   ;           {:text "16 %"}]}
   {:type :multiple
    :text "Do kterého roku nepožadovala FDA, aby v klinických studiích byly zastoupeny ženy?"
    :choices [{:text "1993" :correct? true}

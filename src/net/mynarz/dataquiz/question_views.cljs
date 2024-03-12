@@ -4,7 +4,8 @@
             [net.mynarz.dataquiz.events :as events]
             [net.mynarz.dataquiz.subscriptions :as subs]
             [re-com.core :as rc]
-            [re-frame.core :as rf]))
+            [re-frame.core :as rf]
+            [reagent.core :as reagent]))
 
 (defn explanation-view
   [explanation]
@@ -81,3 +82,50 @@
                  :width "100%"]
                 (when answer-revealed?
                   [explanation-view (gstring/format "Správná odpověď je %s." answer)])]]))
+
+(defn calculate-offset
+  [[left right] percentage]
+  (let [range-knob-radius 5]
+    (->> (/ percentage 100)
+         (* (- right left (* range-knob-radius 2)))
+         (+ left range-knob-radius)
+         js/Math.round
+         (gstring/format "%dpx"))))
+
+(defn slider
+  [guess answer-revealed?]
+  (let [sides (atom nil)
+        set-sides! (fn [node]
+                     (when node
+                       (let [bounding-rect (.getBoundingClientRect node)]
+                         (reset! sides [(.-left bounding-rect) (.-right bounding-rect)]))))]
+    (fn [guess answer-revealed?]
+      [rc/popover-anchor-wrapper
+       :attr {:ref set-sides!}
+       :class "guess"
+       :position :below-center
+       :showing? true
+       :anchor [rc/slider
+                :disabled? answer-revealed?
+                :max 100
+                :min 0
+                :model (or guess 50)
+                :on-change #(rf/dispatch [::events/make-a-guess %])
+                :parts {:wrapper {:style {:width "100%"}}}
+                :width "100%"]
+       :popover [rc/popover-content-wrapper
+                 :body (gstring/format "%d %%" guess)
+                 :close-button? false
+                 :on-cancel nil
+                 :style {:position "fixed"
+                         :left (calculate-offset @sides guess)}]])))
+
+(defmethod question :percent-range
+  [{:keys [text numeric-answer]}
+   answer-revealed?]
+  (let [guess @(rf/subscribe [::subs/guess])]
+    [rc/v-box
+     :children [[:div.question text]
+                [slider guess answer-revealed?]
+                (when answer-revealed?
+                  [explanation-view (gstring/format "Správná odpověď je %d %%." numeric-answer)])]]))
