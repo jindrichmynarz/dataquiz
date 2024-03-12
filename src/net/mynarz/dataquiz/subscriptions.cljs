@@ -42,6 +42,11 @@
     question))
 
 (reg-sub
+  ::guess
+  (fn [{:keys [guess]}]
+    guess))
+
+(reg-sub
   ::answer-revealed?
   (fn [{:keys [answer-revealed?]}]
     answer-revealed?))

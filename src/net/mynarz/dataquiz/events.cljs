@@ -1,9 +1,11 @@
 (ns net.mynarz.dataquiz.events
   (:require [ajax.edn :as edn]
+            [clj-fuzzy.jaro-winkler :refer [jaro-winkler]]
             [clojure.spec.alpha :as s]
             [net.mynarz.az-kviz.logic :as az]
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
+            [net.mynarz.dataquiz.normalize :refer [abbreviate normalize-answer]]
             [re-frame.core :as rf]
             [reitit.frontend.controllers :as rfc]))
 
@@ -14,6 +16,17 @@
 (def toggle-players
   {:player-1 :player-2
    :player-2 :player-1})
+
+(defn unset-question
+   [db]
+   (dissoc db :question :guess :next-player :answer-revealed?))
+
+(defn guess-matches-answer?
+  [guess answer & {:keys [threshold]
+                   :or {threshold 0.94}}]
+  (> (jaro-winkler (normalize-answer guess)
+                   (normalize-answer answer))
+     threshold))
 
 (rf/reg-event-db
   ::initialize-db
@@ -61,7 +74,8 @@
   ::start-game
   (fn [db _]
     (-> db
-        (dissoc :question :answer-revealed? :next-player :winner)
+        unset-question
+        (dissoc :winner)
         (assoc :board-state (az/init-board-state)
                :is-playing (rand-nth [:player-1 :player-2])))))
 
@@ -86,25 +100,32 @@
        _]
     {:db (-> db
              (assoc :is-playing next-player)
-             (dissoc :question :next-player :answer-revealed?))
+             unset-question)
      :fx [[:dispatch [::has-player-won?]]]}))
+
+(rf/reg-event-db
+  ::make-a-guess
+  (fn [db [_ guess]]
+    (assoc db :guess guess)))
 
 (rf/reg-event-fx
   ::answer-question
-  (fn [{{current-player :is-playing
-         {question-type :type} :question
+  (fn [{{:keys [guess is-playing question]
          :as db} :db}
        [_ correct?]]
-    (let [other-player (toggle-players current-player)
+    (let [other-player (toggle-players is-playing)
           active-tile-id (->> db
                               :board-state
                               (filter (comp #{:active} :status))
                               first
                               :id)
+          correct? (or correct?
+                       (and (#{:open} (:type question))
+                            (guess-matches-answer? guess (:answer question))))
           [new-tile-state next-player] (if correct?
-                                         [current-player other-player]
-                                         (if (= question-type :yesno)
-                                           [other-player current-player]
+                                         [is-playing other-player]
+                                         (if (= (:type question) :yesno)
+                                           [other-player is-playing]
                                            [:missed other-player]))]
       {:db (-> db
                (assoc-in [:board-state active-tile-id :status] new-tile-state)
@@ -127,7 +148,7 @@
                                    :ms 45000})]
   (fn [{::cofx/keys [timeout]
         :keys [db]}
-       [_ status]]
+       [_ status tile-id]]
     (let [[timeout-key timeout-id] (first timeout)
           question-filter (status->question-filter status)
           question (->> db
@@ -139,6 +160,11 @@
         {:db (-> db
                  (assoc :question (prepare-question question))
                  (update :questions #(disj % question))
+                 (update-in [:board-state tile-id :text]
+                            (fn [tile-text]
+                              (if (= (:type question) :open)
+                                (abbreviate (:answer question))
+                                tile-text)))
                  (assoc-in [:timeout timeout-key] timeout-id))}
         {:db db
          :fx [[:dispatch [::no-more-questions]]]}))))
@@ -150,5 +176,5 @@
           status (get-in db status-path)]
       (if (and (#{:default :missed} status) (nil? (:question db)))
         {:db (assoc-in db status-path :active)
-         :fx [[:dispatch [::pick-question status]]]}
+         :fx [[:dispatch [::pick-question status tile-id]]]}
         {:db db}))))

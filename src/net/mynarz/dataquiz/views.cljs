@@ -46,13 +46,20 @@
   []
   (let [data @(rf/subscribe [::subs/question])
         answer-revealed? @(rf/subscribe [::subs/answer-revealed?])
-        [event icon title] (if answer-revealed?
-                             [[::events/next-question]
-                              [:i.zmdi.zmdi-play]
-                              "Další otázka"]
-                             [[::events/answer-question false]
-                              [:i.zmdi.zmdi-skip-next]
-                              "Nevím, dál!"])]
+        [event icon title] (cond answer-revealed?
+                                 [[::events/next-question]
+                                  [:i.zmdi.zmdi-play]
+                                  "Další otázka"]
+
+                                 (#{:open} (:type data))
+                                 [[::events/answer-question]
+                                  [:i.zmdi.zmdi-check]
+                                  "Hádej"]
+
+                                 :else
+                                 [[::events/answer-question false]
+                                  [:i.zmdi.zmdi-skip-next]
+                                  "Nevím, dál!"])]
     (when data
       [:<>
         (question data answer-revealed?)
@@ -80,6 +87,7 @@
   [player]
   (let [player-name @(rf/subscribe [::subs/player-name player])]
     [rc/input-text
+     :class "input-player-name"
      :model player-name
      :on-change #(rf/dispatch [::events/change-player-name player %])]))
 
@@ -133,7 +141,7 @@
        :align :center
        :children [[title]
                   [:h1 "🏆"]
-                  [:h2 (gstring/format "Vítězem se stává: %s!" winner)]]
+                  [:h2 (gstring/format "Vítězem se stává %s!" winner)]]
        :justify :start])))
 
 (defn ui

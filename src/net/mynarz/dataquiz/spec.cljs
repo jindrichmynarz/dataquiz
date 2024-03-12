@@ -21,9 +21,9 @@
 
 (s/def ::text ::hiccup)
 
-(s/def ::answer boolean?)
+(s/def ::guess string?)
 
-(s/def ::correct? true?)
+(s/def ::correct? boolean?)
 
 (s/def ::choice
   (s/keys :req-un [::text]
@@ -45,10 +45,13 @@
 (defmulti question :type)
 
 (defmethod question :yesno [_]
-  (s/keys :req-un [::answer]))
+  (s/keys :req-un [::correct?]))
 
 (defmethod question :multiple [_]
   (s/keys :req-un [::choices]))
+
+(defmethod question :open [_]
+  (s/keys :req-un [::answer]))
 
 (s/def ::question
   (s/and
@@ -79,6 +82,7 @@
           :opt-un [::answer-revealed?
                    ::az/board-state
                    ::error
+                   ::guess
                    ::is-playing
                    ::loading?
                    ::next-player

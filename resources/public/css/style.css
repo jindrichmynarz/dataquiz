@@ -52,7 +52,7 @@ a:hover, a:focus {
   top: 5px;
 }
 
-.rc-input-text-field {
+.input-player-name {
   font-size: 2em;
   height: 2em;
 }
@@ -191,4 +191,9 @@ ul.choices li button {
 
 .explanation *:first-child > i {
   font-size: 2em;
+}
+
+.guess {
+  margin-bottom: .5em;
+  font-size: 1.5em;
 }

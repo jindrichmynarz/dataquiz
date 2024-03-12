@@ -1,10 +1,10 @@
 #{
   {:type :yesno
    :text "Mají muži nižší hustotu kostí než ženy?"
-   :answer false}
+   :correct? false}
   {:type :yesno
    :text "Mohly se ženy vlastnící velkostatek účastnit voleb v habsburské monarchii již od roku 1873?"
-   :answer true}
+   :correct? true}
   {:type :multiple
    :text "Při autonehodě jsou ženy vážně zraněny o kolik % častěji než muži?"
    :choices [{:text "47 %" :correct? true}
@@ -106,35 +106,35 @@
              {:text "Sapfó"}]}
   {:type :yesno
    :text "Platil roku 1900 na českém území celibát učitelek?"
-   :answer true
+   :correct? true
    :explanation "Celibát platil do roku 1919."}
   {:type :yesno
    :text "Je v USA nutno dezagregovat výsledky klinických studií dle pohlaví?"
-   :answer true
+   :correct? true
    :explanation "Je to požadováno od roku 2016."}
   {:type :yesno
    :text "Mají muži průměrně delší tlusté střevo než ženy?"
-   :answer false}
+   :correct? false}
   {:type :yesno
    :text "Mají ženy průměrně vyšší podíl tuku v těle než muži?"
-   :answer true}
+   :correct? true}
   {:type :yesno
    :text "Ženy jsou na antidepresivech 2,5-krát častěji než muži."
-   :answer true}
+   :correct? true}
   {:type :yesno
    :text "O erektilní dysfunkci bylo napsáno 2-krát více vědeckých článků než o premenstruačním syndromu."
-   :answer false
+   :correct? false
    :explanation "Ve skutečnosti jich bylo napsáno 5-krát více."}
   {:type :yesno
    :text "Menstruační bolesti má 50 % žen."
-   :answer false
+   :correct? false
    :explanation "Menstruační bolesti má 90 % žen."}
   {:type :yesno
    :text "Porodní úmrtnost je stejná pro afroamerické ženy v USA jako pro ženy v Uzbekistánu nebo Mexiku."
-   :answer true}
+   :correct? true}
   {:type :yesno
    :text "Celosvětový podíl nezaměstnaných mužů je vyšší než nezaměstnaných žen."
-   :answer false
+   :correct? false
    :explanation "Nezaměstnaných žen je o 27 % více."}
   {:type :multiple
    :text "Co bylo podnětem k ustanovení Mezinárodního dne žen?"
@@ -157,7 +157,7 @@
              {:text "15 %"}]}
   {:type :yesno
    :text "Poslední soudní proces, kdy byla žena nařčena z čarodějnictví, proběhl v roce 1850."
-   :answer false
+   :correct? false
    :explanation "Bylo to v roce 1950 v belgickém městě Turnhout."}
   {:type :multiple
    :text "Který český politik se proslavil hláškou 'Se ženami spolupracuji od svých čtyř nebo pěti let'?"
@@ -167,7 +167,7 @@
              {:text "Miroslav Sládek"}]}
   {:type :yesno
    :text "Evropská unie roku 1995 projednávala návrh na označení nežádoucích valentýnek jako sexuálního obtěžování."
-   :answer false}
+   :correct? false}
   {:type :multiple
    :text "Kdo je Kučisake-onna?"
    :choices [{:text "Žena z japonských městských legend, znetvořená žárlivým a zlým manželem, která se vrací jako zlý duch." :correct? true}
@@ -188,7 +188,7 @@
              {:text "Svoboda a přímá demokracie"}]}
   {:type :yesno
    :text "Jak odpověděla Táňa Malá (ANO) v anketě Refresher.cz na otázku 'Považujete se za feministu či feministku?'"
-   :answer false}
+   :correct? false}
   {:type :multiple
    :text "Jak odpověděl poslanec ODS Karel Krejza v anketě Refresher.cz na otázku 'Považujete se za feministu či feministku?'"
    :choices [{:text "Nezlobte se na mě, ale naše vláda teď řeší, aby občané v zimě nezmrzli." :correct? true}
@@ -197,13 +197,13 @@
              {:text "Mezi liberálním a radikálním viděním světa je diametrální rozdíl a nelze tak přesně odpovědět."}]}
   {:type :yesno
    :text "Dle jednoho výzkumu Viagra poskytuje úlevu od menstruačních bolestí."
-   :answer true}
+   :correct? true}
   {:type :yesno
    :text "V Saúdské Arábie je zavedena kvóta 20 % na zastoupení žen v parlamentu."
-   :answer true} ; https://www.idea.int/data-tools/data/gender-quotas-database/country?country=196
+   :correct? true} ; https://www.idea.int/data-tools/data/gender-quotas-database/country?country=196
   {:type :yesno
    :text "Sálový počítač ENIAC programovaly většinou ženy."
-   :answer true}
+   :correct? true}
   {:type :multiple
    :text "Podíl žen studujících computer science v Saúdské Arábii v roce 2014 byl:"
    :choices [{:text "59 %" :correct? true}
@@ -218,7 +218,7 @@
              {:text "35 - 45 %"}]}
   {:type :yesno
    :text "Kapsy dámských džín jsou průměrně o 48 % kratší a o 6,5 % užší než kapsy mužských džín."
-   :answer true}
+   :correct? true}
   {:type :multiple
    :text [:<>
           [:img {:src "/img/ovary.svg"}]
@@ -289,10 +289,10 @@
              {:text "Ada Lovelace"}]}
   {:type :yesno
    :text "Výskyt anorexie u žen se v celosvětové populaci odhaduje na 0,3 %."
-   :answer false}
+   :correct? false}
   {:type :yesno
    :text "Výskyt anorexie u mužů se v celosvětové populaci odhaduje na 0,3 %."
-   :answer true}
+   :correct? true}
   {:type :multiple
    :text [:<>
           [:img {:src "/img/irena_hulova.jpg"}]
@@ -331,7 +331,7 @@
              {:text "Vysoké daňové zatížení menstruačních potřeb"}]}
   {:type :yesno
    :text "Mužská obřízka může být na rozdíl od ženské obřízky zdravotně prospěšná."
-   :answer true}
+   :correct? true}
   {:type :multiple
    :text "Kolik procent žen na východním pobřeží Afriky se odhaduje, že podstoupilo ženskou obřízku?"
    :choices [{:text "95 %" :correct? true}
@@ -378,7 +378,7 @@
              {:text "Jeremy Corbyn"}]}
   {:type :yesno
    :text "Britské sociální služby pro lidi bez domova si mohou zažádat o kondomy zdarma, ale ne o menstruační potřeby zdarma."
-   :answer true}
+   :correct? true}
   ; {:type :multiple
   ;  :text "Co je to Jako doma?"
   ;  :choices [{:text "Neziskovka pomáhající ženám bez domova" :correct? true}
@@ -387,7 +387,7 @@
   ;            {:text ""}]}
   {:type :yesno
    :text "New York je prvním americkým městem, které začalo poskytovat menstruační potřeby zdarma ve veřejných školách, sociálních zařízeních pro lidi bez domova a věznicích."
-   :answer true}
+   :correct? true}
   {:type :multiple
    :text "Kdo řekl “Human rights are women’s rights, and women’s rights are human rights”?"
    :choices [{:text "Hillary Clinton" :correct? true}
@@ -400,4 +400,7 @@
   ;            {:text ""}
   ;            {:text ""}
   ;            {:text ""}]}
+  {:type :open
+   :text "Jak se jmenuje neziskovka provozující bistro kuchařek bez domova?"
+   :answer "Jako doma"}
 }
