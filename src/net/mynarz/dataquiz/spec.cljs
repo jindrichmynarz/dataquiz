@@ -36,18 +36,24 @@
                :distinct true)
     (partial some :correct?)))
 
+(s/def ::explanation ::hiccup)
+
+(s/def ::question-base
+  (s/keys :req-un [::text]
+          :opt-un [::explanation]))
+
 (defmulti question :type)
 
 (defmethod question :yesno [_]
-  (s/keys :req-un [::text
-                   ::answer]))
+  (s/keys :req-un [::answer]))
 
 (defmethod question :multiple [_]
-  (s/keys :req-un [::text
-                   ::choices]))
+  (s/keys :req-un [::choices]))
 
 (s/def ::question
-  (s/multi-spec question :type))
+  (s/and
+    ::question-base
+    (s/multi-spec question :type)))
 
 (s/def ::questions
   (s/coll-of ::question
@@ -65,10 +71,13 @@
 (s/def ::route
   (partial instance? reitit/Match))
 
+(s/def ::answer-revealed? boolean?)
+
 (s/def ::db
   (s/keys :req-un [::player-1
                    ::player-2]
-          :opt-un [::az/board-state
+          :opt-un [::answer-revealed?
+                   ::az/board-state
                    ::error
                    ::is-playing
                    ::loading?

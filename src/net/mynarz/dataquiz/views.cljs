@@ -34,9 +34,10 @@
 (defn timer
   []
   (let [question @(rf/subscribe [::subs/question])
+        answer-revealed? @(rf/subscribe [::subs/answer-revealed?])
         [current-player _] @(rf/subscribe [::subs/current-player])]
     [:div.timer
-      (when (and question (not (:revealed? question)))
+      (when (and question (not answer-revealed?))
         [:<>
           [:div.progress-bar {:class current-player}]
           [:div.progress-shade]])]))
@@ -44,7 +45,8 @@
 (defn question-box
   []
   (let [data @(rf/subscribe [::subs/question])
-        [event icon title] (if (:revealed? data)
+        answer-revealed? @(rf/subscribe [::subs/answer-revealed?])
+        [event icon title] (if answer-revealed?
                              [[::events/next-question]
                               [:i.zmdi.zmdi-play]
                               "Další otázka"]
@@ -53,7 +55,7 @@
                               "Nevím, dál!"])]
     (when data
       [:<>
-        (question data)
+        (question data answer-revealed?)
         [:button#next
          {:on-click #(rf/dispatch event)
           :title title}

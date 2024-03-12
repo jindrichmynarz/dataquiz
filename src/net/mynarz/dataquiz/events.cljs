@@ -86,7 +86,7 @@
        _]
     {:db (-> db
              (assoc :is-playing next-player)
-             (dissoc :question :next-player))
+             (dissoc :question :next-player :answer-revealed?))
      :fx [[:dispatch [::has-player-won?]]]}))
 
 (rf/reg-event-fx
@@ -109,7 +109,7 @@
       {:db (-> db
                (assoc-in [:board-state active-tile-id :status] new-tile-state)
                (assoc :next-player next-player)
-               (assoc-in [:question :revealed?] true))
+               (assoc :answer-revealed? true))
        :fx [[::fx/cancel-timeout (get-in db [:timeout ::pick-question])]]})))
 
 (defmulti prepare-question :type)

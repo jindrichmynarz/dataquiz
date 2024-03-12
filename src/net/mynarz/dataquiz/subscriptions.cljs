@@ -42,6 +42,11 @@
     question))
 
 (reg-sub
+  ::answer-revealed?
+  (fn [{:keys [answer-revealed?]}]
+    answer-revealed?))
+
+(reg-sub
   ::winner
   (fn [{:keys [winner] :as db}]
     (get db winner)))
