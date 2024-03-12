@@ -1,12 +1,14 @@
 (ns net.mynarz.dataquiz.views
-  (:require [kee-frame.core :as kf]
+  (:require [goog.string :as gstring]
+            [goog.string.format]
             [net.mynarz.az-kviz.view :as az]
             [net.mynarz.dataquiz.events :as events]
             [net.mynarz.dataquiz.question-views :refer [question]]
             [net.mynarz.dataquiz.subscriptions :as subs]
             [re-com.core :as rc]
             [re-frame.core :as rf]
-            [reagent.core :as r]))
+            [reagent.core :as r]
+            [reitit.frontend.easy :as rfe]))
 
 (defn error-modal
   []
@@ -69,7 +71,7 @@
   []
   [rc/hyperlink-href
    :class "button"
-   :href (kf/path-for [:play])
+   :href (rfe/href :play)
    :label "Hrát"])
 
 (defn enter-player-name
@@ -81,7 +83,7 @@
 
 (defn title
   []
-  [:h1 [:a {:href (kf/path-for [:enter])} "▲quiz"]])
+  [:h1 [:a {:href (rfe/href :enter)} "▲quiz"]])
 
 (defn loading-modal
   []
@@ -128,14 +130,11 @@
       [rc/v-box
        :align :center
        :children [[title]
-                  [:h2 "🏆 Vítězem se stává: " winner "!"]]
-       :justify :center
-       :gap "2em"])))
+                  [:h1 "🏆"]
+                  [:h2 (gstring/format "Vítězem se stává: %s!" winner)]]
+       :justify :start])))
 
 (defn ui
   []
-  (kf/case-route (comp :name :data)
-                 :enter [enter]
-                 :play [play]
-                 :verdict [verdict]
-                 [enter]))
+  (let [view @(rf/subscribe [::subs/view])]
+    [(or view enter)]))

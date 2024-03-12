@@ -1,17 +1,17 @@
-{:deps {binaryage/devtools         {:mvn/version "1.0.7"}
-        cljs-ajax/cljs-ajax        {:mvn/version "0.8.4"}
+{:aliases {:dev {:extra-deps {binaryage/devtools         {:mvn/version "1.0.7"}
+                              day8.re-frame/re-frame-10x {:mvn/version "1.9.8"}
+                              day8.re-frame/tracing      {:mvn/version "0.6.2"}
+                              day8/shadow-git-inject     {:mvn/version "0.0.5"}
+                              metosin/reagent-dev-tools  {:mvn/version "1.0.1"}
+                              org.slf4j/slf4j-nop        {:mvn/version "2.0.12"}}}}
+ :deps {cljs-ajax/cljs-ajax        {:mvn/version "0.8.4"}
         re-frame/re-frame          {:mvn/version "1.4.3"}
         day8.re-frame/http-fx      {:mvn/version "0.2.4"}
-        day8.re-frame/re-frame-10x {:mvn/version "1.9.8"}
-        day8.re-frame/tracing      {:mvn/version "0.6.2"}
-        day8/shadow-git-inject     {:mvn/version "0.0.5"}
-        kee-frame/kee-frame        {:mvn/version "1.3.2"
-                                    :exclusions [com.taoensso/timbre]}
-        metosin/reagent-dev-tools  {:mvn/version "1.0.1"}
+        expound/expound            {:mvn/version "0.9.0"}
+        metosin/reitit-frontend    {:mvn/version "0.7.0-alpha7"}
+        metosin/reitit-schema      {:mvn/version "0.7.0-alpha7"}
         net.mynarz/az-kviz         {:mvn/version "0.2"}
-        org.slf4j/slf4j-nop        {:mvn/version "2.0.12"}
         reagent/reagent            {:mvn/version "1.2.0"}
         re-com/re-com              {:mvn/version "2.19.0"}
-        com.taoensso/timbre        {:mvn/version "6.5.0"} ; Instead of the kee-frame version
         thheller/shadow-cljs       {:mvn/version "2.27.5"}}
  :paths ["src"]}

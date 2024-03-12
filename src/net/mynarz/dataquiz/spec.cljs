@@ -1,6 +1,7 @@
 (ns net.mynarz.dataquiz.spec
   (:require [clojure.spec.alpha :as s]
-            [net.mynarz.az-kviz.spec :as az]))
+            [net.mynarz.az-kviz.spec :as az]
+            [reitit.core :as reitit]))
 
 (s/def ::hiccup
   (s/or :string string?
@@ -61,6 +62,9 @@
 
 (s/def ::error ::hiccup)
 
+(s/def ::route
+  (partial instance? reitit/Match))
+
 (s/def ::db
   (s/keys :req-un [::player-1
                    ::player-2]
@@ -71,4 +75,5 @@
                    ::next-player
                    ::question
                    ::questions
+                   ::route
                    ::winner]))

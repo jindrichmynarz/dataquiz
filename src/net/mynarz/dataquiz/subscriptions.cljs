@@ -3,6 +3,11 @@
             [re-frame.core :refer [reg-sub subscribe]]))
 
 (reg-sub
+  ::view
+  (fn [{{{:keys [view]} :data} :route}]
+    view))
+
+(reg-sub
   ::error
   (fn [{:keys [error]}]
     error))
@@ -27,8 +32,9 @@
 (reg-sub
   ::current-player
   (fn [{:keys [is-playing] :as db}]
-    [(name is-playing)
-     (db is-playing)]))
+    (when is-playing
+      [(name is-playing)
+       (db is-playing)])))
 
 (reg-sub
   ::question
