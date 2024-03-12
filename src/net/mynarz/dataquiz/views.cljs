@@ -3,7 +3,7 @@
             [goog.string.format]
             [net.mynarz.az-kviz.view :as az]
             [net.mynarz.dataquiz.events :as events]
-            [net.mynarz.dataquiz.question-views :refer [question]]
+            [net.mynarz.dataquiz.question-views :refer [explanation-view question]]
             [net.mynarz.dataquiz.subscriptions :as subs]
             [re-com.core :as rc]
             [re-frame.core :as rf]
@@ -29,7 +29,7 @@
 (defn player-name
   []
   (let [[current-player player-name] @(rf/subscribe [::subs/current-player])]
-    [:h1#player-name {:class current-player} player-name]))
+    [rc/box :child [:h1#player-name {:class current-player} player-name]]))
 
 (defn timer
   []

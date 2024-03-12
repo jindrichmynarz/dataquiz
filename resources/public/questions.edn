@@ -61,16 +61,18 @@
              {:text "Bulharština"}]}
   {:type :multiple
    :text "Ve které zemi ženy získaly nejdříve volební právo?"
-   :choices [{:text "Nový Zéland" :correct? true} ; Roku 1893
+   :choices [{:text "Nový Zéland" :correct? true}
              {:text "Sovětský svaz"}
              {:text "Norsko"}
-             {:text "Velká Británie"}]}
+             {:text "Velká Británie"}]
+   :explanation "Bylo to roku 1893."}
   {:type :multiple
    :text "O kolik let se ženy v Česku průměrně dožívají déle než muži?"
-   :choices [{:text "6 let" :correct? true} ; 81 let ženy, 75 let muži (2021)
+   :choices [{:text "6 let" :correct? true}
              {:text "14 let"}
              {:text "2 roky"}
-             {:text "Dožívají se méně"}]}
+             {:text "Dožívají se méně"}]
+   :explanation "Dle statistik z roku 2021 se ženy průměrně dožívají 81 let, zatímco muži 75 let."}
   {:type :multiple
    :text "Ve kterém roce ženy získaly volební právo v českých zemích?"
    :choices [{:text "1919" :correct? true}
@@ -79,10 +81,11 @@
              {:text "1889"}]}
   {:type :multiple
    :text "Která země první zvolila ženu za prezidentku?"
-   :choices [{:text "Island" :correct? true} ; Roku 1980
+   :choices [{:text "Island" :correct? true}
              {:text "Indie"}
              {:text "Nizozemsko"}
-             {:text "Chile"}]}
+             {:text "Chile"}]
+   :explanation "Bylo to roku 1980."}
   {:type :multiple
    :text "Co je to polykula?"
    :choices [{:text "Polyamorická rodina" :correct? true}
@@ -103,10 +106,12 @@
              {:text "Sapfó"}]}
   {:type :yesno
    :text "Platil roku 1900 na českém území celibát učitelek?"
-   :answer true} ; Do roku 1919.
+   :answer true
+   :explanation "Celibát platil do roku 1919."}
   {:type :yesno
    :text "Je v USA nutno dezagregovat výsledky klinických studií dle pohlaví?"
-   :answer true} ; Od roku 2016.
+   :answer true
+   :explanation "Je to požadováno od roku 2016."}
   {:type :yesno
    :text "Mají muži průměrně delší tlusté střevo než ženy?"
    :answer false}
@@ -118,16 +123,19 @@
    :answer true}
   {:type :yesno
    :text "O erektilní dysfunkci bylo napsáno 2-krát více vědeckých článků než o premenstruačním syndromu."
-   :answer false} ; 5-krát více.
+   :answer false
+   :explanation "Ve skutečnosti jich bylo napsáno 5-krát více."}
   {:type :yesno
    :text "Menstruační bolesti má 50 % žen."
-   :answer false} ; Ne, 90 %.
+   :answer false
+   :explanation "Menstruační bolesti má 90 % žen."}
   {:type :yesno
    :text "Porodní úmrtnost je stejná pro afroamerické ženy v USA jako pro ženy v Uzbekistánu nebo Mexiku."
    :answer true}
   {:type :yesno
    :text "Celosvětový podíl nezaměstnaných mužů je vyšší než nezaměstnaných žen."
-   :answer false} ; Ne. Nezaměstnaných žen je o 27 % více.
+   :answer false
+   :explanation "Nezaměstnaných žen je o 27 % více."}
   {:type :multiple
    :text "Co bylo podnětem k ustanovení Mezinárodního dne žen?"
    :choices [{:text "Výročí demonstrace žen 'Chléb a mír' v Petrohradě"}
@@ -139,7 +147,8 @@
    :choices [{:text "Rotavátor" :correct? true}
              {:text "Nitroděložní tělísko"}
              {:text "Vaginální kroužek"}
-             {:text "Medroxyprogesteron acetát"}]}
+             {:text "Medroxyprogesteron acetát"}]
+   :explanation "Rotavátor je stroj na zpracování půdy."}
   {:type :multiple
    :text "Jakému zdanění podléhají v Česku menstruační potřeby?"
    :choices [{:text "21 %" :correct? true}
@@ -148,7 +157,8 @@
              {:text "15 %"}]}
   {:type :yesno
    :text "Poslední soudní proces, kdy byla žena nařčena z čarodějnictví, proběhl v roce 1850."
-   :answer false} ; Bylo to v roce 1950 v belgickém městě Turnhout.
+   :answer false
+   :explanation "Bylo to v roce 1950 v belgickém městě Turnhout."}
   {:type :multiple
    :text "Který český politik se proslavil hláškou 'Se ženami spolupracuji od svých čtyř nebo pěti let'?"
    :choices [{:text "Jaroslav Kubera" :correct? true}
@@ -384,4 +394,10 @@
              {:text "Margaret Thatcher"}
              {:text "Martin Luther King"}
              {:text "Barack Obama"}]}
+  ; {:type :multiple
+  ;  :text "Co to je 'Matildin efekt'?" ; https://cs.wikipedia.org/wiki/Matildin_efekt
+  ;  :choices [{:text "Předsudečné připisování práce vědkyň vědcům" :correct? true}
+  ;            {:text ""}
+  ;            {:text ""}
+  ;            {:text ""}]}
 }

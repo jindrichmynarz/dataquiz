@@ -61,7 +61,7 @@
   ::start-game
   (fn [db _]
     (-> db
-        (dissoc :question :next-player :winner)
+        (dissoc :question :answer-revealed? :next-player :winner)
         (assoc :board-state (az/init-board-state)
                :is-playing (rand-nth [:player-1 :player-2])))))
 

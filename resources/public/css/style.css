@@ -69,9 +69,9 @@ a:hover, a:focus {
 .question {
   display: flex;
   flex-direction: column;
-  padding: .5em;
   font-size: 1.5em;
   align-items: center;
+  margin: .5em 0;
 }
 
 .question * {
@@ -81,13 +81,13 @@ a:hover, a:focus {
 ul.choices {
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5em;
 }
 
 ul.choices li {
   list-style-type: none;
   font-size: 1.3em;
-  margin: 0.2em;
 }
 
 ul.choices li button {
@@ -97,7 +97,7 @@ ul.choices li button {
 
 #player-name {
   margin: 0;
-  padding: .5em 1em;
+  padding: .3em;
   text-align: center;
   color: #fff;
 }
@@ -121,7 +121,7 @@ ul.choices li button {
 
 .timer {
   position: relative;
-  height: 1em;
+  height: 10px;
 }
 
 .timer .progress-bar, .timer .progress-shade {
@@ -180,4 +180,15 @@ ul.choices li button {
   font-size: 2em;
   width: 20%;
   min-height: 1.5em;
+}
+
+.explanation {
+  margin: 1em 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.explanation *:first-child > i {
+  font-size: 2em;
 }
