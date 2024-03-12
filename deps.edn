@@ -4,15 +4,16 @@
                               day8/shadow-git-inject     {:mvn/version "0.0.5"}
                               metosin/reagent-dev-tools  {:mvn/version "1.0.1"}
                               org.slf4j/slf4j-nop        {:mvn/version "2.0.12"}}}}
- :deps {clj-fuzzy/clj-fuzzy     {:mvn/version "0.4.1"}
-        cljs-ajax/cljs-ajax     {:mvn/version "0.8.4"}
-        day8.re-frame/http-fx   {:mvn/version "0.2.4"}
-        expound/expound         {:mvn/version "0.9.0"}
-        metosin/reitit-frontend {:mvn/version "0.7.0-alpha7"}
-        metosin/reitit-schema   {:mvn/version "0.7.0-alpha7"}
-        net.mynarz/az-kviz      {:mvn/version "0.2"}
-        reagent/reagent         {:mvn/version "1.2.0"}
-        re-com/re-com           {:mvn/version "2.19.0"}
-        re-frame/re-frame       {:mvn/version "1.4.3"}
-        thheller/shadow-cljs    {:mvn/version "2.27.5"}}
+ :deps {clj-fuzzy/clj-fuzzy                {:mvn/version "0.4.1"}
+        cljs-ajax/cljs-ajax                {:mvn/version "0.8.4"}
+        day8.re-frame/http-fx              {:mvn/version "0.2.4"}
+        expound/expound                    {:mvn/version "0.9.0"}
+        metosin/reitit-frontend            {:mvn/version "0.7.0-alpha7"}
+        metosin/reitit-schema              {:mvn/version "0.7.0-alpha7"}
+        net.mynarz/az-kviz                 {:mvn/version "0.2"}
+        reagent/reagent                    {:mvn/version "1.2.0"}
+        re-com/re-com                      {:mvn/version "2.19.0"}
+        re-frame/re-frame                  {:mvn/version "1.4.3"}
+        org.clojars.betontalpfa/re-pressed {:mvn/version "0.4.0"}
+        thheller/shadow-cljs               {:mvn/version "2.27.5"}}
  :paths ["src"]}

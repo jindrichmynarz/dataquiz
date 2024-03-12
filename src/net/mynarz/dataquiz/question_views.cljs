@@ -73,6 +73,7 @@
      :children [[:div.question text]
                 [rc/input-text
                  :attr {:auto-focus true}
+                 :change-on-blur? false
                  :class "guess"
                  :disabled? answer-revealed?
                  :model guess

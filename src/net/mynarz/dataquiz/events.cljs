@@ -7,6 +7,7 @@
             [net.mynarz.dataquiz.effects :as fx]
             [net.mynarz.dataquiz.normalize :refer [abbreviate normalize-answer]]
             [re-frame.core :as rf]
+            [re-pressed.core :as rp]
             [reitit.frontend.controllers :as rfc]))
 
 (def status->question-filter
@@ -16,6 +17,9 @@
 (def toggle-players
   {:player-1 :player-2
    :player-2 :player-1})
+
+(def enter-key
+  {:keyCode 13})
 
 (defn unset-question
    [db]
@@ -28,12 +32,29 @@
                    (normalize-answer answer))
      threshold))
 
-(rf/reg-event-db
-  ::initialize-db
-  (fn [_ _]
-    {:loading? true
-     :player-1 "Hráč 1"
-     :player-2 "Hráč 2"}))
+(rf/reg-event-fx
+  ::initialize
+  (fn [{:keys [db]} _]
+    {:db {:loading? true
+          :player-1 "Hráč 1"
+          :player-2 "Hráč 2"}
+     :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
+                                              :event-keys [[[::submit]
+                                                            [enter-key]]]}]]]}))
+
+(rf/reg-event-fx
+  ::submit
+  (fn [{{{{route-name :name} :data} :route
+         :keys [answer-revealed? question]} :db} _]
+    (when-let [event-name (cond (and (= route-name :play)
+                                     question
+                                     (not answer-revealed?))
+                                ::answer-question
+
+                                (and (= route-name :play)
+                                     answer-revealed?)
+                                ::next-question)]
+      {:fx [[:dispatch [event-name]]]})))
 
 (rf/reg-event-db
   ::change-route
@@ -120,7 +141,7 @@
                               first
                               :id)
           correct? (or correct?
-                       (and (#{:open} (:type question))
+                       (and (#{:open} (:type question) guess)
                             (guess-matches-answer? guess (:answer question))))
           [new-tile-state next-player] (if correct?
                                          [is-playing other-player]
