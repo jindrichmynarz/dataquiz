@@ -40,6 +40,11 @@
    guess]
   (<= (abs (- numeric-answer guess)) threshold))
 
+(defmethod guess-matches-answer? :sort
+  [{:keys [items]}
+   guess]
+  (= guess items))
+
 (rf/reg-event-fx
   ::initialize
   (fn [{:keys [db]} _]
@@ -149,9 +154,7 @@
                               first
                               :id)
           correct? (or correct?
-                       (and guess
-                            (#{:open :percent-range} (:type question))
-                            (guess-matches-answer? question guess)))
+                       (and guess (guess-matches-answer? question guess)))
           [new-tile-state next-player] (if correct?
                                          [is-playing other-player]
                                          (if (= (:type question) :yesno)
@@ -165,10 +168,12 @@
 
 (defmulti prepare-question :type)
 
-(defmethod prepare-question :multiple [question]
+(defmethod prepare-question :multiple
+  [question]
   (update question :choices shuffle))
 
-(defmethod prepare-question :default [question]
+(defmethod prepare-question :default
+  [question]
   question)
 
 (rf/reg-event-fx
@@ -190,14 +195,14 @@
         {:db (-> db
                  (assoc :question (prepare-question question))
                  (update :questions #(disj % question))
-                 (update-in [:board-state tile-id :text]
-                            (fn [tile-text]
-                              (if (= (:type question) :open)
-                                (abbreviate (:answer question))
-                                tile-text)))
-                 (assoc-in [:timeout timeout-key] timeout-id))}
-        {:db db
-         :fx [[:dispatch [::no-more-questions]]]}))))
+                 (assoc-in [:timeout timeout-key] timeout-id)
+                 (cond->
+                   (= (:type question) :open)
+                   (update-in [:board-state tile-id :text] abbreviate (:answer question))
+
+                   (= (:type question) :sort)
+                   (assoc :guess (-> question :items shuffle))))}
+        {:fx [[:dispatch [::no-more-questions]]]}))))
 
 (rf/reg-event-fx
   ::click-tile
@@ -208,3 +213,29 @@
         {:db (assoc-in db status-path :active)
          :fx [[:dispatch [::pick-question status tile-id]]]}
         {:db db}))))
+
+(rf/reg-event-db
+  ::drag-start
+  (fn [db [_ index]]
+    (assoc-in db [:guess index :status] :dragging)))
+
+(rf/reg-event-db
+  ::drag-end
+  (fn [db [_ index]]
+    (update-in db [:guess index] #(dissoc % :status))))
+
+(defn insert-after
+  "Insert `item` after `index` in `items`."
+  [item index items]
+  (let [[before after] (->> items
+                            (remove #{item})
+                            (split-at index))]
+    (vec (concat before [(dissoc item :status)] after))))
+
+(rf/reg-event-db
+  ::drag-drop
+  (fn [{items :guess
+        :as db}
+       [_ index]]
+    (let [dragged-item (first (filter (comp #{:dragging} :status) items))]
+      (update db :guess (partial insert-after dragged-item index)))))

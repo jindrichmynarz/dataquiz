@@ -85,7 +85,7 @@
 
 (defn calculate-offset
   [[left right] percentage]
-  (let [range-knob-radius 5]
+  (let [range-knob-radius 5] ; TODO: How to calculate the slider's knob radius dynamically?
     (->> (/ percentage 100)
          (* (- right left (* range-knob-radius 2)))
          (+ left range-knob-radius)
@@ -129,3 +129,32 @@
                 [slider guess answer-revealed?]
                 (when answer-revealed?
                   [explanation-view (gstring/format "Správná odpověď je %d %%." numeric-answer)])]]))
+
+(defn sortable-list
+  [items answer-revealed?]
+  [:ol.sortable-list
+   (for [[index {:keys [status sort-value text]}] (map-indexed vector items)]
+     ^{:key index}
+     [:li
+      {:class [(when (= status :dragging) (name status))]
+       :draggable (not answer-revealed?)
+       :on-drag-start #(rf/dispatch [::events/drag-start index])
+       :on-drag-over #(.preventDefault %) ; Otherwise :on-drop doesn't fire.
+       :on-drop #(rf/dispatch [::events/drag-drop index])
+       :on-drag-end #(rf/dispatch [::events/drag-end index])
+       :style {:cursor (if answer-revealed? "initial" "grab")}}
+      [rc/h-box
+       :children [(if (vector? text)
+                    text
+                    [:div text])
+                  (when (and answer-revealed? sort-value)
+                    [:div.sort-value sort-value])]
+       :justify :between]])])
+
+(defmethod question :sort
+  [{:keys [text]}
+   answer-revealed?]
+  (let [items @(rf/subscribe [::subs/guess])]
+    [rc/v-box
+     :children [[:div.question text]
+                [sortable-list items answer-revealed?]]]))

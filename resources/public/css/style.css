@@ -201,3 +201,37 @@ ul.choices li button {
 .guess:has(.rc-slider) {
   margin-bottom: 2em;
 }
+
+.sortable-list {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding-left: 0;
+  max-width: 100%;
+  font-size: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .125);
+}
+
+.sortable-list li {
+  list-style-type: none;
+  display: block;
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .125);
+  margin-bottom: -1px;
+}
+
+.sortable-list li:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.sortable-list li:last-child {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.sortable-list li.dragging {
+  background: #eee;
+}

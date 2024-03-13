@@ -21,10 +21,6 @@
 
 (s/def ::text ::hiccup)
 
-(s/def ::guess
-  (s/or :string string?
-        :number number?))
-
 (s/def ::correct? boolean?)
 
 (s/def ::answer string?)
@@ -66,6 +62,22 @@
   (s/keys :req-un [::numeric-answer]
           :opt-un [::threshold]))
 
+(s/def ::sort-value
+  number?)
+
+(s/def ::item
+  (s/keys :req-un [::text]
+          :opt-un [::sort-value]))
+
+(s/def ::items
+  (s/coll-of ::item
+             :kind vector?
+             :min-count 2
+             :distinct true))
+
+(defmethod question :sort [_]
+  (s/keys :req-un [::items]))
+
 (s/def ::question
   (s/and
     ::question-base
@@ -86,6 +98,11 @@
 
 (s/def ::route
   (partial instance? reitit/Match))
+
+(s/def ::guess
+  (s/or :string string?
+        :number number?
+        :items ::items))
 
 (s/def ::answer-revealed? boolean?)
 
