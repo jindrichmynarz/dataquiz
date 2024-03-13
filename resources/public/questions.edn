@@ -388,4 +388,10 @@
   {:type :open
    :text "Jak se jmenuje neziskovka provozující bistro kuchařek bez domova?"
    :answer "Jako doma"}
+  {:type :multiple
+   :text "Jak odpověděl Marek Benda (ODS) v anketě Refresher.cz na otázku 'Považujete se za feministu či feministku?'"
+   :choices [{:text "Ne, mám velikou úctu k ženám, neboť spása světa přišla skrze ženu a mám 4 doma, ale za feministu se opravdu nepokládám." :correct? true}
+             {:text "Jsem pro genderově vyvážený život."}
+             {:text "Pokud je láska, obdiv a respekt k ženám feminismus…"}
+             {:text "Pro ženy mám slabost."}]}
 }
