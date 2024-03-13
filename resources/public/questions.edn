@@ -5,25 +5,18 @@
   {:type :yesno
    :text "Mohly se ženy vlastnící velkostatek účastnit voleb v habsburské monarchii již od roku 1873?"
    :correct? true}
-  {:type :range
+  {:type :percent-range
    :text "Při autonehodě jsou ženy vážně zraněny o kolik % častěji než muži?"
    :numeric-answer 47}
-   ; :choices [{:text "47 %" :correct? true}
-   ;           {:text "204 %"}
-   ;           {:text "2 %"}
-   ;           {:text "16 %"}]}
   {:type :multiple
    :text "Do kterého roku nepožadovala FDA, aby v klinických studiích byly zastoupeny ženy?"
    :choices [{:text "1993" :correct? true}
              {:text "1948"}
              {:text "2013"}
              {:text "Stále to nepožaduje"}]}
-  {:type :multiple
+  {:type :percent-range
    :text "Jaký je v současnosti v Česku rozdíl mezi průměrným platem mužů a průměrným platem žen?"
-   :choices [{:text "16 %" :correct? true}
-             {:text "Rozdíl není"}
-             {:text "68 %"}
-             {:text "7 %"}]}
+   :numeric-answer 16}
   {:type :multiple
    :text "Kdo získal cenu Genderman 2023?"
    :choices [{:text "Michal Zuna a Daniel Bartoň" :correct? true}
@@ -61,21 +54,21 @@
              {:text "Portugalština"}
              {:text "Bulharština"}]}
   {:type :multiple
-   :text "Ve které zemi ženy získaly nejdříve volební právo?"
+   :text "Ve které zemi ženy získaly nejdříve obecné volební právo?"
    :choices [{:text "Nový Zéland" :correct? true}
              {:text "Sovětský svaz"}
              {:text "Norsko"}
              {:text "Velká Británie"}]
    :explanation "Bylo to roku 1893."}
   {:type :multiple
-   :text "O kolik let se ženy v Česku průměrně dožívají déle než muži?"
+   :text "O kolik let se ženy v současném Česku průměrně dožívají déle než muži?"
    :choices [{:text "6 let" :correct? true}
              {:text "14 let"}
              {:text "2 roky"}
              {:text "Dožívají se méně"}]
    :explanation "Dle statistik z roku 2021 se ženy průměrně dožívají 81 let, zatímco muži 75 let."}
   {:type :multiple
-   :text "Ve kterém roce ženy získaly volební právo v českých zemích?"
+   :text "Ve kterém roce ženy získaly obecné volební právo v českých zemích?"
    :choices [{:text "1919" :correct? true}
              {:text "1933"}
              {:text "1911"}
@@ -120,16 +113,15 @@
    :text "Mají ženy průměrně vyšší podíl tuku v těle než muži?"
    :correct? true}
   {:type :yesno
-   :text "Ženy jsou na antidepresivech 2,5-krát častěji než muži."
+   :text "Jsou ženy na antidepresivech 2,5-krát častěji než muži?"
    :correct? true}
   {:type :yesno
    :text "O erektilní dysfunkci bylo napsáno 2-krát více vědeckých článků než o premenstruačním syndromu."
    :correct? false
-   :explanation "Ve skutečnosti jich bylo napsáno 5-krát více."}
-  {:type :yesno
-   :text "Menstruační bolesti má 50 % žen."
-   :correct? false
-   :explanation "Menstruační bolesti má 90 % žen."}
+   :explanation "Ve skutečnosti jich bylo napsáno 5-krát více."} ; TODO: Revidovat otázku
+  {:type :percent-range
+   :text "Kolik procent žen trpí menstruačními bolestmi?"
+   :numeric-answer 90}
   {:type :yesno
    :text "Porodní úmrtnost je stejná pro afroamerické ženy v USA jako pro ženy v Uzbekistánu nebo Mexiku."
    :correct? true}
@@ -150,12 +142,9 @@
              {:text "Vaginální kroužek"}
              {:text "Medroxyprogesteron acetát"}]
    :explanation "Rotavátor je stroj na zpracování půdy."}
-  {:type :multiple
+  {:type :percent-range
    :text "Jakému zdanění podléhají v Česku menstruační potřeby?"
-   :choices [{:text "21 %" :correct? true}
-             {:text "Spotřební daň se na ně nevztahuje"}
-             {:text "5 %"}
-             {:text "15 %"}]}
+   :numeric-answer 21}
   {:type :yesno
    :text "Poslední soudní proces, kdy byla žena nařčena z čarodějnictví, proběhl v roce 1850."
    :correct? false
@@ -200,17 +189,14 @@
    :text "Dle jednoho výzkumu Viagra poskytuje úlevu od menstruačních bolestí."
    :correct? true}
   {:type :yesno
-   :text "V Saúdské Arábie je zavedena kvóta 20 % na zastoupení žen v parlamentu."
+   :text "V Saúdské Arábii je zavedena kvóta 20 % na zastoupení žen v parlamentu."
    :correct? true} ; https://www.idea.int/data-tools/data/gender-quotas-database/country?country=196
   {:type :yesno
    :text "Sálový počítač ENIAC programovaly většinou ženy."
    :correct? true}
-  {:type :multiple
+  {:type :percent-range
    :text "Podíl žen studujících computer science v Saúdské Arábii v roce 2014 byl:"
-   :choices [{:text "59 %" :correct? true}
-             {:text "2 %"}
-             {:text "21 %"}
-             {:text "0,3 %"}]}
+   :numeric-answer 59}
   {:type :multiple
    :text "Jaký je v Česku rozsah výše výživného v procentech čisté mzdy rodiče?"
    :choices [{:text "8 - 20 %" :correct? true}
@@ -290,7 +276,8 @@
              {:text "Ada Lovelace"}]}
   {:type :yesno
    :text "Výskyt anorexie u žen se v celosvětové populaci odhaduje na 0,3 %."
-   :correct? false}
+   :correct? false
+   :explanation "Odhaduje se na 4 %."}
   {:type :yesno
    :text "Výskyt anorexie u mužů se v celosvětové populaci odhaduje na 0,3 %."
    :correct? true}
@@ -333,12 +320,9 @@
   {:type :yesno
    :text "Mužská obřízka může být na rozdíl od ženské obřízky zdravotně prospěšná."
    :correct? true}
-  {:type :multiple
+  {:type :percent-range
    :text "Kolik procent žen na východním pobřeží Afriky se odhaduje, že podstoupilo ženskou obřízku?"
-   :choices [{:text "95 %" :correct? true}
-             {:text "15 %"}
-             {:text "45 %"}
-             {:text "3 %"}]}
+   :numeric-answer 95}
   {:type :multiple
    :text "Kdy zákon v Egyptě zakázal ženskou obřízku?"
    :choices [{:text "2008" :correct? true}
