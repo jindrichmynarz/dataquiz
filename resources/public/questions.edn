@@ -487,4 +487,7 @@
              {:text "Steel Lady"}
              {:text "Rubber Buller"}
              {:text "Plastic Woman"}]}
+  {:type :yesno
+   :text "Dvě nejvyšší skóre IQ v zaznamenané historii patří ženám."
+   :correct? true}
 }
