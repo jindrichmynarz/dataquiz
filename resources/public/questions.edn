@@ -475,4 +475,10 @@
              {:text "Nejsem feministka. Mám ráda, když mě muž pustí do dveří nebo mi udělá lajnu."}
              {:text "Ano."}
              {:text "Ne. Feminismus je kontraproduktivní."}]}
+  {:type :multiple
+   :text "Kdo řekl, že 'diskuze o rovnosti žen a mužů se dá vést věcně, racionálně, bez emocí, bez aktivismu a sklonů k feminismu'?"
+   :choices [{:text "Jana Kotalíková" :correct? true}
+             {:text "Miroslava Němcová"}
+             {:text "Danuše Nerudová"}
+             {:text "Václav Havel"}]}
 }
