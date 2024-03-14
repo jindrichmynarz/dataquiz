@@ -364,12 +364,12 @@
   {:type :yesno
    :text "Britské sociální služby pro lidi bez domova si mohou zažádat o kondomy zdarma, ale ne o menstruační potřeby zdarma."
    :correct? true}
-  ; {:type :multiple
-  ;  :text "Co je to Jako doma?"
-  ;  :choices [{:text "Neziskovka pomáhající ženám bez domova" :correct? true}
-  ;            {:text "Televizní pořad o interiérovém designu"}
-  ;            {:text "Program sociálního bydlení Ministerstva práce a sociálních věcí"}
-  ;            {:text ""}]}
+  {:type :multiple
+   :text "Co je to Jako doma?"
+   :choices [{:text "Neziskovka pomáhající ženám bez domova" :correct? true}
+             {:text "Televizní pořad o interiérovém designu"}
+             {:text "Program sociálního bydlení Ministerstva práce a sociálních věcí"}
+             {:text "Síť domáckých kaváren"}]}
   {:type :yesno
    :text "New York je prvním americkým městem, které začalo poskytovat menstruační potřeby zdarma ve veřejných školách, sociálních zařízeních pro lidi bez domova a věznicích."
    :correct? true}
@@ -379,12 +379,12 @@
              {:text "Margaret Thatcher"}
              {:text "Martin Luther King"}
              {:text "Barack Obama"}]}
-  ; {:type :multiple
-  ;  :text "Co to je 'Matildin efekt'?" ; https://cs.wikipedia.org/wiki/Matildin_efekt
-  ;  :choices [{:text "Předsudečné připisování práce vědkyň vědcům" :correct? true}
-  ;            {:text ""}
-  ;            {:text ""}
-  ;            {:text ""}]}
+  {:type :multiple
+   :text "Co to je 'Matildin efekt'?" ; https://cs.wikipedia.org/wiki/Matildin_efekt
+   :choices [{:text "Předsudečné připisování práce vědkyň vědcům" :correct? true}
+             {:text "Diskriminace dcer oproti synům"}
+             {:text "Pozitivní diskriminace známých vědců oproti neznámým vědcům"}
+             {:text "Optický efekt, který odhalila Matilda Gage"}]}
   {:type :open
    :text "Jak se jmenuje neziskovka provozující bistro kuchařek bez domova?"
    :answer "Jako doma"}
