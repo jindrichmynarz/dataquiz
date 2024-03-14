@@ -85,8 +85,8 @@
 
 (s/def ::questions
   (s/coll-of ::question
-             :kind set?
-             :min-count 1))
+             :min-count 1
+             :distinct true))
 
 (s/def ::next-player ::player)
 
