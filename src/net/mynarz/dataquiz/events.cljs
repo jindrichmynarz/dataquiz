@@ -1,7 +1,8 @@
 (ns net.mynarz.dataquiz.events
   (:require [ajax.edn :as edn]
             [clj-fuzzy.jaro-winkler :refer [jaro-winkler]]
-            [clojure.spec.alpha :as s]
+            [goog.string :as gstring]
+            [goog.string.format]
             [net.mynarz.az-kviz.logic :as az]
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
@@ -11,7 +12,7 @@
             [reitit.frontend.controllers :as rfc]))
 
 (def status->question-filter
-  {:default #{:sort} ;(complement #{:yesno})
+  {:default (complement #{:yesno})
    :missed #{:yesno}})
 
 (def toggle-players
@@ -86,6 +87,7 @@
 (rf/reg-event-db
   ::load-questions
   (fn [db [_ questions]]
+    (println (gstring/format "Máme %d otázek." (count questions)))
     (-> db
         (assoc :questions questions)
         (dissoc :loading?))))
