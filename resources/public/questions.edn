@@ -37,7 +37,7 @@
              {:text "Emoční inteligenci"}]}
   {:type :multiple
    :text "Co je to “polomanželství”?"
-   :choices [{:text "Rozšíření registrovaného partnerství o většinu práv manželů bez práva na název “manželství”" :correct? true}
+   :choices [{:text "Manželství homosexuálů a leseb, které se nazývá partnerství." :correct? true}
              {:text "Manželství pololidí"}
              {:text "Manželství s restriktivní předmanželskou smlouvou"}
              {:text "Manželství pro všechny slušné lidi"}]}
