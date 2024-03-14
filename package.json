@@ -2,11 +2,21 @@
   "name": "net.mynarz/dataquiz",
   "description": "Generate AZ-kvíz from data",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jindrichmynarz/dataquiz"
+  },
+  "author": {
+    "name": "Jindřich Mynarz",
+    "email": "mynarzjindrich@gmail.com"
+  },
+  "license": "EPL-2.0",
   "scripts": {
     "repl": "npx shadow-cljs browser-repl",
     "watch": "npx shadow-cljs watch client",
     "release": "npx shadow-cljs release client",
-    "build-report": "npx shadow-cljs run shadow.cljs.build-report client target/build-report.html"
+    "build-report": "npx shadow-cljs run shadow.cljs.build-report client target/build-report.html",
+    "test": "npx shadow-cljs watch test"
   },
   "devDependencies": {
     "shadow-cljs": "2.27.5"
