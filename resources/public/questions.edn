@@ -481,4 +481,10 @@
              {:text "Miroslava Němcová"}
              {:text "Danuše Nerudová"}
              {:text "Václav Havel"}]}
+  {:type :multiple
+   :text "Jaká byla přezdívka Margaret Thatcherové?"
+   :choices [{:text "Iron Lady" :correct? true}
+             {:text "Steel Lady"}
+             {:text "Rubber Buller"}
+             {:text "Plastic Woman"}]}
 }
