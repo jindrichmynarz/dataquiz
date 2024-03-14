@@ -457,4 +457,22 @@
   {:type :yesno
    :text "Mohly ženy ve starověkém Řecku volit?"
    :correct? false}
+  {:type :multiple
+   :text "Kdo řekl 'Feminismus má být antikapitalistický, nebo nemá být vůbec'?"
+   :choices [{:text "Apolena Rychlíková" :correct? true} ; https://www.novinky.cz/clanek/kultura-salon-apolena-rychlikova-matky-na-okraji-40040400
+             {:text "Johanna Nejedlová"}
+             {:text "Jana Jochová"}
+             {:text "Standa Biler"}]}
+  {:type :multiple
+   :text "Kdo řekl 'Když bude toto téma tlačeno ženou, bude vnímáno jako militantní feminismus. Pokud se ho chopí muž, bude to mít úplně jinou váhu.'?"
+   :choices [{:text "Petr Pavel" :correct? true}
+             {:text "Danuše Nerudová"}
+             {:text "Miloš Zeman"}
+             {:text "Václav Klaus"}]}
+  {:type :multiple
+   :text "Jak odpověděla brněnská primátorka Markéta Vaňková na dotaz, jestli je feministka?"
+   :choices [{:text "Nejsem feministka. Mám ráda, když mě muž pustí do dveří nebo za mě zaplatí kávu." :correct? true}
+             {:text "Nejsem feministka. Mám ráda, když mě muž pustí do dveří nebo mi udělá lajnu."}
+             {:text "Ano."}
+             {:text "Ne. Feminismus je kontraproduktivní."}]}
 }
