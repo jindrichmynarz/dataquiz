@@ -406,4 +406,55 @@
            {:text "První žena v kosmu" :sort-value 1963}
            {:text "První žena na Mount Everestu" :sort-value 1975}
            {:text "První žena získává Oscara za režii" :sort-value 2009}]}
+  {:type :yesno
+   :text "'Mléční sourozenci' jsou lidé, kteří sdíleli stejnou kojnou."
+   :correct? true}
+  {:type :sort
+   :text "Seřaďte chronologicky, kdy Mattel začal prodávat následující druhy Barbie:"
+   :items [{:text "Astronaut Barbie" :sort-value 1965}
+           {:text "Busy Barbie" :sort-value 1972}
+           {:text "CEO Barbie" :sort-value 1985}
+           {:text "Curvy Barbie" :sort-value 2016}]}
+  {:type :yesno
+   :text "V Lichtenštejnsku bylo znásilnění v manželství do roku 2001 legální."
+   :correct? true}
+  {:type :sort
+   :text "Seřaďte státy vzestupně podle výše jejich kvót na procentní zastoupení žen v parlamentu."
+   :items [{:text "Saúdská Arábie" :sort-value 20}
+           {:text "Sierra Leone" :sort-value 30}
+           {:text "Indie" :sort-value 33}
+           {:text "Mexiko" :sort-value 50}]}
+  {:type :multiple
+   :text "Co je to 'upskirting'?"
+   :choices [{:text "Nekonsenzuální pořizování fotografií pod sukní nebo kiltem" :correct? true}
+             {:text "Sexuální praktika vyhrnutí sukně"}
+             {:text "Módní trend zkracování sukní"}
+             {:text "Vynechávání důležitých detailů"}]}
+  {:type :yesno
+   :text "Turecké zákonodárkyně nesmí nosit kalhoty na národní shromáždění."
+   :correct? false
+   :explanation "Zákaz platil do roku 2013."}
+  {:type :yesno
+   :text "V Paříži do roku 2013 platila vyhláška požadující po ženách, aby si nechaly schválit nošení pánského oblečení místní samosprávou."
+   :correct? true}
+  {:type :yesno
+   :text "Řecké ženy si nesmí vzít manželovo příjmení."
+   :correct? true
+   :explanation "Zákaz platí od roku 1983."}
+  {:type :multiple
+   :text "Na které české bankovce je žena?"
+   :choices [{:text "2000 Kč" :correct? true}
+             {:text "1000 Kč"}
+             {:text "500 Kč" :correct? true}
+             {:text "200 Kč"}]}
+  {:type :yesno
+   :text "Podle výzkumu Organizace spojených národů z roku 2013 je podíl mužů a žen mezi vrahy přibližně stejný."
+   :correct? false
+   :explanation "96 % vrahů jsou muži."}
+  {:type :yesno
+   :text "Do roku 2016 standard pro emoji nerozlišoval gender."
+   :correct? true}
+  {:type :yesno
+   :text "Mohly ženy ve starověkém Řecku volit?"
+   :correct? false}
 }
