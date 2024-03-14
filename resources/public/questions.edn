@@ -9,7 +9,7 @@
    :text "Při autonehodě jsou ženy vážně zraněny o kolik % častěji než muži?"
    :numeric-answer 47}
   {:type :multiple
-   :text "Do kterého roku nepožadovala FDA, aby v klinických studiích byly zastoupeny ženy?"
+   :text "Do kterého roku nepožadovala FDA (U.S. Food and Drug Administration), aby v klinických studiích byly zastoupeny ženy?"
    :choices [{:text "1993" :correct? true}
              {:text "1948"}
              {:text "2013"}
