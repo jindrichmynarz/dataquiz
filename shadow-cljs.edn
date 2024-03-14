@@ -1,5 +1,5 @@
 {:nrepl {:port 8777}
- :deps {:aliases [:dev]}
+ :deps {:aliases [:dev :test]}
  :build-defaults {:build-hooks [(shadow-git-inject.core/hook)]}
  :dev-http {8280 "resources/public"}
  :builds {:client {:target :browser
@@ -10,4 +10,7 @@
                          {:closure-defines {re-frame.trace.trace-enabled? true
                                             day8.re-frame.tracing.trace-enabled? true}}}
                    :release {:build-options
-                             {:ns-aliases {day8.re-frame.tracing day8.re-frame.tracing-stubs}}}}}}
+                             {:ns-aliases {day8.re-frame.tracing day8.re-frame.tracing-stubs}}}}
+          :test {:target :node-test
+                 :autorun true
+                 :output-to "out/node-tests.js"}}}

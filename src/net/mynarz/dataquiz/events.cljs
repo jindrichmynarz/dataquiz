@@ -11,7 +11,7 @@
             [reitit.frontend.controllers :as rfc]))
 
 (def status->question-filter
-  {:default (complement #{:yesno})
+  {:default #{:sort} ;(complement #{:yesno})
    :missed #{:yesno}})
 
 (def toggle-players
@@ -220,12 +220,32 @@
     (assoc-in db [:guess index :status] :dragging)))
 
 (rf/reg-event-db
+  ::drag-enter
+  (fn [db [_ index]]
+    (update-in db
+               [:guess index :status]
+               (fn [status]
+                 (if-not (= status :dragging)
+                   :drag-over
+                   status)))))
+
+(rf/reg-event-db
+  ::drag-leave
+  (fn [db [_ index]]
+    (update-in db
+               [:guess index]
+               (fn [{:keys [status] :as item}]
+                 (if (= status :drag-over)
+                   (dissoc item :status)
+                   item)))))
+
+(rf/reg-event-db
   ::drag-end
   (fn [db [_ index]]
     (update-in db [:guess index] #(dissoc % :status))))
 
-(defn insert-after
-  "Insert `item` after `index` in `items`."
+(defn insert-before
+  "Insert `item` before `index` in `items`."
   [item index items]
   (let [[before after] (->> items
                             (remove #{item})
@@ -238,4 +258,4 @@
         :as db}
        [_ index]]
     (let [dragged-item (first (filter (comp #{:dragging} :status) items))]
-      (update db :guess (partial insert-after dragged-item index)))))
+      (update db :guess (partial insert-before dragged-item index)))))
