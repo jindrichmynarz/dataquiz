@@ -18,7 +18,7 @@
    :text "Jaký je v současnosti v Česku rozdíl mezi průměrným platem mužů a průměrným platem žen?"
    :numeric-answer 16}
   {:type :multiple
-   :text "Kdo získal cenu Genderman 2023?"
+   :text "Kdo získal cenu Genderman v roce 2023?"
    :choices [{:text "Michal Zuna a Daniel Bartoň" :correct? true}
              {:text "Ivan Bartoš"}
              {:text "Boleslav Polívka"}
