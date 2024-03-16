@@ -523,4 +523,12 @@
              {:text "Dekriminalizací homosexuality"}
              {:text "Kriminalizací popírání holokaustu"}]
    :explanation "Byla první prezidentkou zvoleného Evropského parlamentu."}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/laura_janackova.png"}]
+          [:p "Jaký slogan použila Laura Janáčková na svých volebních billboardech?"]]
+   :choices [{:text "V posteli a politice jsem jako doma"}
+             {:text "Chcete mě?"}
+             {:text "Laura a její tygři"}
+             {:text "Láska, sex a politika..." :correct? true}]}
 }
