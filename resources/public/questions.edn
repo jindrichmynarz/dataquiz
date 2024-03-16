@@ -565,4 +565,10 @@
              {:text "Že by ženy utekly od plotny a už se nikdy nevrátily."}
              {:text "Že by ženy umřely vyčerpáním."}]
    :explanation "Ženy mohly závodit na Olympiádě v maratonu až v roce 1984."}
+  {:type :multiple
+   :text "Kolik olympijských medailí získala Věra Čáslavská?"
+   :choices [{:text "6"}
+             {:text "7" :correct? true}
+             {:text "2"}
+             {:text "Žádnou"}]}
 }
