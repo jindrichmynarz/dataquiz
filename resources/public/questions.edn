@@ -544,4 +544,8 @@
              {:text "Československý červený kříž" :correct? true}
              {:text "YMCA a YWCA" :correct? true}
              {:text "Dívčí gymnázium Minerva"}]}
+  {:type :yesno
+   :text "Nejvíce Oscarů za nejlepší herecký výkon má muž."
+   :correct? false
+   :explanation "Nejvíce jich má Katharine Hepburn. Získala celkem 4 Oscary."}
 }
