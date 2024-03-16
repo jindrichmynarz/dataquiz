@@ -496,4 +496,10 @@
            {:text "Slovinsko" :sort-value 12}
            {:text "Česká republika" :sort-value 25}
            {:text "Rumunsko" :sort-value 27}]}
+  {:type :sort
+   :text "Seřadte sestupně následující instituce v Česku dle procentního zastoupení žen (leden 2022):"
+   :items [{:text "Zastupitelstva měst a obcí" :sort-value 28}
+           {:text "Poslanecká sněmovna" :sort-value 25}
+           {:text "Vláda" :sort-value 17}
+           {:text "Senát" :sort-value 15}]}
 }
