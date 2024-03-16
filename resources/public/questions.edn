@@ -491,7 +491,7 @@
    :text "Dvě nejvyšší skóre IQ v zaznamenané historii patří ženám."
    :correct? true}
   {:type :sort
-   :text "Seřaďte země EU sestupně podle získaného místa na žebříčku genderové rovnosti EU z roku 2023:"
+   :text "Seřaďte země EU podle získaného místa na žebříčku genderové rovnosti EU z roku 2023 od nejlepšího k nejhoršímu:"
    :items [{:text "Švédsko" :sort-value 1}
            {:text "Slovinsko" :sort-value 12}
            {:text "Česká republika" :sort-value 25}
@@ -581,4 +581,10 @@
              {:text "Akio Tokyo"}
              {:text "Haruto Kyoto"}
              {:text "Jane Yokohama"}]}
+  {:type :sort
+   :text "Seřaďte sportovkyně vzestupně podle počtu získaných olympijských medailí:"
+   :items [{:text "Helena Fibingerová" :sort-value 1}
+           {:text "Eva Samková" :sort-value 2}
+           {:text "Barbora Špotáková" :sort-value 3}
+           {:text "Martina Sáblíková" :sort-value 7}]
 }
