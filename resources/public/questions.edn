@@ -586,5 +586,5 @@
    :items [{:text "Helena Fibingerová" :sort-value 1}
            {:text "Eva Samková" :sort-value 2}
            {:text "Barbora Špotáková" :sort-value 3}
-           {:text "Martina Sáblíková" :sort-value 7}]
+           {:text "Martina Sáblíková" :sort-value 7}]}
 }
