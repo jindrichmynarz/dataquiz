@@ -538,4 +538,10 @@
              {:text "Avon"}
              {:text "Manufaktura"}]
    :explanation "Značka Dermacol vznikla v roce 1966 v barrandovských filmových ateliérech."}
+  {:type :multiple
+   :text "U zrodu které organizace stála Alice Garrigue Masaryková?"
+   :choices [{:text "Sokol"}
+             {:text "Československý červený kříž" :correct? true}
+             {:text "YMCA a YWCA" :correct? true}
+             {:text "Dívčí gymnázium Minerva"}]}
 }
