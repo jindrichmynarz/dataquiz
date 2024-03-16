@@ -516,4 +516,10 @@
    :text "Mohly se pouze ženy účastnit Seneca Falls Convention roku 1848 (také známe pod názvem Women's Rights Convention)?"
    :correct? false
    :explanation "Muži se mohli účastnit druhého dne."}
+  {:type :multiple
+   :text "Jakým zákonem se proslavila francouzská politička Simone Veil?"
+   :choices [{:text "Dekriminalizací interrupcí" :correct? true}
+             {:text "Kriminalizací znásilnění mezi manželi"}
+             {:text "Dekriminalizací homosexuality"}
+             {:text "Kriminalizací popírání holokaustu"}]}
 }
