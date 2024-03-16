@@ -491,9 +491,100 @@
    :text "Dvě nejvyšší skóre IQ v zaznamenané historii patří ženám."
    :correct? true}
   {:type :sort
-   :text "Seřaďte země EU sestupně podle získaného místa na žebříčku genderové rovnosti EU z roku 2023:"
+   :text "Seřaďte země EU podle získaného místa na žebříčku genderové rovnosti EU z roku 2023 od nejlepšího k nejhoršímu:"
    :items [{:text "Švédsko" :sort-value 1}
            {:text "Slovinsko" :sort-value 12}
            {:text "Česká republika" :sort-value 25}
            {:text "Rumunsko" :sort-value 27}]}
+  {:type :sort
+   :text "Seřadte sestupně následující instituce v Česku dle procentního zastoupení žen (leden 2022):"
+   :items [{:text "Zastupitelstva měst a obcí" :sort-value 28}
+           {:text "Poslanecká sněmovna" :sort-value 25}
+           {:text "Vláda" :sort-value 17}
+           {:text "Senát" :sort-value 15}]}
+  {:type :yesno
+   :text "Klitoris má dvakrát více nervových zakončení než penis?"
+   :correct? true
+   :explanation "Klitoris má více než 8000 nervových zakončení."}
+  {:type :multiple
+   :text "Ze kterého komiksového vydavatelství je postava Wonder Woman?"
+   :choices [{:text "Marvel"}
+             {:text "Mukha"}
+             {:text "DC Comics" :correct? true}
+             {:text "Albatros"}]}
+  {:type :yesno
+   :text "Mohly se pouze ženy účastnit Seneca Falls Convention roku 1848 (také známe pod názvem Women's Rights Convention)?"
+   :correct? false
+   :explanation "Muži se mohli účastnit druhého dne."}
+  {:type :multiple
+   :text "Jakým zákonem se proslavila francouzská politička Simone Veil?"
+   :choices [{:text "Dekriminalizací interrupcí" :correct? true}
+             {:text "Kriminalizací znásilnění mezi manželi"}
+             {:text "Dekriminalizací homosexuality"}
+             {:text "Kriminalizací popírání holokaustu"}]
+   :explanation "Byla první prezidentkou zvoleného Evropského parlamentu."}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/laura_janackova.png"}]
+          [:p "Jaký slogan použila Laura Janáčková na svých volebních billboardech?"]]
+   :choices [{:text "V posteli a politice jsem jako doma"}
+             {:text "Chcete mě?"}
+             {:text "Laura a její tygři"}
+             {:text "Láska, sex a politika..." :correct? true}]}
+  {:type :multiple
+   :text "U zrodu které značky kosmetiky stála Olga Knoblochová?"
+   :choices [{:text "Dermacol" :correct? true}
+             {:text "L'Oréal"}
+             {:text "Avon"}
+             {:text "Manufaktura"}]
+   :explanation "Značka Dermacol vznikla v roce 1966 v barrandovských filmových ateliérech."}
+  {:type :multiple
+   :text "U zrodu které organizace stála Alice Garrigue Masaryková?"
+   :choices [{:text "Sokol"}
+             {:text "Československý červený kříž" :correct? true}
+             {:text "YMCA a YWCA" :correct? true}
+             {:text "Dívčí gymnázium Minerva"}]}
+  {:type :yesno
+   :text "Nejvíce Oscarů za nejlepší herecký výkon má muž."
+   :correct? false
+   :explanation "Nejvíce jich má Katharine Hepburn. Získala celkem 4 Oscary."}
+  {:type :yesno
+   :text "Nejvíce nominací na Oscara získal muž."
+   :correct? true
+   :explanation "Je to Walt Disney, který získal celkem 59 nominací."}
+  {:type :multiple
+   :text "Kdo řekl \"Pokud chcete, aby něco bylo řečeno, zeptejte se muže; jestli chcete, aby něco bylo uděláno, zeptejte se ženy.\"?"
+   :choices [{:text "Beyoncé"}
+             {:text "Gloria Steinem"}
+             {:text "Marilyn Monroe"}
+             {:text "Margaret Thatcher" :correct? true}]}
+  {:type :multiple
+   :text "Jaký byl jeden z nejčastějších důvodů, proč měly ženy zakázáno závodit v bězích delších než 800 metrů až do druhé poloviny 20. století? Byla to obava:"
+   :choices [{:text "Že by ženám vypadla děloha." :correct? true}
+             {:text "Že by ženy byly rychlejší než muži."}
+             {:text "Že by ženy utekly od plotny a už se nikdy nevrátily."}
+             {:text "Že by ženy umřely vyčerpáním."}]
+   :explanation "Ženy mohly závodit na Olympiádě v maratonu až v roce 1984."}
+  {:type :multiple
+   :text "Kolik olympijských medailí získala Věra Čáslavská?"
+   :choices [{:text "6"}
+             {:text "7" :correct? true}
+             {:text "2"}
+             {:text "Žádnou"}]}
+  {:type :yesno
+   :text "Drží nejdéle trvající světový rekord v atletických disciplínách žena?"
+   :correct? true
+   :explanation "Drží ho Jarmila Kratochvílová v běhu na 800 metrů od roku 1983."}
+  {:type :multiple
+   :text "Jak se jmenuje tenistka, která vyhrála soutěž žen ve dvouhře na Australian Open 2021? Její příjmení je stejné jako název japonského města, kde se narodila."
+   :choices [{:text "Naomi Osaka" :correct? true}
+             {:text "Akio Tokyo"}
+             {:text "Haruto Kyoto"}
+             {:text "Jane Yokohama"}]}
+  {:type :sort
+   :text "Seřaďte sportovkyně vzestupně podle počtu získaných olympijských medailí:"
+   :items [{:text "Helena Fibingerová" :sort-value 1}
+           {:text "Eva Samková" :sort-value 2}
+           {:text "Barbora Špotáková" :sort-value 3}
+           {:text "Martina Sáblíková" :sort-value 7}]
 }
