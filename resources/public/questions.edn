@@ -558,4 +558,11 @@
              {:text "Gloria Steinem"}
              {:text "Marilyn Monroe"}
              {:text "Margaret Thatcher" :correct? true}]}
+  {:type :multiple
+   :text "Jaký byl jeden z nejčastějších důvodů, proč měly ženy zakázáno závodit v bězích delších než 800 metrů až do druhé poloviny 20. století? Byla to obava:"
+   :choices [{:text "Že by ženám vypadla děloha." :correct? true}
+             {:text "Že by ženy byly rychlejší než muži."}
+             {:text "Že by ženy utekly od plotny a už se nikdy nevrátily."}
+             {:text "Že by ženy umřely vyčerpáním."}]
+   :explanation "Ženy mohly závodit na Olympiádě v maratonu až v roce 1984."}
 }
