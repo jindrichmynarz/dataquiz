@@ -575,4 +575,10 @@
    :text "Drží nejdéle trvající světový rekord v atletických disciplínách žena?"
    :correct? true
    :explanation "Drží ho Jarmila Kratochvílová v běhu na 800 metrů od roku 1983."}
+  {:type :multiple
+   :text "Jak se jmenuje tenistka, která vyhrála soutěž žen ve dvouhře na Australian Open 2021? Její příjmení je stejné jako název japonského města, kde se narodila."
+   :choices [{:text "Naomi Osaka" :correct? true}
+             {:text "Akio Tokyo"}
+             {:text "Haruto Kyoto"}
+             {:text "Jane Yokohama"}]}
 }
