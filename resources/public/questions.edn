@@ -531,4 +531,11 @@
              {:text "Chcete mě?"}
              {:text "Laura a její tygři"}
              {:text "Láska, sex a politika..." :correct? true}]}
+  {:type :multiple
+   :text "U zrodu které značky kosmetiky stála Olga Knoblochová?"
+   :choices [{:text "Dermacol" :correct? true}
+             {:text "L'Oréal"}
+             {:text "Avon"}
+             {:text "Manufaktura"}]
+   :explanation "Značka Dermacol vznikla v roce 1966 v barrandovských filmových ateliérech."}
 }
