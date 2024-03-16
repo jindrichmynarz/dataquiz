@@ -506,4 +506,10 @@
    :text "Klitoris má dvakrát více nervových zakončení než penis?"
    :correct? true
    :explanation "Klitoris má více než 8000 nervových zakončení."}
+  {:type :multiple
+   :text "Ze kterého komiksového vydavatelství je postava Wonder Woman?"
+   :choices [{:text "Marvel"}
+             {:text "Mukha"}
+             {:text "DC Comics" :correct? true}
+             {:text "Albatros"}]}
 }
