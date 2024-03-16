@@ -552,4 +552,10 @@
    :text "Nejvíce nominací na Oscara získal muž."
    :correct? true
    :explanation "Je to Walt Disney, který získal celkem 59 nominací."}
+  {:type :multiple
+   :text "Kdo řekl \"Pokud chcete, aby něco bylo řečeno, zeptejte se muže; jestli chcete, aby něco bylo uděláno, zeptejte se ženy.\"?"
+   :choices [{:text "Beyoncé"}
+             {:text "Gloria Steinem"}
+             {:text "Marilyn Monroe"}
+             {:text "Margaret Thatcher" :correct? true}]}
 }
