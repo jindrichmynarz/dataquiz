@@ -502,4 +502,8 @@
            {:text "Poslanecká sněmovna" :sort-value 25}
            {:text "Vláda" :sort-value 17}
            {:text "Senát" :sort-value 15}]}
+  {:type :yesno
+   :text "Klitoris má dvakrát více nervových zakončení než penis?"
+   :correct? true
+   :explanation "Klitoris má více než 8000 nervových zakončení."}
 }
