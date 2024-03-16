@@ -521,5 +521,6 @@
    :choices [{:text "Dekriminalizací interrupcí" :correct? true}
              {:text "Kriminalizací znásilnění mezi manželi"}
              {:text "Dekriminalizací homosexuality"}
-             {:text "Kriminalizací popírání holokaustu"}]}
+             {:text "Kriminalizací popírání holokaustu"}]
+   :explanation "Byla první prezidentkou zvoleného Evropského parlamentu."}
 }
