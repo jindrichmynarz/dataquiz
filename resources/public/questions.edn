@@ -571,4 +571,8 @@
              {:text "7" :correct? true}
              {:text "2"}
              {:text "Žádnou"}]}
+  {:type :yesno
+   :text "Drží nejdéle trvající světový rekord v atletických disciplínách žena?"
+   :correct? true
+   :explanation "Drží ho Jarmila Kratochvílová v běhu na 800 metrů od roku 1983."}
 }
