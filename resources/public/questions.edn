@@ -512,4 +512,8 @@
              {:text "Mukha"}
              {:text "DC Comics" :correct? true}
              {:text "Albatros"}]}
+  {:type :yesno
+   :text "Mohly se pouze ženy účastnit Seneca Falls Convention roku 1848 (také známe pod názvem Women's Rights Convention)?"
+   :correct? false
+   :explanation "Muži se mohli účastnit druhého dne."}
 }
