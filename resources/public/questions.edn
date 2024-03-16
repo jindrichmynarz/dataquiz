@@ -548,4 +548,8 @@
    :text "Nejvíce Oscarů za nejlepší herecký výkon má muž."
    :correct? false
    :explanation "Nejvíce jich má Katharine Hepburn. Získala celkem 4 Oscary."}
+  {:type :yesno
+   :text "Nejvíce nominací na Oscara získal muž."
+   :correct? true
+   :explanation "Je to Walt Disney, který získal celkem 59 nominací."}
 }
