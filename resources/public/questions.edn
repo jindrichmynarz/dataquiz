@@ -633,4 +633,10 @@
    :text "První žena objela svět na kole roku 1974."
    :correct? false
    :explanation "První byla Annie Londonderry, která svět objela v letech 1894-1895."}
+  {:type :sort 
+   :text "Seřaďte státy chronologicky podle roku, kdy v nich ženy získaly všeobecné volební právo."
+   :items [{:text "Rusko" :sort-value 1917}
+           {:text "Brazílie" :sort-value 1932}
+           {:text "Řecko" :sort-value 1952}
+           {:text "Lichtenštejnsko" :sort-value 1984}]}
 }
