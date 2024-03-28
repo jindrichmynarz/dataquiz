@@ -587,4 +587,10 @@
            {:text "Eva Samková" :sort-value 2}
            {:text "Barbora Špotáková" :sort-value 3}
            {:text "Martina Sáblíková" :sort-value 7}]}
+  {:type :multiple
+   :text "Co bylo hlavní náplní Ženského výrobního spolku, který v roce 1871 založila spisovatelka Karolína Světlá?"
+   :choices [{:text "Vydávat knihy"}
+             {:text "Péct dorty"}
+             {:text "Vzdělávat a shánět práci chudým ženám" :correct? true}
+             {:text "Vyrábět vojenský materiál pro vojáky"}]}
 }
