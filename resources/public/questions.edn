@@ -600,4 +600,11 @@
              {:text "Jihoafrická republika"}
              {:text "Egypt"}]
    :explanation "Byla zvolena roku 2005."}
+  {:type :sort
+   :text "Seřaďte sestry Kardashianovi od nejstarší po nejmladší."
+   :items [{:text "Kourtney" :sort-value 1979}
+           {:text "Kim" :sort-value 1980}
+           {:text "Khloé" :sort-value 1984}
+           {:text "Kendall" :sort-value 1995}
+           {:text "Kylie" :sort-value 1997}]}
 }
