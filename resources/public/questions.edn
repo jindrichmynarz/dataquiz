@@ -615,4 +615,22 @@
              {:text "Burka"}
              {:text "Burkini" :correct? true}
              {:text "Čádor"}]}
+  {:type :percent-range
+   :text "Kolik procent českých žen nemá rádo velikonoční šlehání?"
+   :numeric-answer 79}
+  {:type :yesno
+   :text "Pokud je zavražděna žena, vrahem je v 84 % její partner."
+   :correct? false
+   :explanation "Partner je vrahem v 38 % případů."}
+  {:type :multiple
+   :text "Co je to “rodinné hlasování”?"
+   :choices [{:text "Člen rodiny, typicky muž, kontroluje způsob hlasování ostatních členů rodiny, nejčastěji žen, ale i mladších členů." :correct? true}
+             {:text "Rodina se demokraticky dohodne, jak hlasovat ve volbách."}
+             {:text "Hlasování pro kandidáty podporující rodiny."}
+             {:text "Trend hlasování pro své příbuzné."}]
+   :explanation "Tato praktika narušuje princip tajnosti hlasování."}
+  {:type :yesno
+   :text "První žena objela svět na kole roku 1974."
+   :correct? false
+   :explanation "První byla Annie Londonderry, která svět objela v letech 1894-1895."}
 }
