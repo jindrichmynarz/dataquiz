@@ -593,4 +593,11 @@
              {:text "Péct dorty"}
              {:text "Vzdělávat a shánět práci chudým ženám" :correct? true}
              {:text "Vyrábět vojenský materiál pro vojáky"}]}
+  {:type :multiple
+   :text "Ellen Johnson Sirleaf byla první ženou v Africe, která byla zvolena jako hlava státu. O který šlo?"
+   :choices [{:text "Libérie" :correct? true}
+             {:text "Ghana"}
+             {:text "Jihoafrická republika"}
+             {:text "Egypt"}]
+   :explanation "Byla zvolena roku 2005."}
 }
