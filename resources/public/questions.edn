@@ -607,4 +607,12 @@
            {:text "Khloé" :sort-value 1984}
            {:text "Kendall" :sort-value 1995}
            {:text "Kylie" :sort-value 1997}]}
+  {:type :multiple
+   :text [:<>
+           [:img {:src "/img/burkini.jpg"}]
+           [:p "Jak se nazývá tento ženský oděv?"]]
+   :choices [{:text "Hidžáb"}
+             {:text "Burka"}
+             {:text "Burkini" :correct? true}
+             {:text "Čádor"}]}
 }
