@@ -78,6 +78,10 @@ a:hover, a:focus {
   padding: .2em;
 }
 
+.question img {
+  max-width: 500px;
+}
+
 ul.choices {
   padding: 0;
   display: grid;
