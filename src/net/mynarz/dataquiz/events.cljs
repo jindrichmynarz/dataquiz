@@ -45,7 +45,12 @@
 (defmethod guess-matches-answer? :sort
   [{:keys [items]}
    guess]
-  (= guess items))
+  (or (= guess items)
+      ; Allow 1 transposition
+      (<= (->> (map = guess items)
+               (filter false?)
+               count)
+          2)))
 
 (rf/reg-event-fx
   ::initialize
