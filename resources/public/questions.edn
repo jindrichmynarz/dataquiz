@@ -867,4 +867,10 @@
           [:p "Na fotce je muž."]]
    :correct? true
    :explanation "Je to asi tříletý Franklin Delano Roosevelt."}
+  {:type :open
+   :text "Jak se říká ženě zařazené do skupiny, aby zvýšila dojem její diverzity?"
+   :answer "Token woman"}
+  {:type :open
+   :text "Jak se říká ženě, která dělá vše pro externí validaci, převážně muži?"
+   :answer "Pick-me girl"}
 }
