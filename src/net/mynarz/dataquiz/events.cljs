@@ -165,6 +165,7 @@
                                            [:missed other-player]))]
       {:db (-> db
                (assoc-in [:board-state active-tile-id :status] new-tile-state)
+               (assoc-in [:board-state active-tile-id :text] (str (inc active-tile-id)))
                (assoc :next-player next-player)
                (assoc :answer-revealed? true))
        :fx [[::fx/cancel-timeout (get-in db [:timeout ::pick-question])]]})))
