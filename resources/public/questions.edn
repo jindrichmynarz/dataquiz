@@ -633,10 +633,113 @@
    :text "První žena objela svět na kole roku 1974."
    :correct? false
    :explanation "První byla Annie Londonderry, která svět objela v letech 1894-1895."}
-  {:type :sort 
+  {:type :sort
    :text "Seřaďte státy chronologicky podle roku, kdy v nich ženy získaly všeobecné volební právo."
    :items [{:text "Rusko" :sort-value 1917}
            {:text "Brazílie" :sort-value 1932}
            {:text "Řecko" :sort-value 1952}
            {:text "Lichtenštejnsko" :sort-value 1984}]}
+  {:type :multiple
+   :text [:<>
+          [:p "Kterému náboženství patří následující modlitba?"]
+          [:blockquote "Požehnaný jsi Ty, Hospodine, Bože náš, Králi všehomíra, jenž mě neučinil ženou."]]
+   :choices [{:text "Judaismus" :correct? true}
+             {:text "Islám"}
+             {:text "Pravoslaví"}
+             {:text "Mormonství"}]
+   :explanation "Muži modlitbu říkají během Birchot ha-šachar – ranního požehnání."}
+  {:type :yesno
+   :text "Váha ženského mozku s věkem klesá průměrně o 2,7 gramu, zatímco u mužů je to o 2,2 gramu."
+   :correct? false
+   :explanation "Je to naopak. Muži mají průměrně těžší mozek."}
+  {:type :multiple
+   :text "Co je to pinkwashing?"
+   :choices [{:text "Druh klamavého marketingu využívající LGBT+ lidi a jejich zájmy" :correct? true}
+             {:text "Rozšíření růžové stužky jako symbolu boje proti rakovině prsu"}
+             {:text "Módní trend růžové po uvedení filmu Barbie"}
+             {:text "Praní bílého prádla spolu s červeným"}]}
+  {:type :multiple
+   :text "Co bylo označeno pojmem “pinkwashing” jako první?"
+   :choices [{:text "Izraelská propaganda legitimizující xenofobii vůči muslimům kvůli jejich intoleranci LGBT+" :correct? true}
+             {:text "Sponzorování pride parade korporacemi"}
+             {:text "Apropriace LGBT+ kultury v hollywoodských filmech"}
+             {:text "Reklama zacílená na LGBT+ komunitu"}]}
+  {:type :yesno
+   :text "V Sovětském svazu byl feminismus klasifikován jako buržoazní ideologie, tedy kontrarevoluční a antisovětská."
+   :correct? true}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/volte_nase_holky.png"}]
+          [:p "Která politická strana použila tento billboard?"]]
+   :choices [{:text "Věci veřejné" :correct? true}
+             {:text "ANO 2011"}
+             {:text "LIDEM - Liberální demokraté"}
+             {:text "TOP 09"}]}
+  {:type :open
+   :text "Jak jmenuje surrealistický film Věry Chytilové z roku 1966 o dvou dívkách, které se nudí?"
+   :answer "Sedmikrásky"}
+  {:type :open
+   :text "Jak se jmenovala výrazná představitelka československé nové vlny v 60. letech 20. letech, která kombinovala řadu uměleckých profesí, neboť byla režisérka, dramatička, spisovatelka, scenáristka, výtvarnice, scénografka a kostýmní návrhářka?"
+   :answer "Ester Krumbachová"}
+  {:type :yesno
+   :text "První československá ministryně byla zvolena ve volbách roku 1925."
+   :correct? false
+   :explanation "Byla to Ludmila Jankovcová, která byla roku 1947 zvolena jako ministryně průmyslu."}
+  {:type :yesno
+   :text "Milada Horáková byla první žena v Československu, která byla odsouzena k trestu smrti v politickém procesu."
+   :correct? true}
+  {:type :multiple
+   :text "Od kterého roku si československé ženy mohly ponechávat svá rodná příjmení i po svatbě?"
+   :choices [{:text "1949" :correct? true}
+             {:text "1919"}
+             {:text "1989"}
+             {:text "1969"}]}
+  {:type :multiple
+   :text "Jak se jmenovala první antikoncepční pilulka uvedená na československý trh roku 1965?"
+   :choices [{:text "Antigest" :correct? true}
+             {:text "Antikon"}
+             {:text "Ankopil"}
+             {:text "Liberta"}]}
+  {:type :percent-range
+   :text "Kolik procent žen nad 25 let bylo roku 1983 provdáno?"
+   :numeric-answer 85}
+  {:type :percent-range
+   :text "Kolik procent pasažérů hromadné dopravy ve Francii tvoří ženy?"
+   :numeric-answer 66}
+  {:type :yesno
+   :text "V letech 2018-2022 ženy v Česku spáchaly 4,1-krát více sebevražd než muži."
+   :correct? false
+   :explanation "Je to naopak."}
+  {:type :yesno
+   :text "Až do roku 1950 v Československu patřil veškerý majetek muži, dokonce i ten, který do manželství přinesla žena."
+   :correct? true}
+  {:type :multiple
+   :text "Komu se říkalo “andělíčkářka”?"
+   :choices [{:text "Ženě provádějící nelegální interrupce" :correct? true}
+             {:text "Fanatické křesťaňce"}
+             {:text "Vedoucí sirotčince"}
+             {:text "Vychovatelce z dívčí školy"}]}
+  {:type :yesno
+   :text "V potratových komisích v socialistickém Československu seděly také “zkušené matky.”"
+   :correct? true}
+  {:type :percent-range
+   :text "Kolik procent interrupcí schvalovaly potratové komise v socialistickém Československu?"
+   :numeric-answer 90}
+  {:type :multiple
+   :text "Co bylo heslem demonstrace kvůli nedostatku menstruačních potřeb roku 1988 v Československu?"
+   :choices [{:text "Chceme vložky mezi nožky!" :correct? true}
+             {:text "Radši tampóny než tuzexové kupóny!"}
+             {:text "Republice více práce, tomu brání menstruace!"}
+             {:text "Soudružky všech zemí, spojte se!"}]}
+  {:type :multiple
+   :text "Po dekriminalizaci homosexuality v Československu roku 1962 byl stanoven minimální věk pro homosexuální styk na:"
+   :choices [{:text "18 let" :correct? true}
+             {:text "15 let"}
+             {:text "21 let"}
+             {:text "25 let"}]
+   :explanation "Heterosexuální styk byl legální již od 15 let."}
+  {:type :yesno
+   :text "Transgender lidé v 70. letech v Československu podstupovali toxikoterapii pomocí metamfetaminu."
+   :correct? false
+   :explanation "Šlo o terapii pomocí LSD."}
 }
