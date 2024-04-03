@@ -3,6 +3,7 @@
             [clj-fuzzy.jaro-winkler :refer [jaro-winkler]]
             [goog.string :as gstring]
             [goog.string.format]
+            [goog.string :as gstring]
             [net.mynarz.az-kviz.logic :as az]
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
@@ -200,7 +201,7 @@
                  (assoc-in [:timeout timeout-key] timeout-id)
                  (cond->
                    (= (:type question) :open)
-                   (update-in [:board-state tile-id :text] abbreviate (:answer question))
+                   (assoc-in [:board-state tile-id :text] (abbreviate (:answer question)))
 
                    (= (:type question) :sort)
                    (assoc :guess (-> question :items shuffle))))}
