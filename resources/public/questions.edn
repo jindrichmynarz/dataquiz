@@ -748,4 +748,12 @@
              {:text "Udržení mezigenerační solidarity" :correct? true}
              {:text "Úplné zrovnoprávnění žen ve společnosti" :correct? true}
              {:text "Eliminace platových rozdílů mezi muži a ženami" :correct? true}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/devcatka_na_slovicko.jpg"}]
+          [:p "O čem je kniha 'Děvčátka, na slovíčko'?"]]
+   :choices [{:text "První osvětová publikace o ženské reprodukci, která v Československu vyšla" :correct? true}
+             {:text "První kniha o feminismu v Československu"}
+             {:text "Populárně-naučná kniha o konzervativních rodinných hodnotách"}
+             {:text "Kniha o vývojové psychologii zaměřená na mladé dívky"}]}
 }
