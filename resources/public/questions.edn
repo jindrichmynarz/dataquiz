@@ -742,4 +742,10 @@
    :text "Transgender lidé v 70. letech v Československu podstupovali toxikoterapii pomocí metamfetaminu."
    :correct? false
    :explanation "Šlo o terapii pomocí LSD."}
+  {:type :multiple
+   :text "Co bylo cílem politické strany Rovnost šancí?"
+   :choices [{:text "Dohnat Makedonii" :correct? true}
+             {:text "Udržení mezigenerační solidarity" :correct? true}
+             {:text "Úplné zrovnoprávnění žen ve společnosti" :correct? true}
+             {:text "Eliminace platových rozdílů mezi muži a ženami" :correct? true}]}
 }
