@@ -756,4 +756,115 @@
              {:text "První kniha o feminismu v Československu"}
              {:text "Populárně-naučná kniha o konzervativních rodinných hodnotách"}
              {:text "Kniha o vývojové psychologii zaměřená na mladé dívky"}]}
+  {:type :multiple
+   :text "Od kterého roku mohou ženy v Saúdské Arábii řídit auto?"
+   :choices [{:text "2018" :correct? true}
+             {:text "Ženy řídit auto nemohou"}
+             {:text "1975"}
+             {:text "1999"}]}
+  {:type :yesno
+   :text "Zakázal Talibán ženám sportovat?"
+   :correct? true}
+  {:type :yesno
+   :text "Ženy tvoří třetinu světové populace negramotných nad 15 let."
+   :correct? false
+   :explanation "Ženy tvoří 2/3."}
+  {:type :yesno
+   :text "Nejmladší nositelkou Nobelovy ceny míru je žena."
+   :correct? true
+   :explanation "Malála Júsufzaj cenu získala v roce 2014, když jí bylo 17 let."}
+  {:type :open
+   :text "Jak se říká diskuznímu panelu, který nezahrnuje ženy?"
+   :answer "Manel"}
+  {:type :yesno
+   :text "V Indii je legální znásilnit manželku."
+   :correct? true}
+  {:type :open
+   :text "Jak se nazývala demonstrace polských žen proti zpřísnění pravidel pro interrupce roku 2016?"
+   :answer "Czarny protest"}
+  {:type :open
+   :text [:<>
+          [:img {:src "/img/cyborg_manifesto.jpg"}]
+          [:p "Jak se nazývá posthumanistická esej feministky Donny Haraway z roku 1985?"]]
+   :answer "Cyborg Manifesto"}
+  {:type :sort
+   :text "Seřaďte země chronologicky podle roku, kdy v nich skončila možnost vyvázat se z trestní odpovědnosti za znásilnění svatbou s obětí."
+   :items [{:text "Itálie" :sort-value 1981}
+           {:text "Francie" :sort-value 1994}
+           {:text "Brazílie" :sort-value 2005}
+           {:text "Bulharsko" :sort-value 2015}]}
+  {:type :yesno
+   :text "V Rusku je možné se vyvázat z trestní odpovědnosti za znásilnění oběti mezi 14-16 lety, pokud se s ní útočník sezdá."
+   :correct? true}
+  {:type :yesno
+   :text "Největší rozdíl mezi počtem žen a mužů v populaci je v Číně."
+   :correct? false
+   :explanation "Jde o Indii, kde rozdíl činí 37 miliónů."}
+  {:type :multiple
+   :text "Co dle archaických nepálských zvyků nesmí dělat ženy během menstruace?"
+   :choices [{:text "Dotýkat se mužů a dobytka" :correct? true}
+             {:text "Vařit" :correct? true}
+             {:text "Číst knihy"}
+             {:text "Mluvit"}]}
+  {:type :yesno
+   :text "V Indonésii je panenství podmínkou pro vstup žen do armády nebo policie."
+   :correct? false
+   :explanation "Tato podmínka byla zrušena roku 2021."}
+  {:type :multiple
+   :text "Kvůli čemu roku 2022 íránská mravnostní policie ubila dvaadvacetiletou Mashu Amíní?"
+   :choices [{:text "Měla nedostatečně zahalené vlasy" :correct? true}
+             {:text "Porušila Ramadán"}
+             {:text "Odříkala svému muži"}
+             {:text "Šířila feministickou literaturu"}]}
+  {:type :yesno
+   :text "Podíl obřezaných žen v populaci v absolutních číslech roste, ale v relativních číslech klesá."
+   :correct? true}
+  {:type :open
+   :text "Ve které zemi je od roku 1994 zakázáno určování pohlaví nenarozených plodů?"
+   :answer "Indie"}
+  {:type :multiple
+   :text "Kde je právo na interrupci zakotveno v ústavě?"
+   :choices [{:text "Kalifornie" :correct? true}
+             {:text "Francie" :correct? true}
+             {:text "Česko"}
+             {:text "Finsko"}]}
+  {:type :yesno
+   :text "Měl manžel v západním Německu do 60. let 20. století právo vypovědět pracovní místo své ženy bez jejího souhlasu?"
+   :correct? true}
+  {:type :multiple
+   :text [:<>
+          [:p "Kdo je autorem následujících slov?"]
+          [:blockquote "Musím však konstatovat, že v našem prostředí - jakkoliv jsou tu ženy na tom mnohonásobně hůře než na Západě - se jeví feminismus prostě jako dada."]]
+   :choices [{:text "Václav Havel" :correct? true}
+             {:text "Miloš Zeman"}
+             {:text "Václav Klaus starší"}
+             {:text "Egon Bondy"}]}
+  {:type :multiple
+   :text "Podle básničky Jiřího Žáčka tu kluci jsou k tomu “aby se svět točil vpřed.” Holky tu jsou k čemu?"
+   :choices [{:text "Aby z nich byly maminky" :correct? true}
+             {:text "Aby náš svět byl v pořádku" :correct? true}
+             {:text "Aby na světě bylo krásně"}
+             {:text "Aby kluci svět nevyhodili do povětří"}]}
+  {:type :multiple
+   :text "Ve kterém roce byla ženám povolena účast na Olympijských hrách?"
+   :choices [{:text "1900" :correct? true}
+             {:text "1948"}
+             {:text "1990"}
+             {:text "1920"}]
+   :explanation "Bylo to na Olympijských hrách ve Francii."}
+  {:type :yesno
+   :text "Po anexi Sudet československý stát propustil všechny vdané ženy, aby uvolnil pracovní místa pro muže prchající ze Sudet."
+   :correct? true}
+  {:type :multiple
+   :text "Co doporučilo Hnutí pro život Ukrajinkám znásilněným ruskými vojáky?"
+   :choices [{:text "Pepřáky a houkadla" :correct? true}
+             {:text "Emigraci"}
+             {:text "Nalezení manžela jako ochránce"}
+             {:text "Aplikaci nouzové antikoncepce Postinor"}]}
+  {:type :yesno
+   :text [:<>
+          [:img {:src "/img/fdr.png"}]
+          [:p "Na fotce je muž."]]
+   :correct? true
+   :explanation "Je to asi tříletý Franklin Delano Roosevelt."}
 }
