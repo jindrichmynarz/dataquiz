@@ -873,4 +873,33 @@
   {:type :open
    :text "Jak se říká ženě, která dělá vše pro externí validaci, převážně muži?"
    :answer "Pick-me girl"}
+  {:type :yesno
+   :text "V antickém Řecku musel muž znásilněnou manželku opustit."
+   :correct? true}
+  {:type :open
+   :text [:<>
+          [:p "Jak se jmenoval autor následujících slov:"]
+          [:blockquote "Vždyť je věc jasná, že všechny ženy mají dlouhé vlasy, ale krátký rozum."]]
+   :answer "Kosmas"}
+  {:type :multiple
+   :text "Co doporučuje český reformátor Jan Hus pro 'napravování' ženy?"
+   :choices [{:text "Prut" :correct? true}
+             {:text "Hůl"}
+             {:text "Knihu"}
+             {:text "Metličku"}]}
+  {:type :multiple
+   :text "Na co mohla mít podle lidových pověr ještě v 19. století žena v šestinedělí vliv?"
+   :choices [{:text "Kažení potravin" :correct? true}
+             {:text "Vznik přírodních katastrof" :correct? true}
+             {:text "Ponoukání k hříšnému chování"}
+             {:text "Deštivost"}]}
+  {:type :multiple
+   :text "Co bylo nalezeno u kosterních pozůstatků 'Dámy z Hlinska' z pozdní doby kamenné?"
+   :choices [{:text "Sekeromlat" :correct? true}
+             {:text "Bronzová brož"}
+             {:text "Kosterní pozůstatky pěti mužů"}
+             {:text "Acháty"}]}
+  {:type :open
+   :text "Jak se jmenuje myšlenkový směr založený Sdružením přátel heterosexuálního bílého muže a jejich obdivovatelek?"
+   :answer "Maskulinismus"}
 }
