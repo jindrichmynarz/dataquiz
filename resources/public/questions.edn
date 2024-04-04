@@ -1023,4 +1023,13 @@
              {:text "Olga Šípová"}
              {:text "Kateřina Zemanová"}
              {:text "Miluše Horská"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/ruth_bader_ginsburg.jpg"}]
+          [:p "Kdo je žena na obrázku?"]]
+   :choices [{:text "Ruth Bader Ginsburg" :correct? true}
+             {:text "Hilary Clinton"}
+             {:text "Alexandria Ocasio-Cortez"}
+             {:text "Miley Cyrus"}]
+   :explanation "Byla druhou soudkyní Nejvyššího soudu USA."}
 }
