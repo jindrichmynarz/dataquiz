@@ -1047,5 +1047,6 @@
    :choices [{:text "Božena Viková-Kunětická" :correct? true}
              {:text "Františka Plamínková"}
              {:text "Alice Masaryková"}
-             {:text "Milada Horáková"}]}
+             {:text "Milada Horáková"}]
+   :explanation "Byla zvolena roku 1912. Ženy sice v té době volit nesměly, ale zákon nikde výslovně neuváděl, že nesmějí být voleny. Vikové-Kunětické ale české místodržitelství zabránilo ve výkonu mandátu."}
 }
