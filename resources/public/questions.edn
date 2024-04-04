@@ -982,4 +982,12 @@
              {:text "Druhé světové války"}
              {:text "Války v Koreji"}
              {:text "2. puntské války"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/charles_fourier.jpeg"}]
+          [:p "Na obraze je muž, který jako první použil slovo \"feminismus\". Kdo to je?"]]
+   :choices [{:text "Filozof Charles Fourier" :correct? true}
+             {:text "Otec Jane Austen"}
+             {:text "Another white man with a podcast"}
+             {:text "George Washington"}]}
 }
