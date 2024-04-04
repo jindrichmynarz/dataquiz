@@ -1052,4 +1052,8 @@
   {:type :percent-range
    :text "Kolik procent tvoří ženy v celkovém počtu zaměstnanectva Dopravního podniku hl. m. Prahy?"
    :numeric-answer 15}
+  {:type :yesno
+   :text "První žena začala pracovat jako řidička tramvají v Praze v roce 1915."
+   :correct? false
+   :explanation "První ženy opravdu začaly u DPP pracovat v roce 1915, avšak jako průvodčí. Jako řidičky byly zaměstnány až během druhé světové války."}
 }
