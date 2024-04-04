@@ -959,4 +959,11 @@
              {:text "Maďarsko"}
              {:text "Česká republika"}]
    :explanation "Stalo se tak v roce 2018."}
+  {:type :multiple
+   :text "Která země má ve své ústavě napsáno, že ženino místo ve společnosti je především se starat o domácnost a rodinu?"
+   :choices [{:text "Irsko" :correct? true}
+             {:text "USA"}
+             {:text "Rusko"}
+             {:text "Indie"}]
+  :explanation "Irsko uspořádalo roku 2024 referendum o změně této části ústavy, ale 73,9 % hlasujících tuto změnu odmítlo."}
 }
