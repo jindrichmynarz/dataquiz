@@ -31,7 +31,7 @@ a:hover, a:focus {
   color: #000;
 }
 
-.enter * {
+.enter > * {
   margin: .2em 0 .3em 0;
 }
 
@@ -76,6 +76,10 @@ a:hover, a:focus {
 
 .question * {
   padding: .2em;
+}
+
+.question img {
+  max-width: 500px;
 }
 
 ul.choices {
