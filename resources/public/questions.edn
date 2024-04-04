@@ -952,4 +952,11 @@
              {:text "První domorodou Američankou ve vesmíru"}
              {:text "První ženou, která snědla 50 koktejlových párků v jedné minutě"}
              {:text "První ženou, která získala doktorát z fyziky"}]}
+  {:type :multiple
+   :text "Která země jako první zavedla menstruační potřeby zadarmo ve všech školách?"
+   :choices [{:text "Skotsko" :correct? true}
+             {:text "Irsko"}
+             {:text "Maďarsko"}
+             {:text "Česká republika"}]
+   :explanation "Stalo se tak v roce 2018."}
 }
