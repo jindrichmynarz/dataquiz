@@ -1032,4 +1032,12 @@
              {:text "Alexandria Ocasio-Cortez"}
              {:text "Miley Cyrus"}]
    :explanation "Byla druhou soudkyní Nejvyššího soudu USA."}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/lenka_smerdova.jpg"}]
+          [:p "Na fotce je první generálka české armády. Jak se jmenuje?"]]
+   :choices [{:text "Lenka Šmerdová" :correct? true}
+             {:text "Miluše Horská"}
+             {:text "Karla Šlechtová"}
+             {:text "Vlasta Parkanová"}]}
 }
