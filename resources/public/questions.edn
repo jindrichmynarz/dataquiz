@@ -916,4 +916,10 @@
              {:text "Jane Eyre"}
              {:text "Emma"}
              {:text "Babička"}]}
+  {:type :multiple
+   :text "Která žena je nazývána šedou eminencí českého filmu a divadla? Byla i součástí Československé nové vlny."
+   :choices [{:text "Ester Krumbachová" :correct? true}
+             {:text "Věra Chytilová"}
+             {:text "Apolena Rychlíková"}
+             {:text "Simona Stašová"}]}
 }
