@@ -1040,4 +1040,12 @@
              {:text "Miluše Horská"}
              {:text "Karla Šlechtová"}
              {:text "Vlasta Parkanová"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/bozena_vikova_kuneticka.png"}]
+          [:p "Na fotce je první česká poslankyně. Jak se jmenovala?"]]
+   :choices [{:text "Božena Viková-Kunětická" :correct? true}
+             {:text "Františka Plamínková"}
+             {:text "Alice Masaryková"}
+             {:text "Milada Horáková"}]}
 }
