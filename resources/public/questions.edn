@@ -1017,4 +1017,10 @@
              {:text "Miroslava Němcová"}
              {:text "Dáda Patrasová"}
              {:text "Olga Richterová"}]}
+  {:type :multiple
+   :text "Jak se jmenuje česká právnička, expertka na strategie a all-around skvělá žena, která je masterkou Koule?"
+   :choices [{:text "Lucie Ottinger":correct? true}
+             {:text "Olga Šípová"}
+             {:text "Kateřina Zemanová"}
+             {:text "Miluše Horská"}]}
 }
