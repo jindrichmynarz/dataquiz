@@ -922,4 +922,10 @@
              {:text "Věra Chytilová"}
              {:text "Apolena Rychlíková"}
              {:text "Simona Stašová"}]}
+  {:type :multiple
+   :text "Na oslavu čeho vznikla píseň s názvem \"Dobrý den, prapore hvězd a pruhů\", kterou nazpívala Vlasta Parkanová, když byla ministryní obrany?"
+   :choices [{:text "Amerického radaru v Brdech" :correct? true}
+             {:text "Návštěvy amerického prezidenta G. W. Bushe"}
+             {:text "Výročí osvobození Rudou armádou"}
+             {:text "Přílet Gagarina zpět z vesmíru"}]}
 }
