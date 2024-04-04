@@ -935,4 +935,8 @@
              {:text "1983"}
              {:text "2005"}]
    :explanation "Byla jí Valentina Vladimirovna Těreškovová ze Sovětského svazu."}
+  {:type :yesno
+   :text "USA vyslalo ženu do vesmíru dříve než SSSR."
+   :correct? false
+   :explanation "SSSR vyslalo ženu do vesmíru již v roce 1963. USA až roku 1983."}
 }
