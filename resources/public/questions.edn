@@ -974,4 +974,10 @@
              {:text "Vitríny"}
              {:text "Latríny"}
              {:text "Konírny"}]}
+  {:type :multiple
+   :text "Během které války byla pořízena fotka zvaná \"Napalm Girl\"?"
+   :choices [{:text "Války ve Vietnamu" :correct? true}
+             {:text "Druhé světové války"}
+             {:text "Války v Koreji"}
+             {:text "2. puntské války}]}
 }
