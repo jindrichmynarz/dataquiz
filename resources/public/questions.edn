@@ -928,4 +928,11 @@
              {:text "Návštěvy amerického prezidenta G. W. Bushe"}
              {:text "Výročí osvobození Rudou armádou"}
              {:text "Přílet Gagarina zpět z vesmíru"}]}
+  {:type :multiple
+   :text "Ve kterém roce byla žena poprvé ve vesmíru?"
+   :choices [{:text "1963" :correct? true}
+             {:text "1976"}
+             {:text "1983"}
+             {:text "2005"}]
+   :explanation "Byla jí Valentina Vladimirovna Těreškovová ze Sovětského svazu."}
 }
