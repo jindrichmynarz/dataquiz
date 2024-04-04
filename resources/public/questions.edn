@@ -946,4 +946,10 @@
              {:text "10"}
              {:text "1000"}]
    :explanation "Tampóny byly zabaleny tak, že jejich šňůrky byly spojeny jako proužek párků, aby neodplavaly."}
+  {:type :multiple
+   :text "Sally Ride byla nejen první americkou ženou ve vesmíru, ale také:"
+   :choices [{:text "První LGBT+ osobou ve vesmíru" :correct? true}
+             {:text "První domorodou Američankou ve vesmíru"}
+             {:text "První ženou, která snědla 50 koktejlových párků v jedné minutě"}
+             {:text "První ženou, která získala doktorát z fyziky"}]}
 }
