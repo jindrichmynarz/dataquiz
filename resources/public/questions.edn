@@ -966,4 +966,12 @@
              {:text "Rusko"}
              {:text "Indie"}]
   :explanation "Irsko uspořádalo roku 2024 referendum o změně této části ústavy, ale 73,9 % hlasujících tuto změnu odmítlo."}
+  {:type :multiple
+   :text [:<>
+          [:p "Doplňte následující slogan, který se často skanduje na feministických protestech."]
+          [:blockquote "Držte vaše doktríny dál od mojí..."]]
+   :choices [{:text "Vagíny" :correct? true}
+             {:text "Vitríny"}
+             {:text "Latríny"}
+             {:text "Konírny"}]}
 }
