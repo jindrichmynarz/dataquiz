@@ -990,4 +990,13 @@
              {:text "Otec Jane Austen"}
              {:text "Another white man with a podcast"}
              {:text "George Washington"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/betty_friedan.jpg"}]
+          [:p "Kdo je žena na obrázku?"]]
+   :choices [{:text "Betty Friedan" :correct? true}
+             {:text "Jana Maláčová"}
+             {:text "Phyllis Schlafly"}
+             {:text "Simone de Beauvoir"}]
+   :explanation "Její knize The Feminine Mystique z roku 1963 je často připisováno, že podnítila druhou vlnu amerického feminismu ve 20. století."}
 }
