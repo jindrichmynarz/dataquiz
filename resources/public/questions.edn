@@ -939,4 +939,11 @@
    :text "USA vyslalo ženu do vesmíru dříve než SSSR."
    :correct? false
    :explanation "SSSR vyslalo ženu do vesmíru již v roce 1963. USA až roku 1983."}
+  {:type :multiple
+   :text "Kolik tampónů dala NASA Sally Ride, první americké astronautce, na jeden týden ve vesmíru?"
+   :choices [{:text "100" :correct? true}
+             {:text "1"}
+             {:text "10"}
+             {:text "1000"}]
+   :explanation "Tampóny byly zabaleny tak, že jejich šňůrky byly spojeny jako proužek párků, aby neodplavaly."}
 }
