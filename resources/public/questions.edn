@@ -902,4 +902,18 @@
   {:type :open
    :text "Jak se jmenuje myšlenkový směr založený Sdružením přátel heterosexuálního bílého muže a jejich obdivovatelek?"
    :answer "Maskulinismus"}
+  {:type :multiple
+   :text [:<>
+          [:p "Kdo řekl následující slova?"]
+          [:blockquote "Kdybych byl trochu mladší, tak zorganizuji obrovskou demonstraci heterosexuálů v Praze. A budou nás miliony."]]
+   :choices [{:text "Miloš Zeman" :correct? true}
+             {:text "Ladislav Jakl"}
+             {:text "Petr Hampl"}
+             {:text "Petr Fiala"}]}
+  {:type :multiple
+   :text "Která kniha začíná touto větou: \"It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in a want of a wife.\"?"
+   :choices [{:text "Pýcha a předsudek" :correct? true}
+             {:text "Jane Eyre"}
+             {:text "Emma"}
+             {:text "Babička"}]}
 }
