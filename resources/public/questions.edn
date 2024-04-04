@@ -1011,4 +1011,10 @@
              {:text "Daniela Kovářová"}
              {:text "Barbora Urbanová"}
              {:text "Agáta Hanychová"}]}
+  {:type :multiple
+   :text "Jak se jmenuje česká právnička, feministka, školitelka, fundraiserka, odbornice na genderovou rovnost a super uber žena, která má božího kocoura?"
+   :choices [{:text "Markéta Brabcová" :correct? true}
+             {:text "Miroslava Němcová"}
+             {:text "Dáda Patrasová"}
+             {:text "Olga Richterová"}]}
 }
