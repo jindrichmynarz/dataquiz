@@ -1005,4 +1005,10 @@
              {:text "Adéla Šípová"}
              {:text "Lenka Bradáčová"}
              {:text "Marie Benešová"}]}
+  {:type :multiple
+   :text "Jak se jmenuje legislativní právnička, která se nebojí vytáhnout do boje s Vatikánem a je největší českou odbornicí na legislativní znění definice znásilnění?"
+   :choices [{:text "Markéta Řádková" :correct? true}
+             {:text "Daniela Kovářová"}
+             {:text "Barbora Urbanová"}
+             {:text "Agáta Hanychová"}]}
 }
