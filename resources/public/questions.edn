@@ -1049,4 +1049,7 @@
              {:text "Alice Masaryková"}
              {:text "Milada Horáková"}]
    :explanation "Byla zvolena roku 1912. Ženy sice v té době volit nesměly, ale zákon nikde výslovně neuváděl, že nesmějí být voleny. Vikové-Kunětické ale české místodržitelství zabránilo ve výkonu mandátu."}
+  {:type :percent-range
+   :text "Kolik procent tvoří ženy v celkovém počtu zaměstnanectva Dopravního podniku hl. m. Prahy?"
+   :numeric-answer 15}
 }
