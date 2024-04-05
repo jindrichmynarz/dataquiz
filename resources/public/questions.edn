@@ -1110,7 +1110,9 @@
              {:text "Německo"}
              {:text "Chorvatsko"}
              {:text "Francie"}]
-   :explanation [:p "Lotyšsko má 50 %. Česká republika je s 27,6 % druhá nejhorší v EU (" [:a {:href "https://genderaveda.cz/wp-content/uploads/2024/03/Postaveni-zen-v-ceske-vede-2021.pdf"} "zdroj"] ")"]}
+   :explanation [:span "Lotyšsko má 50 %. Česká republika je s 27,6 % druhá nejhorší v EU ("
+                 [:a {:href "https://genderaveda.cz/wp-content/uploads/2024/03/Postaveni-zen-v-ceske-vede-2021.pdf"} "zdroj"]
+                 ")"]}
   {:type :multiple
    :text "Florence Nightingale je považována za zakladatelku kterého oboru?"
    :choices [{:text "Ošetřovatelství" :correct? true}
@@ -1118,4 +1120,10 @@
              {:text "Výroba udržitelné módy"}
              {:text "Knihovnictví"}]
    :explanation "Nightingale se proslavila, když sloužila jako manažerka a školitelka zdravotních sester během krymské války, ve které organizovala péči o zraněné vojáky."}
+  {:type :yesno
+   :text "V současné době tvoří většinu válečných obětí muži."
+   :correct? false
+   :explanation [:span "Odhaduje se, že téměř 90 % současných válečných obětí tvoří civilisté, z nichž většinu tvoří ženy a děti, ve srovnání s dobou před sto lety, kdy 90 % těch, kteří přišli o život, tvořili vojáci ("
+                 [:a {:href "https://www.un.org/womenwatch/daw/followup/session/presskit/fs5.htm"} "zdroj"]
+                 ")."]}
 }
