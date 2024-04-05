@@ -1098,4 +1098,7 @@
   {:type :percent-range
    :text "Kolik procent žen je v zastupitelstvech měst a obcí České republiky k dubnu 2024?"
    :numeric-answer 29}
+  {:type :percent-range
+   :text "Kolik procent žen je v týmu poradců prezidenta Petra Pavla k zahraniční politice k dubnu 2024?"
+   :numeric-answer 0}
 }
