@@ -1089,4 +1089,7 @@
   {:type :percent-range
    :text "Kolik procent žen je ve senátu České republiky k dubnu 2024?"
    :numeric-answer 18.5}
+  {:type :percent-range
+   :text "Kolik procent žen je v poslanecké sněmovně České republiky k dubnu 2024?"
+   :numeric-answer 26}
 }
