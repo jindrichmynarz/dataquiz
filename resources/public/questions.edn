@@ -1126,4 +1126,13 @@
    :explanation [:span "Odhaduje se, že téměř 90 % současných válečných obětí tvoří civilisté, z nichž většinu tvoří ženy a děti, ve srovnání s dobou před sto lety, kdy 90 % těch, kteří přišli o život, tvořili vojáci ("
                  [:a {:href "https://www.un.org/womenwatch/daw/followup/session/presskit/fs5.htm"} "zdroj"]
                  ")."]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/junko_tabei.jpeg"}]
+          [:p "Žena na fotografii je Junko Tabei. Čím se proslavila?"]]
+   :choices [{:text "Jako první žena vystoupala na Mt. Everest." :correct? true}
+             {:text "Přežitím 45 dnů v pralese poté, co se tam ztratila."}
+             {:text "Zabitím žraloka vlastníma rukama."}
+             {:text "Natočením filmu o mužích horolezcích."}]
+   :explanation "Tabei byla také první ženou, která vylezla Seven Summits (nejvyšší vrcholy sedmi kontinentů)."}
 }
