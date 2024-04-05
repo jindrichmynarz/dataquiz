@@ -1062,4 +1062,11 @@
              {:text "Johanna Nejedlová" :correct? true}
              {:text "Jana Černochová"}
              {:text "Taťána Malá"}]}
+  {:type :multiple
+   :text "Která země, kde je většina obyvatel muslimská, měla jako první ženu zvolenou do čela demokratické vlády?"
+   :choices [{:text "Pákistán" :correct? true}
+             {:text "Afghánistán"}
+             {:text "Írán"}
+             {:text "Indie"}]
+   :explanation "Byla jí Bénazír Bhutto v roce 1988."}
 }
