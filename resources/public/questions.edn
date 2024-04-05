@@ -1148,7 +1148,13 @@
           [:img {:src "/img/pornokrates.jpeg"}]
           [:p "Co oslavuje tento obraz, které se nazývá Pornokratès"]]
    :choices [{:text "Moc a vládu prostitutek" :correct? true}
-             {:text "Umění nemá jednu interpretaci" :correct? true} 
-             {:text "Inteligence prasat"}
-             {:text "Sklizně obilí"}]}
+             {:text "Dílo nemá jednu interpretaci" :correct? true} 
+             {:text "Inteligenci prasat"}
+             {:text "Sklizeň obilí"}]}
+  {:type :multiple
+   :text "Která žena získala jako první ocenění sportovkyně EU?"
+   :choices [{:text "Ester Ledecká" :correct? true}
+             {:text "Elisa Longo Borghini"}
+             {:text "Femke Bol"}
+             {:text "Jelena Isinbajeva"}]}
 }
