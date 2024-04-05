@@ -1092,4 +1092,7 @@
   {:type :percent-range
    :text "Kolik procent žen je v poslanecké sněmovně České republiky k dubnu 2024?"
    :numeric-answer 26}
+  {:type :percent-range
+   :text "Kolik procent žen je v zastupitelstvech krajů České republiky k dubnu 2024?"
+   :numeric-answer 22}
 }
