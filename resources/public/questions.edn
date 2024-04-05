@@ -1111,4 +1111,11 @@
              {:text "Chorvatsko"}
              {:text "Francie"}]
    :explanation [:p "Lotyšsko má 50 %. Česká republika je s 27,6 % druhá nejhorší v EU (" [:a {:href "https://genderaveda.cz/wp-content/uploads/2024/03/Postaveni-zen-v-ceske-vede-2021.pdf"} "zdroj"] ")"]}
+  {:type :multiple
+   :text "Florence Nightingale je považována za zakladatelku kterého oboru?"
+   :choices [{:text "Ošetřovatelství" :correct? true}
+             {:text "Učitelství"}
+             {:text "Výroba udržitelné módy"}
+             {:text "Knihovnictví"}]
+   :explanation "Nightingale se proslavila, když sloužila jako manažerka a školitelka zdravotních sester během krymské války, ve které organizovala péči o zraněné vojáky."}
 }
