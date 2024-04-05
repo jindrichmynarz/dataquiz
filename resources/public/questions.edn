@@ -1129,10 +1129,18 @@
   {:type :multiple
    :text [:<>
           [:img {:src "/img/junko_tabei.jpeg"}]
-          [:p "Žena na fotografii je Junko Tabei. Čím se proslavila?"]]
+          [:p "Žena na fotografii je Džunko Tabei. Čím se proslavila?"]]
    :choices [{:text "Jako první žena vystoupala na Mt. Everest." :correct? true}
              {:text "Přežitím 45 dnů v pralese poté, co se tam ztratila."}
              {:text "Zabitím žraloka vlastníma rukama."}
              {:text "Natočením filmu o mužích horolezcích."}]
    :explanation "Tabei byla také první ženou, která vylezla Seven Summits (nejvyšší vrcholy sedmi kontinentů)."}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/sarojini_naidu.png"}]
+          [:p "Žena na fotografii je Saródžiní Naidú. Čím se proslavila?"]]
+   :choices [{:text "První ženská guvernérka indického státu Uttarpradéš." :correct? true}
+             {:text "Svou rolí ve vzniku hnutí za práva žen v Indii a bojem za nezávislost Indie." :correct? true}
+             {:text "Upečením prvního naan breadu."}
+             {:text "Byla ženou Mahátmá Gandhího."}]}
 }
