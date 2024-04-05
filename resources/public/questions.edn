@@ -1056,4 +1056,10 @@
    :text "První žena začala pracovat jako řidička tramvají v Praze v roce 1915."
    :correct? false
    :explanation "První ženy opravdu začaly u DPP pracovat v roce 1915, avšak jako průvodčí. Jako řidičky byly zaměstnány až během druhé světové války."}
+  {:type :multiple
+   :text "Jak se jmenuje přední česká feministka, která založila Konsent a je absolutní powerhouse?"
+   :choices [{:text "Johanna Uždojedla" :correct? true}
+             {:text "Johanna Nejedlová" :correct? true}
+             {:text "Jana Černochová"}
+             {:text "Taťána Malá"}]}
 }
