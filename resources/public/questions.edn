@@ -1073,4 +1073,8 @@
    :text "Nekatolíci mohli na Karlově univerzitě studovat dříve než ženy."
    :correct? true
    :explanation "První ženy byly připuštěny na přednášky od roku 1895. Nekatolíkům bylo studium umožněno od roku 1781."}
+  {:type :yesno
+   :text "Česká republika měla ženu lékařku (tj. řádně vystudovala lékařství a dosáhla promoce) dříve než USA."
+   :correct? false
+   :explanation "První žena v USA se stala lékařkou roku 1849 zatímco v Česku to bylo až v roce 1902."}
 }
