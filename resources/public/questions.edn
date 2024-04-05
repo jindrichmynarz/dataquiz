@@ -1143,4 +1143,12 @@
              {:text "Svou rolí ve vzniku hnutí za práva žen v Indii a bojem za nezávislost Indie." :correct? true}
              {:text "Upečením prvního naan breadu."}
              {:text "Byla ženou Mahátmá Gandhího."}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/pornokrates.jpeg"}]
+          [:p "Co oslavuje tento obraz, které se nazývá Pornokratès"]]
+   :choices [{:text "Moc a vládu prostitutek" :correct? true}
+             {:text "Umění nemá jednu interpretaci" :correct? true} 
+             {:text "Inteligence prasat"}
+             {:text "Sklizně obilí"}]}
 }
