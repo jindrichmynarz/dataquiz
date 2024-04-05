@@ -1104,4 +1104,11 @@
   {:type :percent-range
    :text "Kolik procent žen bylo v armádě České republiky k září 2023?"
    :numeric-answer 14}
+  {:type :multiple
+   :text "Která země EU měla roku 2021 největší podíl žen ve vědě?"
+   :choices [{:text "Lotyšsko" :correct? true}
+             {:text "Německo"}
+             {:text "Chorvatsko"}
+             {:text "Francie"}]
+   :explanation [:p "Lotyšsko má 50 %. Česká republika je s 27,6 % druhá nejhorší v EU (" [:a {:href "https://genderaveda.cz/wp-content/uploads/2024/03/Postaveni-zen-v-ceske-vede-2021.pdf"} "zdroj"] ")"]}
 }
