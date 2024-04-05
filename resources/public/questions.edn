@@ -1101,4 +1101,7 @@
   {:type :percent-range
    :text "Kolik procent žen je v týmu poradců prezidenta Petra Pavla k zahraniční politice k dubnu 2024?"
    :numeric-answer 0}
+  {:type :percent-range
+   :text "Kolik procent žen bylo v armádě České republiky k září 2023?"
+   :numeric-answer 14}
 }
