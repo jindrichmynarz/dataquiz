@@ -1083,4 +1083,7 @@
              {:text "Učitelství"}
              {:text "Výpočetní techniku"}
              {:text "Lékařství"}]}
+  {:type :percent-range
+   :text "Kolik procent žen je ve vládě České republiky k dubnu 2024?"
+   :numeric-answer 11}
 }
