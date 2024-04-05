@@ -1077,4 +1077,10 @@
    :text "Česká republika měla ženu lékařku (tj. řádně vystudovala lékařství a dosáhla promoce) dříve než USA."
    :correct? false
    :explanation "První žena v USA se stala lékařkou roku 1849 zatímco v Česku to bylo až v roce 1902."}
+  {:type :multiple
+   :text "Jaký obor vystudovala Marie Zdeňka Baborová, která se stala první doktorkou filozofie na Univerzitě Karlově?"
+   :choices [{:text "Zoologii" :correct? true}
+             {:text "Učitelství"}
+             {:text "Výpočetní techniku"}
+             {:text "Lékařství"}]}
 }
