@@ -1069,4 +1069,8 @@
              {:text "Írán"}
              {:text "Indie"}]
    :explanation "Byla jí Bénazír Bhutto v roce 1988."}
+  {:type :yesno
+   :text "Nekatolíci mohli na Karlově univerzitě studovat dříve než ženy."
+   :correct? true
+   :explanation "První ženy byly připuštěny na přednášky od roku 1895. Nekatolíkům bylo studium umožněno od roku 1781."}
 }
