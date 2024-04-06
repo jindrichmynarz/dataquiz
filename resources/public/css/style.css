@@ -82,6 +82,10 @@ a:hover, a:focus {
   max-width: 500px;
 }
 
+.question blockquote {
+  padding-left: 1em;
+}
+
 ul.choices {
   padding: 0;
   display: grid;
