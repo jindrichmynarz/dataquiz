@@ -191,6 +191,7 @@ ul.choices li button {
 }
 
 .explanation {
+  font-size: 1.3rem;
   margin: 1em 0;
   padding: 15px;
   border: 1px solid #ddd;
