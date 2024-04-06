@@ -34,7 +34,7 @@
   (letfn [(answer [guess]
             #(rf/dispatch [::events/answer-question (= guess correct?)]))]
     [rc/v-box
-     :children [[:p.question text]
+     :children [[:div.question text]
                 [:ul.choices
                  [:li [:button
                        (if answer-revealed?
