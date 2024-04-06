@@ -1146,7 +1146,7 @@
   {:type :multiple
    :text [:<>
           [:img {:src "/img/pornokrates.jpeg"}]
-          [:p "Co oslavuje tento obraz, které se nazývá Pornokratès"]]
+          [:p "Co oslavuje tento obraz, které se nazývá Pornokratès?"]]
    :choices [{:text "Moc a vládu prostitutek" :correct? true}
              {:text "Dílo nemá jednu interpretaci" :correct? true}
              {:text "Inteligenci prasat"}
