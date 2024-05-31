@@ -1,7 +1,9 @@
 (ns net.mynarz.dataquiz.events
   (:require [ajax.edn :as edn]
             [clj-fuzzy.jaro-winkler :refer [jaro-winkler]]
-            [clojure.spec.alpha :as s]
+            [goog.string :as gstring]
+            [goog.string.format]
+            [goog.string :as gstring]
             [net.mynarz.az-kviz.logic :as az]
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
@@ -43,7 +45,12 @@
 (defmethod guess-matches-answer? :sort
   [{:keys [items]}
    guess]
-  (= guess items))
+  (or (= guess items)
+      ; Allow 1 transposition
+      (<= (->> (map = guess items)
+               (filter false?)
+               count)
+          2)))
 
 (rf/reg-event-fx
   ::initialize
@@ -59,15 +66,18 @@
   ::submit
   (fn [{{{{route-name :name} :data} :route
          :keys [answer-revealed? question]} :db} _]
-    (when-let [event-name (cond (and (= route-name :play)
-                                     question
-                                     (not answer-revealed?))
-                                ::answer-question
+    (when-let [effect (cond (= route-name :enter)
+                            [::fx/navigate-to :play]
 
-                                (and (= route-name :play)
-                                     answer-revealed?)
-                                ::next-question)]
-      {:fx [[:dispatch [event-name]]]})))
+                            (and (= route-name :play)
+                                 question
+                                 (not answer-revealed?))
+                            [:dispatch [::answer-question]]
+
+                            (and (= route-name :play)
+                                 answer-revealed?)
+                            [:dispatch [::next-question]])]
+      {:fx [effect]})))
 
 (rf/reg-event-db
   ::change-route
@@ -86,6 +96,7 @@
 (rf/reg-event-db
   ::load-questions
   (fn [db [_ questions]]
+    (println (gstring/format "Máme %d otázek." (count questions)))
     (-> db
         (assoc :questions questions)
         (dissoc :loading?))))
@@ -162,6 +173,7 @@
                                            [:missed other-player]))]
       {:db (-> db
                (assoc-in [:board-state active-tile-id :status] new-tile-state)
+               (assoc-in [:board-state active-tile-id :text] (str (inc active-tile-id)))
                (assoc :next-player next-player)
                (assoc :answer-revealed? true))
        :fx [[::fx/cancel-timeout (get-in db [:timeout ::pick-question])]]})))
@@ -198,7 +210,7 @@
                  (assoc-in [:timeout timeout-key] timeout-id)
                  (cond->
                    (= (:type question) :open)
-                   (update-in [:board-state tile-id :text] abbreviate (:answer question))
+                   (assoc-in [:board-state tile-id :text] (abbreviate (:answer question)))
 
                    (= (:type question) :sort)
                    (assoc :guess (-> question :items shuffle))))}
@@ -220,12 +232,32 @@
     (assoc-in db [:guess index :status] :dragging)))
 
 (rf/reg-event-db
+  ::drag-enter
+  (fn [db [_ index]]
+    (update-in db
+               [:guess index :status]
+               (fn [status]
+                 (if-not (= status :dragging)
+                   :drag-over
+                   status)))))
+
+(rf/reg-event-db
+  ::drag-leave
+  (fn [db [_ index]]
+    (update-in db
+               [:guess index]
+               (fn [{:keys [status] :as item}]
+                 (if (= status :drag-over)
+                   (dissoc item :status)
+                   item)))))
+
+(rf/reg-event-db
   ::drag-end
   (fn [db [_ index]]
     (update-in db [:guess index] #(dissoc % :status))))
 
-(defn insert-after
-  "Insert `item` after `index` in `items`."
+(defn insert-before
+  "Insert `item` before `index` in `items`."
   [item index items]
   (let [[before after] (->> items
                             (remove #{item})
@@ -238,4 +270,4 @@
         :as db}
        [_ index]]
     (let [dragged-item (first (filter (comp #{:dragging} :status) items))]
-      (update db :guess (partial insert-after dragged-item index)))))
+      (update db :guess (partial insert-before dragged-item index)))))

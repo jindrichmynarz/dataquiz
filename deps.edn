@@ -3,7 +3,8 @@
                               day8.re-frame/tracing      {:mvn/version "0.6.2"}
                               day8/shadow-git-inject     {:mvn/version "0.0.5"}
                               metosin/reagent-dev-tools  {:mvn/version "1.0.1"}
-                              org.slf4j/slf4j-nop        {:mvn/version "2.0.12"}}}}
+                              org.slf4j/slf4j-nop        {:mvn/version "2.0.12"}}}
+           :test {:extra-paths ["test"]}}
  :deps {clj-fuzzy/clj-fuzzy                {:mvn/version "0.4.1"}
         cljs-ajax/cljs-ajax                {:mvn/version "0.8.4"}
         day8.re-frame/http-fx              {:mvn/version "0.2.4"}
