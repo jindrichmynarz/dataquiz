@@ -1,3 +1,3 @@
 # dataquiz
 
-An app that generates quizes from data.
+Data-driven quizes.
