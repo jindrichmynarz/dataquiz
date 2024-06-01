@@ -125,15 +125,7 @@
               [footer]]
    :justify :start])
 
-(defn play
-  []
-  (rc/h-box
-    :class "play"
-    :children [[error-modal]
-               [board]
-               [controls]]))
-
-(defn verdict
+(defn winner-box
   []
   (let [winner @(rf/subscribe [::subs/winner])]
     (when winner
@@ -143,6 +135,24 @@
                   [:h1 "🏆"]
                   [:h2 (gstring/format "Vítězem se stává %s!" winner)]]
        :justify :start])))
+
+(defn verdict
+  []
+  (rc/h-box
+    :align :center
+    :children [(rc/box
+                :class "board-won"
+                :child [board]
+                :max-width "50%")
+               [winner-box]]
+    :justify :center))
+
+(defn play
+  []
+  (rc/h-box
+    :children [[error-modal]
+               [board]
+               [controls]]))
 
 (defn ui
   []

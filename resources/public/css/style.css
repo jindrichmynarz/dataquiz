@@ -239,3 +239,7 @@ ul.choices li button {
 .sortable-list li.dragging {
   background: #eee;
 }
+
+.board-won {
+  pointer-events: none;
+}
