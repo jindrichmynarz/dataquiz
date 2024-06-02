@@ -77,11 +77,13 @@
               [question-box]]])
 
 (defn lets-play
-  []
-  [rc/hyperlink-href
-   :class "button"
-   :href (rfe/href :play)
-   :label "Hrát"])
+  ([]
+   (lets-play "Hrát" :play))
+  ([text href]
+   [rc/hyperlink-href
+    :class "button"
+    :href (rfe/href href)
+    :label text]))
 
 (defn enter-player-name
   [player]
@@ -140,11 +142,15 @@
   []
   (rc/h-box
     :align :center
-    :children [(rc/box
+    :children [[rc/box
                 :class "board-won"
                 :child [board]
-                :max-width "50%")
-               [winner-box]]
+                :max-width "50%"]
+               [rc/v-box
+                :align :center
+                :children [[winner-box]
+                           [lets-play "Hrát znovu" :enter]]
+                :gap "4em"]]
     :justify :center))
 
 (defn play
