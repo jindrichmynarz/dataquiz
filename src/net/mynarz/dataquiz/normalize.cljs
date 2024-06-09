@@ -1,5 +1,6 @@
 (ns net.mynarz.dataquiz.normalize
-  (:require [clojure.string :as string]))
+  (:require [clojure.string :as string]
+            [clojure.walk :as walk]))
 
 (def ^:private default-diacritics-removal-map
   "Clojurescript version of <http://stackoverflow.com/a/18391901/385505>"
@@ -221,3 +222,16 @@
 
 (def abbreviate
   (comp abbreviate-tokens tokenize))
+
+(def malicious?
+  (every-pred vector? (comp (partial = :script) first)))
+
+(defn sanitize-hiccup
+  "Remove <script> elements from `hiccup`."
+  [hiccup]
+  (walk/postwalk
+    (fn [form]
+      (if (and (vector? form) (not (map-entry? form)))
+          (into [] (remove malicious? form))
+          form))
+    hiccup))

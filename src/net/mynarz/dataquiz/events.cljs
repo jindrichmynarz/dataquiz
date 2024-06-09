@@ -7,7 +7,7 @@
             [net.mynarz.az-kviz.logic :as az]
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
-            [net.mynarz.dataquiz.normalize :refer [abbreviate normalize-answer]]
+            [net.mynarz.dataquiz.normalize :as normalize]
             [re-frame.core :as rf]
             [re-pressed.core :as rp]
             [reitit.frontend.controllers :as rfc]))
@@ -32,8 +32,8 @@
 (defmethod guess-matches-answer? :open
   [{:keys [answer]} guess & {:keys [threshold]
                              :or {threshold 0.94}}]
-  (> (jaro-winkler (normalize-answer guess)
-                   (normalize-answer answer))
+  (> (jaro-winkler (normalize/normalize-answer guess)
+                   (normalize/normalize-answer answer))
      threshold))
 
 (defmethod guess-matches-answer? :percent-range
@@ -93,10 +93,11 @@
 (rf/reg-event-db
   ::load-questions
   (fn [db [_ questions]]
-    (println (gstring/format "Máme %d otázek." (count questions)))
-    (-> db
-        (assoc :questions questions)
-        (dissoc :loading?))))
+    (let [sanitized-questions (normalize/sanitize-hiccup questions)]
+      (println (gstring/format "Máme %d otázek." (count sanitized-questions)))
+      (-> db
+          (assoc :questions sanitized-questions)
+          (dissoc :loading?)))))
 
 (rf/reg-event-fx
   ::download-questions
@@ -207,7 +208,7 @@
                  (assoc-in [:timeout timeout-key] timeout-id)
                  (cond->
                    (= (:type question) :open)
-                   (assoc-in [:board-state tile-id :text] (abbreviate (:answer question)))
+                   (assoc-in [:board-state tile-id :text] (normalize/abbreviate (:answer question)))
 
                    (= (:type question) :sort)
                    (assoc :guess (-> question :items shuffle))))}
