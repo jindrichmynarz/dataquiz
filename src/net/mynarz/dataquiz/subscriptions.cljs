@@ -54,4 +54,5 @@
 (reg-sub
   ::winner
   (fn [{:keys [winner] :as db}]
-    (get db winner)))
+    {:name (get db winner)
+     :id winner}))

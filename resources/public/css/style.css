@@ -243,3 +243,15 @@ ul.choices li button {
 .board-won {
   pointer-events: none;
 }
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#shine {
+  transform-box: fill-box;
+  transform-origin: center center;
+  animation: rotate linear 60s infinite;
+}
