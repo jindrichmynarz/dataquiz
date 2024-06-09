@@ -587,4 +587,574 @@
            {:text "Eva Samková" :sort-value 2}
            {:text "Barbora Špotáková" :sort-value 3}
            {:text "Martina Sáblíková" :sort-value 7}]}
+  {:type :multiple
+   :text "Co bylo hlavní náplní Ženského výrobního spolku, který v roce 1871 založila spisovatelka Karolína Světlá?"
+   :choices [{:text "Vydávat knihy"}
+             {:text "Péct dorty"}
+             {:text "Vzdělávat a shánět práci chudým ženám" :correct? true}
+             {:text "Vyrábět vojenský materiál pro vojáky"}]}
+  {:type :multiple
+   :text "Ellen Johnson Sirleaf byla první ženou v Africe, která byla zvolena jako hlava státu. O který šlo?"
+   :choices [{:text "Libérie" :correct? true}
+             {:text "Ghana"}
+             {:text "Jihoafrická republika"}
+             {:text "Egypt"}]
+   :explanation "Byla zvolena roku 2005."}
+  {:type :sort
+   :text "Seřaďte sestry Kardashianovi od nejstarší po nejmladší."
+   :items [{:text "Kourtney" :sort-value 1979}
+           {:text "Kim" :sort-value 1980}
+           {:text "Khloé" :sort-value 1984}
+           {:text "Kendall" :sort-value 1995}
+           {:text "Kylie" :sort-value 1997}]}
+  {:type :multiple
+   :text [:<>
+           [:img {:src "/img/burkini.jpg"}]
+           [:p "Jak se nazývá tento ženský oděv?"]]
+   :choices [{:text "Hidžáb"}
+             {:text "Burka"}
+             {:text "Burkini" :correct? true}
+             {:text "Čádor"}]}
+  {:type :percent-range
+   :text "Kolik procent českých žen nemá rádo velikonoční šlehání?"
+   :numeric-answer 79}
+  {:type :yesno
+   :text "Pokud je zavražděna žena, vrahem je v 84 % její partner."
+   :correct? false
+   :explanation "Partner je vrahem v 38 % případů."}
+  {:type :multiple
+   :text "Co je to “rodinné hlasování”?"
+   :choices [{:text "Člen rodiny, typicky muž, kontroluje způsob hlasování ostatních členů rodiny, nejčastěji žen, ale i mladších členů." :correct? true}
+             {:text "Rodina se demokraticky dohodne, jak hlasovat ve volbách."}
+             {:text "Hlasování pro kandidáty podporující rodiny."}
+             {:text "Trend hlasování pro své příbuzné."}]
+   :explanation "Tato praktika narušuje princip tajnosti hlasování."}
+  {:type :yesno
+   :text "První žena objela svět na kole roku 1974."
+   :correct? false
+   :explanation "První byla Annie Londonderry, která svět objela v letech 1894-1895."}
+  {:type :sort
+   :text "Seřaďte státy chronologicky podle roku, kdy v nich ženy získaly všeobecné volební právo."
+   :items [{:text "Rusko" :sort-value 1917}
+           {:text "Brazílie" :sort-value 1932}
+           {:text "Řecko" :sort-value 1952}
+           {:text "Lichtenštejnsko" :sort-value 1984}]}
+  {:type :multiple
+   :text [:<>
+          [:p "Kterému náboženství patří následující modlitba?"]
+          [:blockquote "Požehnaný jsi Ty, Hospodine, Bože náš, Králi všehomíra, jenž mě neučinil ženou."]]
+   :choices [{:text "Judaismus" :correct? true}
+             {:text "Islám"}
+             {:text "Pravoslaví"}
+             {:text "Mormonství"}]
+   :explanation "Muži modlitbu říkají během Birchot ha-šachar – ranního požehnání."}
+  {:type :yesno
+   :text "Váha ženského mozku s věkem klesá průměrně o 2,7 gramu, zatímco u mužů je to o 2,2 gramu."
+   :correct? false
+   :explanation "Je to naopak. Muži mají průměrně těžší mozek."}
+  {:type :multiple
+   :text "Co je to pinkwashing?"
+   :choices [{:text "Druh klamavého marketingu využívající LGBT+ lidi a jejich zájmy" :correct? true}
+             {:text "Rozšíření růžové stužky jako symbolu boje proti rakovině prsu"}
+             {:text "Módní trend růžové po uvedení filmu Barbie"}
+             {:text "Praní bílého prádla spolu s červeným"}]}
+  {:type :multiple
+   :text "Co bylo označeno pojmem “pinkwashing” jako první?"
+   :choices [{:text "Izraelská propaganda legitimizující xenofobii vůči muslimům kvůli jejich intoleranci LGBT+" :correct? true}
+             {:text "Sponzorování pride parade korporacemi"}
+             {:text "Apropriace LGBT+ kultury v hollywoodských filmech"}
+             {:text "Reklama zacílená na LGBT+ komunitu"}]}
+  {:type :yesno
+   :text "V Sovětském svazu byl feminismus klasifikován jako buržoazní ideologie, tedy kontrarevoluční a antisovětská."
+   :correct? true}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/volte_nase_holky.png"}]
+          [:p "Která politická strana použila tento billboard?"]]
+   :choices [{:text "Věci veřejné" :correct? true}
+             {:text "ANO 2011"}
+             {:text "LIDEM - Liberální demokraté"}
+             {:text "TOP 09"}]}
+  {:type :open
+   :text "Jak jmenuje surrealistický film Věry Chytilové z roku 1966 o dvou dívkách, které se nudí?"
+   :answer "Sedmikrásky"}
+  {:type :open
+   :text "Jak se jmenovala výrazná představitelka československé nové vlny v 60. letech 20. letech, která kombinovala řadu uměleckých profesí, neboť byla režisérka, dramatička, spisovatelka, scenáristka, výtvarnice, scénografka a kostýmní návrhářka?"
+   :answer "Ester Krumbachová"}
+  {:type :yesno
+   :text "První československá ministryně byla zvolena ve volbách roku 1925."
+   :correct? false
+   :explanation "Byla to Ludmila Jankovcová, která byla roku 1947 zvolena jako ministryně průmyslu."}
+  {:type :yesno
+   :text "Milada Horáková byla první žena v Československu, která byla odsouzena k trestu smrti v politickém procesu."
+   :correct? true}
+  {:type :multiple
+   :text "Od kterého roku si československé ženy mohly ponechávat svá rodná příjmení i po svatbě?"
+   :choices [{:text "1949" :correct? true}
+             {:text "1919"}
+             {:text "1989"}
+             {:text "1969"}]}
+  {:type :multiple
+   :text "Jak se jmenovala první antikoncepční pilulka uvedená na československý trh roku 1965?"
+   :choices [{:text "Antigest" :correct? true}
+             {:text "Antikon"}
+             {:text "Ankopil"}
+             {:text "Liberta"}]}
+  {:type :percent-range
+   :text "Kolik procent žen nad 25 let bylo roku 1983 provdáno?"
+   :numeric-answer 85}
+  {:type :percent-range
+   :text "Kolik procent pasažérů hromadné dopravy ve Francii tvoří ženy?"
+   :numeric-answer 66}
+  {:type :yesno
+   :text "V letech 2018-2022 ženy v Česku spáchaly 4,1-krát více sebevražd než muži."
+   :correct? false
+   :explanation "Je to naopak."}
+  {:type :yesno
+   :text "Až do roku 1950 v Československu patřil veškerý majetek muži, dokonce i ten, který do manželství přinesla žena."
+   :correct? true}
+  {:type :multiple
+   :text "Komu se říkalo “andělíčkářka”?"
+   :choices [{:text "Ženě provádějící nelegální interrupce" :correct? true}
+             {:text "Fanatické křesťaňce"}
+             {:text "Vedoucí sirotčince"}
+             {:text "Vychovatelce z dívčí školy"}]}
+  {:type :yesno
+   :text "V potratových komisích v socialistickém Československu seděly také “zkušené matky.”"
+   :correct? true}
+  {:type :percent-range
+   :text "Kolik procent interrupcí schválily potratové komise v socialistickém Československu?"
+   :numeric-answer 90}
+  {:type :multiple
+   :text "Co bylo heslem demonstrace kvůli nedostatku menstruačních potřeb roku 1988 v Československu?"
+   :choices [{:text "Chceme vložky mezi nožky!" :correct? true}
+             {:text "Radši tampóny než tuzexové kupóny!"}
+             {:text "Republice více práce, tomu brání menstruace!"}
+             {:text "Soudružky všech zemí, spojte se!"}]}
+  {:type :multiple
+   :text "Po dekriminalizaci homosexuality v Československu roku 1962 byl stanoven minimální věk pro homosexuální styk na:"
+   :choices [{:text "18 let" :correct? true}
+             {:text "15 let"}
+             {:text "21 let"}
+             {:text "25 let"}]
+   :explanation "Heterosexuální styk byl legální již od 15 let."}
+  {:type :yesno
+   :text "Transgender lidé v 70. letech v Československu podstupovali toxikoterapii pomocí metamfetaminu."
+   :correct? false
+   :explanation "Šlo o terapii pomocí LSD."}
+  {:type :multiple
+   :text "Co bylo cílem politické strany Rovnost šancí?"
+   :choices [{:text "Dohnat Makedonii" :correct? true}
+             {:text "Udržení mezigenerační solidarity" :correct? true}
+             {:text "Úplné zrovnoprávnění žen ve společnosti" :correct? true}
+             {:text "Eliminace platových rozdílů mezi muži a ženami" :correct? true}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/devcatka_na_slovicko.jpg"}]
+          [:p "O čem je kniha 'Děvčátka, na slovíčko'?"]]
+   :choices [{:text "První osvětová publikace o ženské reprodukci, která v Československu vyšla" :correct? true}
+             {:text "První kniha o feminismu v Československu"}
+             {:text "Populárně-naučná kniha o konzervativních rodinných hodnotách"}
+             {:text "Kniha o vývojové psychologii zaměřená na mladé dívky"}]}
+  {:type :multiple
+   :text "Od kterého roku mohou ženy v Saúdské Arábii řídit auto?"
+   :choices [{:text "2018" :correct? true}
+             {:text "Ženy řídit auto nemohou"}
+             {:text "1975"}
+             {:text "1999"}]}
+  {:type :yesno
+   :text "Zakázal Talibán ženám sportovat?"
+   :correct? true}
+  {:type :yesno
+   :text "Ženy tvoří třetinu světové populace negramotných nad 15 let."
+   :correct? false
+   :explanation "Ženy tvoří 2/3."}
+  {:type :yesno
+   :text "Nejmladší nositelkou Nobelovy ceny míru je žena."
+   :correct? true
+   :explanation "Malála Júsufzaj cenu získala v roce 2014, když jí bylo 17 let."}
+  {:type :open
+   :text "Jak se říká diskuznímu panelu, který nezahrnuje ženy?"
+   :answer "Manel"}
+  {:type :yesno
+   :text "V Indii je legální znásilnit manželku."
+   :correct? true}
+  {:type :open
+   :text "Jak se nazývala demonstrace polských žen proti zpřísnění pravidel pro interrupce roku 2016?"
+   :answer "Czarny protest"}
+  {:type :open
+   :text [:<>
+          [:img {:src "/img/cyborg_manifesto.jpg"}]
+          [:p "Jak se nazývá posthumanistická esej feministky Donny Haraway z roku 1985?"]]
+   :answer "Cyborg Manifesto"}
+  {:type :sort
+   :text "Seřaďte země chronologicky podle roku, kdy v nich skončila možnost vyvázat se z trestní odpovědnosti za znásilnění svatbou s obětí."
+   :items [{:text "Itálie" :sort-value 1981}
+           {:text "Francie" :sort-value 1994}
+           {:text "Brazílie" :sort-value 2005}
+           {:text "Bulharsko" :sort-value 2015}]}
+  {:type :yesno
+   :text "V Rusku je možné se vyvázat z trestní odpovědnosti za znásilnění oběti mezi 14-16 lety, pokud se s ní útočník sezdá."
+   :correct? true}
+  {:type :yesno
+   :text "Největší rozdíl mezi počtem žen a mužů v populaci je v Číně."
+   :correct? false
+   :explanation "Jde o Indii, kde rozdíl činí 37 miliónů."}
+  {:type :multiple
+   :text "Co dle archaických nepálských zvyků nesmí dělat ženy během menstruace?"
+   :choices [{:text "Dotýkat se mužů a dobytka" :correct? true}
+             {:text "Vařit" :correct? true}
+             {:text "Číst knihy"}
+             {:text "Mluvit"}]}
+  {:type :yesno
+   :text "V Indonésii je panenství podmínkou pro vstup žen do armády nebo policie."
+   :correct? false
+   :explanation "Tato podmínka byla zrušena roku 2021."}
+  {:type :multiple
+   :text "Kvůli čemu roku 2022 íránská mravnostní policie ubila dvaadvacetiletou Mashu Amíní?"
+   :choices [{:text "Měla nedostatečně zahalené vlasy" :correct? true}
+             {:text "Porušila Ramadán"}
+             {:text "Odříkala svému muži"}
+             {:text "Šířila feministickou literaturu"}]}
+  {:type :yesno
+   :text "Podíl obřezaných žen v populaci v absolutních číslech roste, ale v relativních číslech klesá."
+   :correct? true}
+  {:type :open
+   :text "Ve které zemi je od roku 1994 zakázáno určování pohlaví nenarozených plodů?"
+   :answer "Indie"}
+  {:type :multiple
+   :text "Kde je právo na interrupci zakotveno v ústavě?"
+   :choices [{:text "Kalifornie" :correct? true}
+             {:text "Francie" :correct? true}
+             {:text "Česko"}
+             {:text "Finsko"}]}
+  {:type :yesno
+   :text "Měl manžel v západním Německu do 60. let 20. století právo vypovědět pracovní místo své ženy bez jejího souhlasu?"
+   :correct? true}
+  {:type :multiple
+   :text [:<>
+          [:p "Kdo je autorem následujících slov?"]
+          [:blockquote "Musím však konstatovat, že v našem prostředí - jakkoliv jsou tu ženy na tom mnohonásobně hůře než na Západě - se jeví feminismus prostě jako dada."]]
+   :choices [{:text "Václav Havel" :correct? true}
+             {:text "Miloš Zeman"}
+             {:text "Václav Klaus starší"}
+             {:text "Egon Bondy"}]}
+  {:type :multiple
+   :text "Podle básničky Jiřího Žáčka tu kluci jsou k tomu “aby se svět točil vpřed.” Holky tu jsou k čemu?"
+   :choices [{:text "Aby z nich byly maminky" :correct? true}
+             {:text "Aby náš svět byl v pořádku" :correct? true}
+             {:text "Aby na světě bylo krásně"}
+             {:text "Aby kluci svět nevyhodili do povětří"}]}
+  {:type :multiple
+   :text "Ve kterém roce byla ženám povolena účast na Olympijských hrách?"
+   :choices [{:text "1900" :correct? true}
+             {:text "1948"}
+             {:text "1990"}
+             {:text "1920"}]
+   :explanation "Bylo to na Olympijských hrách ve Francii."}
+  {:type :yesno
+   :text "Po anexi Sudet československý stát propustil všechny vdané ženy, aby uvolnil pracovní místa pro muže prchající ze Sudet."
+   :correct? true}
+  {:type :multiple
+   :text "Co doporučilo Hnutí pro život Ukrajinkám znásilněným ruskými vojáky?"
+   :choices [{:text "Pepřáky a houkadla" :correct? true}
+             {:text "Emigraci"}
+             {:text "Nalezení manžela jako ochránce"}
+             {:text "Aplikaci nouzové antikoncepce Postinor"}]}
+  {:type :yesno
+   :text [:<>
+          [:img {:src "/img/fdr.png"}]
+          [:p "Na fotce je muž."]]
+   :correct? true
+   :explanation "Je to asi tříletý Franklin Delano Roosevelt."}
+  {:type :open
+   :text "Jak se říká ženě zařazené do skupiny, aby zvýšila dojem její diverzity?"
+   :answer "Token woman"}
+  {:type :open
+   :text "Jak se říká ženě, která dělá vše pro externí validaci, převážně muži?"
+   :answer "Pick-me girl"}
+  {:type :yesno
+   :text "V antickém Řecku musel muž znásilněnou manželku opustit."
+   :correct? true}
+  {:type :open
+   :text [:<>
+          [:p "Jak se jmenoval autor následujících slov:"]
+          [:blockquote "Vždyť je věc jasná, že všechny ženy mají dlouhé vlasy, ale krátký rozum."]]
+   :answer "Kosmas"}
+  {:type :multiple
+   :text "Co doporučuje český reformátor Jan Hus pro 'napravování' ženy?"
+   :choices [{:text "Prut" :correct? true}
+             {:text "Hůl"}
+             {:text "Knihu"}
+             {:text "Metličku"}]}
+  {:type :multiple
+   :text "Na co mohla mít podle lidových pověr ještě v 19. století žena v šestinedělí vliv?"
+   :choices [{:text "Kažení potravin" :correct? true}
+             {:text "Vznik přírodních katastrof" :correct? true}
+             {:text "Ponoukání k hříšnému chování"}
+             {:text "Deštivost"}]}
+  {:type :multiple
+   :text "Co bylo nalezeno u kosterních pozůstatků 'Dámy z Hlinska' z pozdní doby kamenné?"
+   :choices [{:text "Sekeromlat" :correct? true}
+             {:text "Bronzová brož"}
+             {:text "Kosterní pozůstatky pěti mužů"}
+             {:text "Acháty"}]}
+  {:type :open
+   :text "Jak se jmenuje myšlenkový směr založený Sdružením přátel heterosexuálního bílého muže a jejich obdivovatelek?"
+   :answer "Maskulinismus"}
+  {:type :multiple
+   :text [:<>
+          [:p "Kdo řekl následující slova?"]
+          [:blockquote "Kdybych byl trochu mladší, tak zorganizuji obrovskou demonstraci heterosexuálů v Praze. A budou nás miliony."]]
+   :choices [{:text "Miloš Zeman" :correct? true}
+             {:text "Ladislav Jakl"}
+             {:text "Petr Hampl"}
+             {:text "Petr Fiala"}]}
+  {:type :multiple
+   :text "Která kniha začíná touto větou: \"It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in a want of a wife.\"?"
+   :choices [{:text "Pýcha a předsudek" :correct? true}
+             {:text "Jane Eyre"}
+             {:text "Emma"}
+             {:text "Babička"}]}
+  {:type :multiple
+   :text "Která žena je nazývána šedou eminencí českého filmu a divadla? Byla i součástí Československé nové vlny."
+   :choices [{:text "Ester Krumbachová" :correct? true}
+             {:text "Věra Chytilová"}
+             {:text "Apolena Rychlíková"}
+             {:text "Simona Stašová"}]}
+  {:type :multiple
+   :text "Na oslavu čeho vznikla píseň s názvem \"Dobrý den, prapore hvězd a pruhů\", kterou nazpívala Vlasta Parkanová, když byla ministryní obrany?"
+   :choices [{:text "Amerického radaru v Brdech" :correct? true}
+             {:text "Návštěvy amerického prezidenta G. W. Bushe"}
+             {:text "Výročí osvobození Rudou armádou"}
+             {:text "Přílet Gagarina zpět z vesmíru"}]}
+  {:type :multiple
+   :text "Ve kterém roce byla žena poprvé ve vesmíru?"
+   :choices [{:text "1963" :correct? true}
+             {:text "1976"}
+             {:text "1983"}
+             {:text "2005"}]
+   :explanation "Byla jí Valentina Vladimirovna Těreškovová ze Sovětského svazu."}
+  {:type :yesno
+   :text "USA vyslalo ženu do vesmíru dříve než SSSR."
+   :correct? false
+   :explanation "SSSR vyslalo ženu do vesmíru již v roce 1963. USA až roku 1983."}
+  {:type :multiple
+   :text "Kolik tampónů dala NASA Sally Ride, první americké astronautce, na jeden týden ve vesmíru?"
+   :choices [{:text "100" :correct? true}
+             {:text "1"}
+             {:text "10"}
+             {:text "1000"}]
+   :explanation "Tampóny byly zabaleny tak, že jejich šňůrky byly spojeny jako proužek párků, aby neodplavaly."}
+  {:type :multiple
+   :text "Sally Ride byla nejen první americkou ženou ve vesmíru, ale také:"
+   :choices [{:text "První LGBT+ osobou ve vesmíru" :correct? true}
+             {:text "První domorodou Američankou ve vesmíru"}
+             {:text "První ženou, která snědla 50 koktejlových párků v jedné minutě"}
+             {:text "První ženou, která získala doktorát z fyziky"}]}
+  {:type :multiple
+   :text "Která země jako první zavedla menstruační potřeby zadarmo ve všech školách?"
+   :choices [{:text "Skotsko" :correct? true}
+             {:text "Irsko"}
+             {:text "Maďarsko"}
+             {:text "Česká republika"}]
+   :explanation "Stalo se tak v roce 2018."}
+  {:type :multiple
+   :text "Která země má ve své ústavě napsáno, že ženino místo ve společnosti je především se starat o domácnost a rodinu?"
+   :choices [{:text "Irsko" :correct? true}
+             {:text "USA"}
+             {:text "Rusko"}
+             {:text "Indie"}]
+  :explanation "Irsko uspořádalo roku 2024 referendum o změně této části ústavy, ale 73,9 % hlasujících tuto změnu odmítlo."}
+  {:type :multiple
+   :text [:<>
+          [:p "Doplňte následující slogan, který se často skanduje na feministických protestech."]
+          [:blockquote "Držte vaše doktríny dál od mojí..."]]
+   :choices [{:text "Vagíny" :correct? true}
+             {:text "Vitríny"}
+             {:text "Latríny"}
+             {:text "Konírny"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/napalm_girl.jpg"}]
+          [:p "Během které války byla pořízena fotka zvaná \"Napalm Girl\"?"]]
+   :choices [{:text "Války ve Vietnamu" :correct? true}
+             {:text "Druhé světové války"}
+             {:text "Války v Koreji"}
+             {:text "2. puntské války"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/charles_fourier.jpeg"}]
+          [:p "Na obraze je muž, který jako první použil slovo \"feminismus\". Kdo to je?"]]
+   :choices [{:text "Filozof Charles Fourier" :correct? true}
+             {:text "Otec Jane Austen"}
+             {:text "Another white man with a podcast"}
+             {:text "George Washington"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/betty_friedan.jpg"}]
+          [:p "Kdo je žena na obrázku?"]]
+   :choices [{:text "Betty Friedan" :correct? true}
+             {:text "Jana Maláčová"}
+             {:text "Phyllis Schlafly"}
+             {:text "Simone de Beauvoir"}]
+   :explanation "Její knize The Feminine Mystique z roku 1963 je často připisováno, že podnítila druhou vlnu amerického feminismu ve 20. století."}
+  {:type :multiple
+   :text "Jak se jmenuje právnička iniciativy Jsme Fér, která je zároveň realitní královnou a studnicí moudrosti?"
+   :choices [{:text "Adéla Horáková" :correct? true}
+             {:text "Adéla Šípová"}
+             {:text "Lenka Bradáčová"}
+             {:text "Marie Benešová"}]}
+  {:type :multiple
+   :text "Jak se jmenuje legislativní právnička, která se nebojí vytáhnout do boje s Vatikánem a je největší českou odbornicí na legislativní znění definice znásilnění?"
+   :choices [{:text "Markéta Řádková" :correct? true}
+             {:text "Daniela Kovářová"}
+             {:text "Barbora Urbanová"}
+             {:text "Agáta Hanychová"}]}
+  {:type :multiple
+   :text "Jak se jmenuje česká právnička, feministka, školitelka, fundraiserka, odbornice na genderovou rovnost a super uber žena, která má božího kocoura?"
+   :choices [{:text "Markéta Brabcová" :correct? true}
+             {:text "Miroslava Němcová"}
+             {:text "Dáda Patrasová"}
+             {:text "Olga Richterová"}]}
+  {:type :multiple
+   :text "Jak se jmenuje česká právnička, expertka na strategie a all-around skvělá žena, která je masterkou Koule?"
+   :choices [{:text "Lucie Ottinger":correct? true}
+             {:text "Olga Šípová"}
+             {:text "Kateřina Zemanová"}
+             {:text "Miluše Horská"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/ruth_bader_ginsburg.jpg"}]
+          [:p "Kdo je žena na obrázku?"]]
+   :choices [{:text "Ruth Bader Ginsburg" :correct? true}
+             {:text "Hilary Clinton"}
+             {:text "Alexandria Ocasio-Cortez"}
+             {:text "Miley Cyrus"}]
+   :explanation "Byla druhou soudkyní Nejvyššího soudu USA."}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/lenka_smerdova.jpg"}]
+          [:p "Na fotce je první generálka české armády. Jak se jmenuje?"]]
+   :choices [{:text "Lenka Šmerdová" :correct? true}
+             {:text "Miluše Horská"}
+             {:text "Karla Šlechtová"}
+             {:text "Vlasta Parkanová"}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/bozena_vikova_kuneticka.png"}]
+          [:p "Na fotce je první česká poslankyně. Jak se jmenovala?"]]
+   :choices [{:text "Božena Viková-Kunětická" :correct? true}
+             {:text "Františka Plamínková"}
+             {:text "Alice Masaryková"}
+             {:text "Milada Horáková"}]
+   :explanation "Byla zvolena roku 1912. Ženy sice v té době volit nesměly, ale zákon nikde výslovně neuváděl, že nesmějí být voleny. Vikové-Kunětické ale české místodržitelství zabránilo ve výkonu mandátu."}
+  {:type :percent-range
+   :text "Kolik procent tvoří ženy v celkovém počtu zaměstnanectva Dopravního podniku hl. m. Prahy?"
+   :numeric-answer 15}
+  {:type :yesno
+   :text "První žena začala pracovat jako řidička tramvají v Praze v roce 1915."
+   :correct? false
+   :explanation "První ženy opravdu začaly u DPP pracovat v roce 1915, avšak jako průvodčí. Jako řidičky byly zaměstnány až během druhé světové války."}
+  {:type :multiple
+   :text "Jak se jmenuje přední česká feministka, která založila Konsent a je absolutní powerhouse?"
+   :choices [{:text "Johanna Uždojedla" :correct? true}
+             {:text "Johanna Nejedlová" :correct? true}
+             {:text "Jana Černochová"}
+             {:text "Taťána Malá"}]}
+  {:type :multiple
+   :text "Která země, kde je většina obyvatel muslimská, měla jako první ženu zvolenou do čela demokratické vlády?"
+   :choices [{:text "Pákistán" :correct? true}
+             {:text "Afghánistán"}
+             {:text "Írán"}
+             {:text "Indie"}]
+   :explanation "Byla jí Bénazír Bhutto v roce 1988."}
+  {:type :yesno
+   :text "Nekatolíci mohli na Karlově univerzitě studovat dříve než ženy."
+   :correct? true
+   :explanation "První ženy byly připuštěny na přednášky od roku 1895. Nekatolíkům bylo studium umožněno od roku 1781."}
+  {:type :yesno
+   :text "Česká republika měla ženu lékařku (tj. řádně vystudovala lékařství a dosáhla promoce) dříve než USA."
+   :correct? false
+   :explanation "První žena v USA se stala lékařkou roku 1849 zatímco v Česku to bylo až v roce 1902."}
+  {:type :multiple
+   :text "Jaký obor vystudovala Marie Zdeňka Baborová, která se stala první doktorkou filozofie na Univerzitě Karlově?"
+   :choices [{:text "Zoologii" :correct? true}
+             {:text "Učitelství"}
+             {:text "Výpočetní techniku"}
+             {:text "Lékařství"}]}
+  {:type :percent-range
+   :text "Kolik procent žen je ve vládě České republiky k dubnu 2024?"
+   :numeric-answer 11}
+  {:type :percent-range
+   :text "Kolik procent žen je ve senátu České republiky k dubnu 2024?"
+   :numeric-answer 18.5}
+  {:type :percent-range
+   :text "Kolik procent žen je v poslanecké sněmovně České republiky k dubnu 2024?"
+   :numeric-answer 26}
+  {:type :percent-range
+   :text "Kolik procent žen je v zastupitelstvech krajů České republiky k dubnu 2024?"
+   :numeric-answer 22}
+  {:type :percent-range
+   :text "Kolik procent žen je v zastupitelstvech měst a obcí České republiky k dubnu 2024?"
+   :numeric-answer 29}
+  {:type :percent-range
+   :text "Kolik procent žen je v týmu poradců prezidenta Petra Pavla k zahraniční politice k dubnu 2024?"
+   :numeric-answer 0}
+  {:type :percent-range
+   :text "Kolik procent žen bylo v armádě České republiky k září 2023?"
+   :numeric-answer 14}
+  {:type :multiple
+   :text "Která země EU měla roku 2021 největší podíl žen ve vědě?"
+   :choices [{:text "Lotyšsko" :correct? true}
+             {:text "Německo"}
+             {:text "Chorvatsko"}
+             {:text "Francie"}]
+   :explanation [:span "Lotyšsko má 50 %. Česká republika je s 27,6 % druhá nejhorší v EU ("
+                 [:a {:href "https://genderaveda.cz/wp-content/uploads/2024/03/Postaveni-zen-v-ceske-vede-2021.pdf"} "zdroj"]
+                 ")"]}
+  {:type :multiple
+   :text "Florence Nightingale je považována za zakladatelku kterého oboru?"
+   :choices [{:text "Ošetřovatelství" :correct? true}
+             {:text "Učitelství"}
+             {:text "Výroba udržitelné módy"}
+             {:text "Knihovnictví"}]
+   :explanation "Nightingale se proslavila, když sloužila jako manažerka a školitelka zdravotních sester během krymské války, ve které organizovala péči o zraněné vojáky."}
+  {:type :yesno
+   :text "V současné době tvoří většinu válečných obětí muži."
+   :correct? false
+   :explanation [:span "Odhaduje se, že téměř 90 % současných válečných obětí tvoří civilisté, z nichž většinu tvoří ženy a děti, ve srovnání s dobou před sto lety, kdy 90 % těch, kteří přišli o život, tvořili vojáci ("
+                 [:a {:href "https://www.un.org/womenwatch/daw/followup/session/presskit/fs5.htm"} "zdroj"]
+                 ")."]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/junko_tabei.jpeg"}]
+          [:p "Žena na fotografii je Džunko Tabei. Čím se proslavila?"]]
+   :choices [{:text "Jako první žena vystoupala na Mt. Everest." :correct? true}
+             {:text "Přežitím 45 dnů v pralese poté, co se tam ztratila."}
+             {:text "Zabitím žraloka vlastníma rukama."}
+             {:text "Natočením filmu o mužích horolezcích."}]
+   :explanation "Tabei byla také první ženou, která vylezla Seven Summits (nejvyšší vrcholy sedmi kontinentů)."}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/sarojini_naidu.png"}]
+          [:p "Žena na fotografii je Saródžiní Naidú. Čím se proslavila?"]]
+   :choices [{:text "První ženská guvernérka indického státu Uttarpradéš." :correct? true}
+             {:text "Svou rolí ve vzniku hnutí za práva žen v Indii a bojem za nezávislost Indie." :correct? true}
+             {:text "Upečením prvního naan breadu."}
+             {:text "Byla ženou Mahátmá Gandhího."}]}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/pornokrates.jpeg"}]
+          [:p "Co oslavuje tento obraz, které se nazývá Pornokratès?"]]
+   :choices [{:text "Moc a vládu prostitutek" :correct? true}
+             {:text "Dílo nemá jednu interpretaci" :correct? true}
+             {:text "Inteligenci prasat"}
+             {:text "Sklizeň obilí"}]}
+  {:type :multiple
+   :text "Která žena získala jako první ocenění sportovkyně EU?"
+   :choices [{:text "Ester Ledecká" :correct? true}
+             {:text "Elisa Longo Borghini"}
+             {:text "Femke Bol"}
+             {:text "Jelena Isinbajeva"}]}
 }
