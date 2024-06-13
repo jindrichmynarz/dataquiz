@@ -3,6 +3,11 @@
             [net.mynarz.az-kviz.spec :as az]
             [reitit.core :as reitit]))
 
+(defn gen-one
+  "Generate one value satisfying `spec`."
+  [spec]
+  (ffirst (s/exercise spec 1)))
+
 (s/def ::hiccup
   (s/or :string string?
         :element (s/cat :tag keyword?
