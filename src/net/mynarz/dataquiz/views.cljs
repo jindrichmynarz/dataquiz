@@ -103,7 +103,7 @@
 
 (defn title
   []
-  [:h1 [:a {:href (rfe/href :enter)} "▲quiz"]])
+  [:h1 [:a {:href (rfe/href :pick-questions)} "▲quiz"]])
 
 (defn loading-modal
   []
@@ -131,16 +131,13 @@
         [rc/box
          :child [rc/single-dropdown
                  :choices choices
-                 :disabled? (or loading? loaded?)
+                 :class "questions-picker"
+                 :disabled? loading?
                  :model questions-url
                  :on-change (fn [url]
                               (reset! questions-url url)
                               (rf/dispatch [::events/download-questions url]))
-                 :placeholder (if loaded?
-                                (->> choices
-                                     (filter (comp #{@questions-url} :id))
-                                     :label)
-                                "Vyber otázky")]]))))
+                 :placeholder "Vyber otázky"]]))))
 
 (defn lets-enter
   []

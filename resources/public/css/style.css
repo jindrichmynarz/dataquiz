@@ -260,3 +260,11 @@ ul.choices li button {
   transform-origin: center center;
   animation: rotate linear 60s infinite;
 }
+
+.questions-picker {
+  font-size: 1.5em;
+}
+
+.questions-picker .chosen-single {
+  padding: 0 1em;
+}
