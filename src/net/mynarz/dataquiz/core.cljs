@@ -49,5 +49,4 @@
               {:use-fragment true})
   (rf/dispatch-sync [::rp/add-keyboard-event-listener "keydown"])
   (rf/dispatch-sync [::events/initialize])
-  (rf/dispatch [::events/download-questions])
   (run))

@@ -55,8 +55,7 @@
 (rf/reg-event-fx
   ::initialize
   (fn [{:keys [db]} _]
-    {:db {:loading? true
-          :player-1 "Hráč 1"
+    {:db {:player-1 "Hráč 1"
           :player-2 "Hráč 2"}
      :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
                                               :event-keys [[[::submit]
@@ -104,12 +103,13 @@
 
 (rf/reg-event-fx
   ::download-questions
-  (fn [_ _]
-    {:fx [[:http-xhrio {:method :get
+  (fn [{:keys [db]} [_ url]]
+    {:db (assoc db :loading? true)
+     :fx [[:http-xhrio {:method :get
                         :on-failure [::load-questions-error]
                         :on-success [::load-questions]
                         :response-format (edn/edn-response-format)
-                        :uri "questions.edn"}]]}))
+                        :uri url}]]}))
 
 (rf/reg-event-db
   ::change-player-name

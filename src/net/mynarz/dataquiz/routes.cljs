@@ -9,6 +9,9 @@
   (reitit/router
     ["/"
      [""
+      {:name :pick-questions
+       :view #'views/pick-questions}]
+     ["enter"
       {:name :enter
        :view #'views/enter}]
      ["play"

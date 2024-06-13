@@ -78,14 +78,20 @@
               [timer]
               [question-box]]])
 
+(defn navigation-button
+  [text href]
+  [rc/hyperlink-href
+   :class "button"
+   :href (rfe/href href)
+   :label text])
+
 (defn lets-play
-  ([]
-   (lets-play "Hrát" :play))
-  ([text href]
-   [rc/hyperlink-href
-    :class "button"
-    :href (rfe/href href)
-    :label text]))
+  []
+  (navigation-button "Hrát" :play))
+
+(defn lets-play-again
+  []
+  (navigation-button "Hrát znovu" :enter))
 
 (defn enter-player-name
   [player]
@@ -115,14 +121,51 @@
          [:i.zmdi.zmdi-code]
          "Zdrojový kód"]]])
 
+(defn questions-picker
+  []
+  (let [questions-url (r/atom nil)]
+    (fn []
+      (let [loaded? @(rf/subscribe [::subs/questions-loaded?])
+            loading? @(rf/subscribe [::subs/questions-loading?])
+            choices [{:id "questions/femquiz.edn" :label "Fem-quiz"}]]
+        [rc/box
+         :child [rc/single-dropdown
+                 :choices choices
+                 :disabled? (or loading? loaded?)
+                 :model questions-url
+                 :on-change (fn [url]
+                              (reset! questions-url url)
+                              (rf/dispatch [::events/download-questions url]))
+                 :placeholder (if loaded?
+                                (->> choices
+                                     (filter (comp #{@questions-url} :id))
+                                     :label)
+                                "Vyber otázky")]]))))
+
+(defn lets-enter
+  []
+  (navigation-button "Hrát" :enter))
+
+(defn pick-questions
+  []
+  (let [loaded? @(rf/subscribe [::subs/questions-loaded?])]
+    [rc/v-box
+     :align :center
+     :children [[loading-modal]
+                [error-modal]
+                [title]
+                [questions-picker]
+                (when loaded? [lets-enter])
+                [footer]]
+     :gap "2em"
+     :justify :center]))
+
 (defn enter
   []
   [rc/v-box
    :align :center
    :class "enter"
-   :children [[loading-modal]
-              [error-modal]
-              [title]
+   :children [[title]
               [enter-player-name :player-1]
               [enter-player-name :player-2]
               [lets-play]
@@ -173,7 +216,7 @@
                [rc/v-box
                 :align :center
                 :children [[winner-box]
-                           [lets-play "Hrát znovu" :enter]]
+                           [lets-play-again]]
                 :gap "4em"]]
     :justify :center))
 

@@ -13,6 +13,16 @@
     error))
 
 (reg-sub
+  ::questions-loading?
+  (fn [{:keys [loading?]}]
+    loading?))
+
+(reg-sub
+  ::questions-loaded?
+  (fn [{:keys [questions]}]
+    (seq questions)))
+
+(reg-sub
   ::loading-message
   (fn [{:keys [loading?]}]
     (when loading?
