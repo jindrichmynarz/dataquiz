@@ -266,5 +266,6 @@ ul.choices li button {
 }
 
 .questions-picker .chosen-single {
-  padding: 0 1em;
+  line-height: 2em;
+  height: 2em;
 }
