@@ -1000,30 +1000,6 @@
              {:text "Simone de Beauvoir"}]
    :explanation "Její knize The Feminine Mystique z roku 1963 je často připisováno, že podnítila druhou vlnu amerického feminismu ve 20. století."}
   {:type :multiple
-   :text "Jak se jmenuje právnička iniciativy Jsme Fér, která je zároveň realitní královnou a studnicí moudrosti?"
-   :choices [{:text "Adéla Horáková" :correct? true}
-             {:text "Adéla Šípová"}
-             {:text "Lenka Bradáčová"}
-             {:text "Marie Benešová"}]}
-  {:type :multiple
-   :text "Jak se jmenuje legislativní právnička, která se nebojí vytáhnout do boje s Vatikánem a je největší českou odbornicí na legislativní znění definice znásilnění?"
-   :choices [{:text "Markéta Řádková" :correct? true}
-             {:text "Daniela Kovářová"}
-             {:text "Barbora Urbanová"}
-             {:text "Agáta Hanychová"}]}
-  {:type :multiple
-   :text "Jak se jmenuje česká právnička, feministka, školitelka, fundraiserka, odbornice na genderovou rovnost a super uber žena, která má božího kocoura?"
-   :choices [{:text "Markéta Brabcová" :correct? true}
-             {:text "Miroslava Němcová"}
-             {:text "Dáda Patrasová"}
-             {:text "Olga Richterová"}]}
-  {:type :multiple
-   :text "Jak se jmenuje česká právnička, expertka na strategie a all-around skvělá žena, která je masterkou Koule?"
-   :choices [{:text "Lucie Ottinger":correct? true}
-             {:text "Olga Šípová"}
-             {:text "Kateřina Zemanová"}
-             {:text "Miluše Horská"}]}
-  {:type :multiple
    :text [:<>
           [:img {:src "/img/ruth_bader_ginsburg.jpg"}]
           [:p "Kdo je žena na obrázku?"]]
@@ -1056,12 +1032,6 @@
    :text "První žena začala pracovat jako řidička tramvají v Praze v roce 1915."
    :correct? false
    :explanation "První ženy opravdu začaly u DPP pracovat v roce 1915, avšak jako průvodčí. Jako řidičky byly zaměstnány až během druhé světové války."}
-  {:type :multiple
-   :text "Jak se jmenuje přední česká feministka, která založila Konsent a je absolutní powerhouse?"
-   :choices [{:text "Johanna Uždojedla" :correct? true}
-             {:text "Johanna Nejedlová" :correct? true}
-             {:text "Jana Černochová"}
-             {:text "Taťána Malá"}]}
   {:type :multiple
    :text "Která země, kde je většina obyvatel muslimská, měla jako první ženu zvolenou do čela demokratické vlády?"
    :choices [{:text "Pákistán" :correct? true}
