@@ -1,5 +1,6 @@
 (ns net.mynarz.dataquiz.spec
   (:require [clojure.spec.alpha :as s]
+            [expound.alpha :as e]
             [net.mynarz.az-kviz.spec :as az]
             [reitit.core :as reitit]))
 
@@ -99,6 +100,8 @@
 
 (s/def ::loading? boolean?)
 
+(s/def ::loading-error str)
+
 (s/def ::error ::hiccup)
 
 (s/def ::route
@@ -120,8 +123,17 @@
                    ::guess
                    ::is-playing
                    ::loading?
+                   ::loading-error
                    ::next-player
                    ::question
                    ::questions
                    ::route
                    ::winner]))
+
+(defn validate
+  [spec data]
+  (when-not (s/valid? spec data)
+    (e/expound-str spec data)))
+
+(def validate-questions
+  (partial validate ::questions))

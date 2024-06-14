@@ -8,8 +8,10 @@
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
             [net.mynarz.dataquiz.normalize :as normalize]
+            [net.mynarz.dataquiz.spec :refer [validate-questions]]
             [re-frame.core :as rf]
             [re-pressed.core :as rp]
+            [jtk-dvlp.re-frame.readfile-fx]
             [reitit.frontend.controllers :as rfc]))
 
 (def status->question-filter
@@ -110,6 +112,23 @@
                         :on-success [::load-questions]
                         :response-format (edn/edn-response-format)
                         :uri url}]]}))
+
+(rf/reg-event-fx
+  ::read-questions-from-edn
+  (fn [{:keys [db]} [_ [{edn :content}]]]
+    (let [questions (cljs.reader/read-string edn)
+          error (validate-questions questions)]
+      (if (nil? error)
+        {:fx [[:dispatch [::load-questions questions]]]}
+        {:db (assoc db :loading-error error)}))))
+
+(rf/reg-event-fx
+  ::read-questions-from-file
+  (fn [{:keys [db]} [_ file]]
+    {:db (assoc db :loading? true)
+     :fx [[:readfile {:files [file]
+                      :on-success [::read-questions-from-edn]
+                      :on-error [::load-questions-error]}]]}))
 
 (rf/reg-event-db
   ::change-player-name

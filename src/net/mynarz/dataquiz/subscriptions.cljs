@@ -24,10 +24,12 @@
 
 (reg-sub
   ::loading-message
-  (fn [{:keys [loading?]}]
+  (fn [{:keys [loading? loading-error]}]
     (when loading?
-      (rand-nth ["Začínám druhou směnu..."
-                 "Načítám otázky..."]))))
+      (if loading-error
+        [:pre loading-error]
+        (rand-nth ["Začínám druhou směnu..."
+                   "Načítám otázky..."])))))
 
 (reg-sub
   ::board

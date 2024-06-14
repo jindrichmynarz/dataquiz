@@ -121,13 +121,12 @@
          [:i.zmdi.zmdi-code]
          "Zdrojový kód"]]])
 
-(defn questions-picker
+(defn questions-select-tab
   []
-  (let [questions-url (r/atom nil)]
+  (let [questions-url (r/atom nil)
+        choices [{:id "questions/femquiz.edn" :label "Fem-quiz"}]]
     (fn []
-      (let [loaded? @(rf/subscribe [::subs/questions-loaded?])
-            loading? @(rf/subscribe [::subs/questions-loading?])
-            choices [{:id "questions/femquiz.edn" :label "Fem-quiz"}]]
+      (let [loading? @(rf/subscribe [::subs/questions-loading?])]
         [rc/box
          :child [rc/single-dropdown
                  :choices choices
@@ -138,6 +137,38 @@
                               (reset! questions-url url)
                               (rf/dispatch [::events/download-questions url]))
                  :placeholder "Vyber otázky"]]))))
+
+(defn questions-upload-tab
+  []
+  [rc/box
+   :child [:input#questions-upload
+           {:accept ".edn"
+            :on-change (fn [event]
+                         (let [file (-> event
+                                        .-target
+                                        .-files
+                                        first)]
+                           (rf/dispatch [::events/read-questions-from-file file])))
+            :type "file"}]])
+
+(defn questions-picker
+  []
+  (let [selected-tab (r/atom ::select-tab)]
+    (fn []
+      [rc/v-box
+       :align :center
+       :children [[rc/horizontal-tabs
+                   :model selected-tab
+                   :tabs [{:id ::select-tab
+                           :label "Vyber otázky"}
+                          {:id ::input-tab
+                           :label "Nahrát otázky"}]
+                   :on-change #(reset! selected-tab %)]
+                  (case @selected-tab
+                    ::select-tab [questions-select-tab]
+                    ::input-tab [questions-upload-tab])]
+       :class "enter"
+       :min-width "50%"])))
 
 (defn lets-enter
   []
@@ -155,7 +186,7 @@
                 (when loaded? [lets-enter])
                 [footer]]
      :gap "2em"
-     :justify :center]))
+     :justify :start]))
 
 (defn enter
   []
