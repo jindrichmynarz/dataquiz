@@ -600,13 +600,6 @@
              {:text "Jihoafrická republika"}
              {:text "Egypt"}]
    :explanation "Byla zvolena roku 2005."}
-  {:type :sort
-   :text "Seřaďte sestry Kardashianovi od nejstarší po nejmladší."
-   :items [{:text "Kourtney" :sort-value 1979}
-           {:text "Kim" :sort-value 1980}
-           {:text "Khloé" :sort-value 1984}
-           {:text "Kendall" :sort-value 1995}
-           {:text "Kylie" :sort-value 1997}]}
   {:type :multiple
    :text [:<>
            [:img {:src "/img/burkini.jpg"}]
@@ -797,9 +790,9 @@
    :text "V Rusku je možné se vyvázat z trestní odpovědnosti za znásilnění oběti mezi 14-16 lety, pokud se s ní útočník sezdá."
    :correct? true}
   {:type :yesno
-   :text "Největší rozdíl mezi počtem žen a mužů v populaci je v Číně."
+   :text "Největší procentní rozdíl k roku 2022 mezi počtem žen a mužů v populaci je v Číně."
    :correct? false
-   :explanation "Jde o Indii, kde rozdíl činí 37 miliónů."}
+   :explanation [:span "Jde o Katar, kde " [:a {:href "https://ourworldindata.org/grapher/share-population-female?tab=table"} "ženy tvoří 27,49 % populace"] "."]}
   {:type :multiple
    :text "Co dle archaických nepálských zvyků nesmí dělat ženy během menstruace?"
    :choices [{:text "Dotýkat se mužů a dobytka" :correct? true}
