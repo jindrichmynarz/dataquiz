@@ -269,3 +269,8 @@ ul.choices li button {
   line-height: 2em;
   height: 2em;
 }
+
+i.zmdi-close {
+  cursor: pointer;
+  font-size: 2em;
+}

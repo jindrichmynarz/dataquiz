@@ -26,9 +26,9 @@
 
 (s/def ::loading? boolean?)
 
-(s/def ::loading-error str)
-
-(s/def ::error ::questions/hiccup)
+(s/def ::error
+  (s/cat :error-type keyword?
+         :error-message (s/? ::questions/hiccup)))
 
 (s/def ::route
   (partial instance? reitit/Match))
@@ -49,7 +49,6 @@
                    ::guess
                    ::is-playing
                    ::loading?
-                   ::loading-error
                    ::next-player
                    ::questions/question
                    ::questions/questions

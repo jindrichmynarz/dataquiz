@@ -92,7 +92,12 @@
 (rf/reg-event-db
   ::load-questions-error
   (fn [db _]
-    (assoc db :error [:<> "Chyba při načítání otázek!" [:i.zmdi.zmdi-alert-circle-o]])))
+    (assoc db :error [:load-questions-error])))
+
+(rf/reg-event-db
+  ::dispatch-error-modal
+  (fn [db _]
+    (dissoc db :error :loading?)))
 
 (rf/reg-event-db
   ::load-questions
@@ -120,7 +125,7 @@
           error (validate-questions questions)]
       (if (nil? error)
         {:fx [[:dispatch [::load-questions questions]]]}
-        {:db (assoc db :loading-error error)}))))
+        {:db (assoc db :error [:parse-questions-error error])}))))
 
 (rf/reg-event-fx
   ::read-questions-from-file

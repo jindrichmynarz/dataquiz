@@ -16,12 +16,25 @@
                            :player-2 "#1e60a2"}
                  :hex-shade 0.6}})
 
-(defn error-modal
-  []
-  (let [error @(rf/subscribe [::subs/error])]
-    (when error
-      (rc/modal-panel
-        :child [:h2 error]))))
+(def error-modal
+  (let [dispatch-modal #(rf/dispatch [::events/dispatch-error-modal])]
+    (fn []
+      (let [[error-type error-message :as error] @(rf/subscribe [::subs/error])]
+        (when error
+          [rc/modal-panel
+           :backdrop-on-click dispatch-modal
+           :child [rc/v-box
+                   :children [[rc/h-box
+                               :align :center
+                               :children [[:h2 "Chybný formát otázek"]
+                                          [:i.zmdi.zmdi-close
+                                           {:on-click dispatch-modal
+                                            :title "Zavřít"}]]
+                               :justify :between]
+                              (case error-type
+                                :load-questions-error [:h2 "Chyba při načítání otázek!"
+                                                       [:i.zmdi.zmdi-alert-circle-o]]
+                                :parse-questions-error [:pre error-message])]]])))))
 
 (defn board
   []
@@ -109,8 +122,8 @@
   []
   (let [loading-message @(rf/subscribe [::subs/loading-message])]
     (when loading-message
-       (rc/modal-panel
-         :child [:h2.loading loading-message]))))
+       [rc/modal-panel
+        :child [:h2.loading loading-message]])))
 
 (defn footer
   []
