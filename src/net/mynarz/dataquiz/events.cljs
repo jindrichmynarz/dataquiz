@@ -92,7 +92,7 @@
 (rf/reg-event-db
   ::load-questions-error
   (fn [db _]
-    (assoc db :error [:load-questions-error])))
+    (assoc db :error {:error-type :load-questions-error})))
 
 (rf/reg-event-db
   ::dispatch-error-modal
@@ -125,7 +125,8 @@
           error (validate-questions questions)]
       (if (nil? error)
         {:fx [[:dispatch [::load-questions questions]]]}
-        {:db (assoc db :error [:parse-questions-error error])}))))
+        {:db (assoc db :error {:error-type :parse-questions-error
+                               :error-message error})}))))
 
 (rf/reg-event-fx
   ::read-questions-from-file

@@ -26,9 +26,13 @@
 
 (s/def ::loading? boolean?)
 
+(s/def ::error-type keyword?)
+
+(s/def ::error-message ::questions/hiccup)
+
 (s/def ::error
-  (s/cat :error-type keyword?
-         :error-message (s/? ::questions/hiccup)))
+  (s/keys :req-un [::error-type]
+          :opt-un [::error-message]))
 
 (s/def ::route
   (partial instance? reitit/Match))

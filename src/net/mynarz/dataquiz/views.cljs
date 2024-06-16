@@ -19,8 +19,8 @@
 (def error-modal
   (let [dispatch-modal #(rf/dispatch [::events/dispatch-error-modal])]
     (fn []
-      (let [[error-type error-message :as error] @(rf/subscribe [::subs/error])]
-        (when error
+      (let [{:keys [error-type error-message]} @(rf/subscribe [::subs/error])]
+        (when error-type
           [rc/modal-panel
            :backdrop-on-click dispatch-modal
            :child [rc/v-box
