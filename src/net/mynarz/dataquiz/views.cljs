@@ -17,7 +17,9 @@
                  :hex-shade 0.6}})
 
 (def error-modal
-  (let [dispatch-modal #(rf/dispatch [::events/dispatch-error-modal])]
+  (let [dispatch-modal #(rf/dispatch [::events/dispatch-error-modal])
+        modals {:load-questions-error {:title "Chyba při načítání otázek!"}
+                :parse-questions-error {:title "Chybný formát otázek"}}]
     (fn []
       (let [{:keys [error-type error-message]} @(rf/subscribe [::subs/error])]
         (when error-type
@@ -26,15 +28,13 @@
            :child [rc/v-box
                    :children [[rc/h-box
                                :align :center
-                               :children [[:h2 "Chybný formát otázek"]
+                               :children [[:h2 (get-in modals [error-type :title])]
                                           [:i.zmdi.zmdi-close
                                            {:on-click dispatch-modal
                                             :title "Zavřít"}]]
                                :justify :between]
-                              (case error-type
-                                :load-questions-error [:h2 "Chyba při načítání otázek!"
-                                                       [:i.zmdi.zmdi-alert-circle-o]]
-                                :parse-questions-error [:pre error-message])]]])))))
+                              (when error-message
+                                [:pre error-message])]]])))))
 
 (defn board
   []
