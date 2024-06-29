@@ -410,7 +410,9 @@
    :text "'Mléční sourozenci' jsou lidé, kteří sdíleli stejnou kojnou."
    :correct? true}
   {:type :sort
-   :text "Seřaďte chronologicky, kdy Mattel začal prodávat následující druhy Barbie:"
+   :text [:<>
+          [:img {:src "/img/barbie.png"}]
+          [:p "Seřaďte chronologicky, kdy Mattel začal prodávat následující druhy Barbie:"]]
    :items [{:text "Astronaut Barbie" :sort-value 1965}
            {:text "Busy Barbie" :sort-value 1972}
            {:text "CEO Barbie" :sort-value 1985}
