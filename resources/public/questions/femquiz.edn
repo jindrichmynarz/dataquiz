@@ -806,7 +806,7 @@
    :correct? false
    :explanation "Tato podmínka byla zrušena roku 2021."}
   {:type :multiple
-   :text "Kvůli čemu roku 2022 íránská mravnostní policie ubila dvaadvacetiletou Mashu Amíní?"
+   :text "Kvůli čemu roku 2022 íránská mravnostní policie ubila dvaadvacetiletou Mahsu Amíní?"
    :choices [{:text "Měla nedostatečně zahalené vlasy" :correct? true}
              {:text "Porušila Ramadán"}
              {:text "Odříkala svému muži"}
