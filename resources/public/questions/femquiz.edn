@@ -1140,4 +1140,11 @@
              {:text "Jeden za všechny, všichni za jednoho!"}
              {:text "Vše je v pořádku"}]
    :explanation "Znak byl vytvořen pro varování o domácím násilí během izolací za pandemie COVID-19."}
+  {:type :multiple
+   :text "Jaký je smysl kampaně White Wednesdays?"
+   :choices [{:text "Protest proti povinnému nošení hidžábu v Íránu" :correct? true}
+             {:text "Připomínka bílého privilegia žen v západním světě"}
+             {:text "Pieta za oběti domácího násilí"}
+             {:text "White Lives Matter"}]
+   :explanation "Ženy symbolicky mávají bílým hidžábem jako vlajkou míru."}
 }
