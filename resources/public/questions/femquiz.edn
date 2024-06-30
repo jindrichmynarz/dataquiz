@@ -1131,4 +1131,13 @@
              {:text "Roman Šmucler"}
              {:text "Miloš Zeman"}]
    :explanation "Optimální věk pro první dítě je podle něj 24 let."}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/signal_for_help.png"}]
+          [:p "Co znamená tento znak?"]]
+   :choices [{:text "Signál pro pomoc" :correct? true}
+             {:text "Čtyři piva, prosím"}
+             {:text "Jeden za všechny, všichni za jednoho!"}
+             {:text "Vše je v pořádku"}]
+   :explanation "Znak byl vytvořen pro varování o domácím násilí během izolací za pandemie COVID-19."}
 }
