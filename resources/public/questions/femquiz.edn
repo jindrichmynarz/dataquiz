@@ -1147,4 +1147,22 @@
              {:text "Pieta za oběti domácího násilí"}
              {:text "White Lives Matter"}]
    :explanation "Ženy symbolicky mávají bílým hidžábem jako vlajkou míru."}
+  {:type :yesno
+   :text "Smí muž ženě pomoci do kabátu?"
+   :correct? true}
+  {:type :yesno
+   :text "Žena může přijít pozdě, ale musí vypadat skvěle."
+   :correct? false
+   :explanation "Podle Ladislava Špačka to ale platí."}
+  {:type :yesno
+   :text "Žena nesedí u stolu proto, aby se najedla, ale aby byla krásná."
+   :correct? false
+   :explanation "Podle Ladislava Špačka to ale platí."}
+  {:type :yesno
+   :text "Podle lékařů na konci 19. století jízda na sedle kola ženy učila masturbaci."
+   :correct? true}
+  {:type :yesno
+   :text "Podle Českého statistického úřadu je osobou v čele domácnosti vždy muž."
+   :correct? false
+   :explanation "Platilo to do roku 2023. Dle nových pravidel může být osobou v čele žena, pokud má nejvyšší příjem."}
 }
