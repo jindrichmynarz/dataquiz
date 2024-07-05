@@ -7,7 +7,7 @@
    :correct? true}
   {:type :percent-range
    :text "Při autonehodě jsou ženy vážně zraněny o kolik % častěji než muži?"
-   :numeric-answer 47}
+   :percentage 47}
   {:type :multiple
    :text "Do kterého roku nepožadovala FDA (U.S. Food and Drug Administration), aby v klinických studiích byly zastoupeny ženy?"
    :choices [{:text "1993" :correct? true}
@@ -16,7 +16,7 @@
              {:text "Stále to nepožaduje"}]}
   {:type :percent-range
    :text "Jaký je v současnosti v Česku rozdíl mezi průměrným platem mužů a průměrným platem žen?"
-   :numeric-answer 16}
+   :percentage 16}
   {:type :multiple
    :text "Kdo získal cenu Genderman v roce 2023?"
    :choices [{:text "Michal Zuna a Daniel Bartoň" :correct? true}
@@ -121,7 +121,7 @@
    :note "Ve skutečnosti jich bylo napsáno 5-krát více."} ; TODO: Revidovat otázku
   {:type :percent-range
    :text "Kolik procent žen trpí menstruačními bolestmi?"
-   :numeric-answer 90}
+   :percentage 90}
   {:type :yesno
    :text "Porodní úmrtnost je stejná pro afroamerické ženy v USA jako pro ženy v Uzbekistánu nebo Mexiku."
    :correct? true}
@@ -144,7 +144,7 @@
    :note "Rotavátor je stroj na zpracování půdy."}
   {:type :percent-range
    :text "Jakému zdanění podléhají v Česku menstruační potřeby?"
-   :numeric-answer 21}
+   :percentage 21}
   {:type :yesno
    :text "Poslední soudní proces, kdy byla žena nařčena z čarodějnictví, proběhl v roce 1850."
    :correct? false
@@ -196,7 +196,7 @@
    :correct? true}
   {:type :percent-range
    :text "Podíl žen studujících computer science v Saúdské Arábii v roce 2014 byl:"
-   :numeric-answer 59}
+   :percentage 59}
   {:type :multiple
    :text "Jaký je v Česku rozsah výše výživného v procentech čisté mzdy rodiče?"
    :choices [{:text "8 - 20 %" :correct? true}
@@ -322,7 +322,7 @@
    :correct? true}
   {:type :percent-range
    :text "Kolik procent žen na východním pobřeží Afriky se odhaduje, že podstoupilo ženskou obřízku?"
-   :numeric-answer 95}
+   :percentage 95}
   {:type :multiple
    :text "Kdy zákon v Egyptě zakázal ženskou obřízku?"
    :choices [{:text "2008" :correct? true}
@@ -612,7 +612,7 @@
              {:text "Čádor"}]}
   {:type :percent-range
    :text "Kolik procent českých žen nemá rádo velikonoční šlehání?"
-   :numeric-answer 79}
+   :percentage 79}
   {:type :yesno
    :text "Pokud je zavražděna žena, vrahem je v 84 % její partner."
    :correct? false
@@ -697,10 +697,10 @@
              {:text "Liberta"}]}
   {:type :percent-range
    :text "Kolik procent žen nad 25 let bylo roku 1983 provdáno?"
-   :numeric-answer 85}
+   :percentage 85}
   {:type :percent-range
    :text "Kolik procent pasažérů hromadné dopravy ve Francii tvoří ženy?"
-   :numeric-answer 66}
+   :percentage 66}
   {:type :yesno
    :text "V letech 2018-2022 ženy v Česku spáchaly 4,1-krát více sebevražd než muži."
    :correct? false
@@ -719,7 +719,7 @@
    :correct? true}
   {:type :percent-range
    :text "Kolik procent interrupcí schválily potratové komise v socialistickém Československu?"
-   :numeric-answer 90}
+   :percentage 90}
   {:type :multiple
    :text "Co bylo heslem demonstrace kvůli nedostatku menstruačních potřeb roku 1988 v Československu?"
    :choices [{:text "Chceme vložky mezi nožky!" :correct? true}
@@ -1022,7 +1022,7 @@
    :note "Byla zvolena roku 1912. Ženy sice v té době volit nesměly, ale zákon nikde výslovně neuváděl, že nesmějí být voleny. Vikové-Kunětické ale české místodržitelství zabránilo ve výkonu mandátu."}
   {:type :percent-range
    :text "Kolik procent tvoří ženy v celkovém počtu zaměstnanectva Dopravního podniku hl. m. Prahy?"
-   :numeric-answer 15}
+   :percentage 15}
   {:type :yesno
    :text "První žena začala pracovat jako řidička tramvají v Praze v roce 1915."
    :correct? false
@@ -1050,25 +1050,25 @@
              {:text "Lékařství"}]}
   {:type :percent-range
    :text "Kolik procent žen je ve vládě České republiky k dubnu 2024?"
-   :numeric-answer 11}
+   :percentage 11}
   {:type :percent-range
    :text "Kolik procent žen je ve senátu České republiky k dubnu 2024?"
-   :numeric-answer 18.5}
+   :percentage 18.5}
   {:type :percent-range
    :text "Kolik procent žen je v poslanecké sněmovně České republiky k dubnu 2024?"
-   :numeric-answer 26}
+   :percentage 26}
   {:type :percent-range
    :text "Kolik procent žen je v zastupitelstvech krajů České republiky k dubnu 2024?"
-   :numeric-answer 22}
+   :percentage 22}
   {:type :percent-range
    :text "Kolik procent žen je v zastupitelstvech měst a obcí České republiky k dubnu 2024?"
-   :numeric-answer 29}
+   :percentage 29}
   {:type :percent-range
    :text "Kolik procent žen je v týmu poradců prezidenta Petra Pavla k zahraniční politice k dubnu 2024?"
-   :numeric-answer 0}
+   :percentage 0}
   {:type :percent-range
    :text "Kolik procent žen bylo v armádě České republiky k září 2023?"
-   :numeric-answer 14}
+   :percentage 14}
   {:type :multiple
    :text "Která země EU měla roku 2021 největší podíl žen ve vědě?"
    :choices [{:text "Lotyšsko" :correct? true}
@@ -1106,7 +1106,7 @@
           [:p "Žena na fotografii je Saródžiní Naidú. Čím se proslavila?"]]
    :choices [{:text "První ženská guvernérka indického státu Uttarpradéš." :correct? true}
              {:text "Svou rolí ve vzniku hnutí za práva žen v Indii a bojem za nezávislost Indie." :correct? true}
-             {:text "Upečením prvního naan breadu."}
+             {:text "Upečením prvního chleba naan."}
              {:text "Byla ženou Mahátmá Gandhího."}]}
   {:type :multiple
    :text [:<>
@@ -1167,6 +1167,6 @@
    :note "Platilo to do roku 2023. Dle nových pravidel může být osobou v čele žena, pokud má nejvyšší příjem."}
   {:type :percent-range
    :text "Jaké je procentní zastoupení žen ve výzkumu v Česku (dle dat z roku 2019)?"
-   :numeric-answer 27
+   :percentage 27
    :note "Česko mělo roku 2019 nejnižší podíl ženy ve výzkumu v EU."}
 }
