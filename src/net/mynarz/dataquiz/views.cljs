@@ -19,6 +19,7 @@
 (def error-modal
   (let [dispatch-modal #(rf/dispatch [::events/dispatch-error-modal])
         modals {:load-questions-error {:title "Chyba při načítání otázek!"}
+                :no-more-questions-error {:title "Otázky došly"}
                 :parse-questions-error {:title "Chybný formát otázek"}}]
     (fn []
       (let [{:keys [error-type error-message]} @(rf/subscribe [::subs/error])]

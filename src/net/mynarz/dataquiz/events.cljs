@@ -158,7 +158,7 @@
 (rf/reg-event-db
   ::no-more-questions
   (fn [db _]
-    (assoc db :error [:<> "Otázky došly!" [:i.zmdi.zmdi-block]])))
+    (assoc db :error {:error-type :no-more-questions-error})))
 
 (rf/reg-event-fx
   ::has-player-won?
