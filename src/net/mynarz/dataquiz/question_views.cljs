@@ -14,9 +14,9 @@
    :class "note"
    :children [[rc/box
                :child [:i.zmdi.zmdi-info-outline]]
-              (if (string? note)
-                [:div note]
-                [note])]
+              (if (vector? note)
+                note
+                [:div note])]
    :gap ".5em"])
 
 (defn- mark-answer
