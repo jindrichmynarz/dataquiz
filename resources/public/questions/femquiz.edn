@@ -1165,4 +1165,8 @@
    :text "Podle Českého statistického úřadu je osobou v čele domácnosti vždy muž."
    :correct? false
    :explanation "Platilo to do roku 2023. Dle nových pravidel může být osobou v čele žena, pokud má nejvyšší příjem."}
+  {:type :percent-range
+   :text "Jaké je procentní zastoupení žen ve výzkumu v Česku (dle dat z roku 2019)?"
+   :numeric-answer 27
+   :explanation "Česko mělo roku 2019 nejnižší podíl ženy ve výzkumu v EU."}
 }
