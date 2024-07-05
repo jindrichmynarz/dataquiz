@@ -1169,4 +1169,12 @@
    :text "Jaké je procentní zastoupení žen ve výzkumu v Česku (dle dat z roku 2019)?"
    :percentage 27
    :note "Česko mělo roku 2019 nejnižší podíl ženy ve výzkumu v EU."}
+  {:type :multiple
+   :text [:<>
+          [:img {:src "/img/bicycling_feminism.jpg"}]
+          [:p "Co má původně vepsáno muž v předním kole na novozélandském kampaňovém plakátu?"]]
+   :choices [{:text "Male electors only" :correct? true}
+             {:text "I'm too old for this shit"}
+             {:text "Votes for men"}
+             {:text "Bike Kitchen Praha"}]}
 }
