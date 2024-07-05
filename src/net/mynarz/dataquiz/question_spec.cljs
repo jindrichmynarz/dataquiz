@@ -1,4 +1,4 @@
-(ns net.mynarz.dataquiz.questions-spec
+(ns net.mynarz.dataquiz.question-spec
   (:require [clojure.spec.alpha :as s]))
 
 (s/def ::hiccup
