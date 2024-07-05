@@ -13,7 +13,8 @@
 
 (s/def ::answer string?)
 
-(s/def ::numeric-answer number?)
+(s/def ::percentage
+  (s/and number? pos? (partial >= 100)))
 
 (s/def ::choice
   (s/keys :req-un [::text]
@@ -47,7 +48,7 @@
   (s/and number? pos?))
 
 (defmethod question :percent-range [_]
-  (s/keys :req-un [::numeric-answer]
+  (s/keys :req-un [::percentage]
           :opt-un [::threshold]))
 
 (s/def ::sort-value
