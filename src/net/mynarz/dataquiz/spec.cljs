@@ -1,5 +1,7 @@
 (ns net.mynarz.dataquiz.spec
   (:require [clojure.spec.alpha :as s]
+            [clojure.string :as string]
+            [clojure.test.check.generators :as gen]
             [expound.alpha :as e]
             [net.mynarz.az-kviz.spec :as az]
             [net.mynarz.dataquiz.questions-spec :as questions]
@@ -43,6 +45,21 @@
         :items ::questions/items))
 
 (s/def ::answer-revealed? boolean?)
+
+(def game-id-length 8)
+
+(defn game-id-gen
+  "A generator of game IDs."
+  []
+  (gen/fmap (comp string/upper-case (partial apply str))
+            (gen/vector gen/char-alpha game-id-length)))
+
+(s/def ::game-id
+  (s/with-gen (s/and string?
+                     (s/conformer seq)
+                     (s/coll-of (s/and char? (partial re-matches #"^[A-Z]"))
+                                :count game-id-length))
+              game-id-gen))
 
 (s/def ::db
   (s/keys :req-un [::player-1
