@@ -1175,7 +1175,7 @@
           [:img {:src "/img/bicycling_feminism.jpg"}]
           [:p "Co má původně vepsáno muž v předním kole na novozélandském kampaňovém plakátu?"]]
    :choices [{:text "Male electors only" :correct? true}
-             {:text "I'm too old for this shit"}
+             {:text "I'm too old for this"}
              {:text "Votes for men"}
              {:text "Bike Kitchen Praha"}]}
   {:type :yesno
