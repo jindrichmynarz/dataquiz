@@ -448,7 +448,8 @@
    :choices [{:text "2000 Kč" :correct? true}
              {:text "1000 Kč"}
              {:text "500 Kč" :correct? true}
-             {:text "200 Kč"}]}
+             {:text "200 Kč"}]
+   :note "Na 500 Kč je Božena Němcová a na 2000 Kč je Emma Destinová."}
   {:type :yesno
    :text "Podle výzkumu Organizace spojených národů z roku 2013 je podíl mužů a žen mezi vrahy přibližně stejný."
    :correct? false
