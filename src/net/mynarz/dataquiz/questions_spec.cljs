@@ -26,11 +26,11 @@
                :distinct true)
     (partial some :correct?)))
 
-(s/def ::explanation ::hiccup)
+(s/def ::note ::hiccup)
 
 (s/def ::question-base
   (s/keys :req-un [::text]
-          :opt-un [::explanation]))
+          :opt-un [::note]))
 
 (defmulti question :type)
 

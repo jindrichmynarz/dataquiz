@@ -7,16 +7,16 @@
             [re-frame.core :as rf]
             [reagent.core :as reagent]))
 
-(defn explanation-view
-  [explanation]
+(defn note-view
+  [note]
   [rc/h-box
    :align :center
-   :class "explanation"
+   :class "note"
    :children [[rc/box
                :child [:i.zmdi.zmdi-info-outline]]
-              (if (string? explanation)
-                [:div explanation]
-                [explanation])]
+              (if (string? note)
+                [:div note]
+                [note])]
    :gap ".5em"])
 
 (defn- mark-answer
@@ -29,7 +29,7 @@
 (defmulti question :type)
 
 (defmethod question :yesno
-  [{:keys [correct? text explanation]}
+  [{:keys [correct? text note]}
    answer-revealed?]
   (letfn [(answer [guess]
             #(rf/dispatch [::events/answer-question (= guess correct?)]))]
@@ -48,11 +48,11 @@
                          {:on-click (answer false)})
                        "Ne"
                        (mark-answer answer-revealed? (false? correct?))]]]
-                (when (and answer-revealed? explanation)
-                  [explanation-view explanation])]]))
+                (when (and answer-revealed? note)
+                  [note-view note])]]))
 
 (defmethod question :multiple
-  [{:keys [text choices explanation]}
+  [{:keys [text choices note]}
    answer-revealed?]
   [rc/v-box
    :children [[:div.question text]
@@ -63,8 +63,8 @@
                                         {:disabled true}
                                         {:on-click #(rf/dispatch [::events/answer-question correct?])})
                                       choice (mark-answer answer-revealed? correct?)]])]
-              (when (and answer-revealed? explanation)
-                [explanation-view explanation])]])
+              (when (and answer-revealed? note)
+                [note-view note])]])
 
 (defmethod question :open
   [{:keys [text answer]}
@@ -81,7 +81,7 @@
                  :on-change #(rf/dispatch [::events/make-a-guess %])
                  :width "100%"]
                 (when answer-revealed?
-                  [explanation-view (gstring/format "Správná odpověď je %s." answer)])]]))
+                  [note-view (gstring/format "Správná odpověď je %s." answer)])]]))
 
 (defn calculate-offset
   [[left right] percentage]
@@ -128,7 +128,7 @@
      :children [[:div.question text]
                 [slider guess answer-revealed?]
                 (when answer-revealed?
-                  [explanation-view (gstring/format "Správná odpověď je %d %%." numeric-answer)])]]))
+                  [note-view (gstring/format "Správná odpověď je %d %%." numeric-answer)])]]))
 
 (defn sortable-list
   [items answer-revealed?]

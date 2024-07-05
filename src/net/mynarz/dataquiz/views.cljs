@@ -3,7 +3,7 @@
             [goog.string.format]
             [net.mynarz.az-kviz.view :as az]
             [net.mynarz.dataquiz.events :as events]
-            [net.mynarz.dataquiz.question-views :refer [explanation-view question]]
+            [net.mynarz.dataquiz.question-views :as question-views]
             [net.mynarz.dataquiz.subscriptions :as subs]
             [re-com.core :as rc]
             [re-frame.core :as rf]
@@ -77,7 +77,7 @@
                                   "Nevím, dál!"])]
     (when data
       [:<>
-        (question data answer-revealed?)
+        (question-views/question data answer-revealed?)
         [:button#next
          {:on-click #(rf/dispatch event)
           :title title}

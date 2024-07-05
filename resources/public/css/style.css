@@ -190,7 +190,7 @@ ul.choices li button {
   min-height: 1.5em;
 }
 
-.explanation {
+.note {
   font-size: 1.3rem;
   margin: 1em 0;
   padding: 15px;
@@ -198,7 +198,7 @@ ul.choices li button {
   border-radius: 4px;
 }
 
-.explanation *:first-child > i {
+.note *:first-child > i {
   font-size: 2em;
 }
 

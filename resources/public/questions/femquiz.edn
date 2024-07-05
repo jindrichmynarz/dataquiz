@@ -59,14 +59,14 @@
              {:text "Sovětský svaz"}
              {:text "Norsko"}
              {:text "Velká Británie"}]
-   :explanation "Bylo to roku 1893."}
+   :note "Bylo to roku 1893."}
   {:type :multiple
    :text "O kolik let se ženy v současném Česku průměrně dožívají déle než muži?"
    :choices [{:text "6 let" :correct? true}
              {:text "14 let"}
              {:text "2 roky"}
              {:text "Dožívají se méně"}]
-   :explanation "Dle statistik z roku 2021 se ženy průměrně dožívají 81 let, zatímco muži 75 let."}
+   :note "Dle statistik z roku 2021 se ženy průměrně dožívají 81 let, zatímco muži 75 let."}
   {:type :multiple
    :text "Ve kterém roce ženy získaly obecné volební právo v českých zemích?"
    :choices [{:text "1919" :correct? true}
@@ -79,7 +79,7 @@
              {:text "Indie"}
              {:text "Nizozemsko"}
              {:text "Chile"}]
-   :explanation "Bylo to roku 1980."}
+   :note "Bylo to roku 1980."}
   {:type :multiple
    :text "Co je to polykula?"
    :choices [{:text "Polyamorická rodina" :correct? true}
@@ -101,11 +101,11 @@
   {:type :yesno
    :text "Platil roku 1900 na českém území celibát učitelek?"
    :correct? true
-   :explanation "Celibát platil do roku 1919."}
+   :note "Celibát platil do roku 1919."}
   {:type :yesno
    :text "Je v USA nutno dezagregovat výsledky klinických studií dle pohlaví?"
    :correct? true
-   :explanation "Je to požadováno od roku 2016."}
+   :note "Je to požadováno od roku 2016."}
   {:type :yesno
    :text "Mají muži průměrně delší tlusté střevo než ženy?"
    :correct? false}
@@ -118,7 +118,7 @@
   {:type :yesno
    :text "O erektilní dysfunkci bylo napsáno 2-krát více vědeckých článků než o premenstruačním syndromu."
    :correct? false
-   :explanation "Ve skutečnosti jich bylo napsáno 5-krát více."} ; TODO: Revidovat otázku
+   :note "Ve skutečnosti jich bylo napsáno 5-krát více."} ; TODO: Revidovat otázku
   {:type :percent-range
    :text "Kolik procent žen trpí menstruačními bolestmi?"
    :numeric-answer 90}
@@ -128,7 +128,7 @@
   {:type :yesno
    :text "Celosvětový podíl nezaměstnaných mužů je vyšší než nezaměstnaných žen."
    :correct? false
-   :explanation "Nezaměstnaných žen je o 27 % více."}
+   :note "Nezaměstnaných žen je o 27 % více."}
   {:type :multiple
    :text "Co bylo podnětem k ustanovení Mezinárodního dne žen?"
    :choices [{:text "Výročí demonstrace žen 'Chléb a mír' v Petrohradě"}
@@ -141,14 +141,14 @@
              {:text "Nitroděložní tělísko"}
              {:text "Vaginální kroužek"}
              {:text "Medroxyprogesteron acetát"}]
-   :explanation "Rotavátor je stroj na zpracování půdy."}
+   :note "Rotavátor je stroj na zpracování půdy."}
   {:type :percent-range
    :text "Jakému zdanění podléhají v Česku menstruační potřeby?"
    :numeric-answer 21}
   {:type :yesno
    :text "Poslední soudní proces, kdy byla žena nařčena z čarodějnictví, proběhl v roce 1850."
    :correct? false
-   :explanation "Bylo to v roce 1950 v belgickém městě Turnhout."}
+   :note "Bylo to v roce 1950 v belgickém městě Turnhout."}
   {:type :multiple
    :text "Který český politik se proslavil hláškou 'Se ženami spolupracuji od svých čtyř nebo pěti let'?"
    :choices [{:text "Jaroslav Kubera" :correct? true}
@@ -277,7 +277,7 @@
   {:type :yesno
    :text "Výskyt anorexie u žen se v celosvětové populaci odhaduje na 0,3 %."
    :correct? false
-   :explanation "Odhaduje se na 4 %."}
+   :note "Odhaduje se na 4 %."}
   {:type :yesno
    :text "Výskyt anorexie u mužů se v celosvětové populaci odhaduje na 0,3 %."
    :correct? true}
@@ -435,14 +435,14 @@
   {:type :yesno
    :text "Turecké zákonodárkyně nesmí nosit kalhoty na národní shromáždění."
    :correct? false
-   :explanation "Zákaz platil do roku 2013."}
+   :note "Zákaz platil do roku 2013."}
   {:type :yesno
    :text "V Paříži do roku 2013 platila vyhláška požadující po ženách, aby si nechaly schválit nošení pánského oblečení místní samosprávou."
    :correct? true}
   {:type :yesno
    :text "Řecké ženy si nesmí vzít manželovo příjmení."
    :correct? true
-   :explanation "Zákaz platí od roku 1983."}
+   :note "Zákaz platí od roku 1983."}
   {:type :multiple
    :text "Na které české bankovce je žena?"
    :choices [{:text "2000 Kč" :correct? true}
@@ -452,7 +452,7 @@
   {:type :yesno
    :text "Podle výzkumu Organizace spojených národů z roku 2013 je podíl mužů a žen mezi vrahy přibližně stejný."
    :correct? false
-   :explanation "96 % vrahů jsou muži."}
+   :note "96 % vrahů jsou muži."}
   {:type :yesno
    :text "Do roku 2016 standard pro emoji nerozlišoval gender."
    :correct? true}
@@ -507,7 +507,7 @@
   {:type :yesno
    :text "Klitoris má dvakrát více nervových zakončení než penis?"
    :correct? true
-   :explanation "Klitoris má více než 8000 nervových zakončení."}
+   :note "Klitoris má více než 8000 nervových zakončení."}
   {:type :multiple
    :text "Ze kterého komiksového vydavatelství je postava Wonder Woman?"
    :choices [{:text "Marvel"}
@@ -517,14 +517,14 @@
   {:type :yesno
    :text "Mohly se pouze ženy účastnit Seneca Falls Convention roku 1848 (také známe pod názvem Women's Rights Convention)?"
    :correct? false
-   :explanation "Muži se mohli účastnit druhého dne."}
+   :note "Muži se mohli účastnit druhého dne."}
   {:type :multiple
    :text "Jakým zákonem se proslavila francouzská politička Simone Veil?"
    :choices [{:text "Dekriminalizací interrupcí" :correct? true}
              {:text "Kriminalizací znásilnění mezi manželi"}
              {:text "Dekriminalizací homosexuality"}
              {:text "Kriminalizací popírání holokaustu"}]
-   :explanation "Byla první prezidentkou zvoleného Evropského parlamentu."}
+   :note "Byla první prezidentkou zvoleného Evropského parlamentu."}
   {:type :multiple
    :text [:<>
           [:img {:src "/img/laura_janackova.png"}]
@@ -539,7 +539,7 @@
              {:text "L'Oréal"}
              {:text "Avon"}
              {:text "Manufaktura"}]
-   :explanation "Značka Dermacol vznikla v roce 1966 v barrandovských filmových ateliérech."}
+   :note "Značka Dermacol vznikla v roce 1966 v barrandovských filmových ateliérech."}
   {:type :multiple
    :text "U zrodu které organizace stála Alice Garrigue Masaryková?"
    :choices [{:text "Sokol"}
@@ -549,11 +549,11 @@
   {:type :yesno
    :text "Nejvíce Oscarů za nejlepší herecký výkon má muž."
    :correct? false
-   :explanation "Nejvíce jich má Katharine Hepburn. Získala celkem 4 Oscary."}
+   :note "Nejvíce jich má Katharine Hepburn. Získala celkem 4 Oscary."}
   {:type :yesno
    :text "Nejvíce nominací na Oscara získal muž."
    :correct? true
-   :explanation "Je to Walt Disney, který získal celkem 59 nominací."}
+   :note "Je to Walt Disney, který získal celkem 59 nominací."}
   {:type :multiple
    :text "Kdo řekl \"Pokud chcete, aby něco bylo řečeno, zeptejte se muže; jestli chcete, aby něco bylo uděláno, zeptejte se ženy.\"?"
    :choices [{:text "Beyoncé"}
@@ -566,7 +566,7 @@
              {:text "Že by ženy byly rychlejší než muži."}
              {:text "Že by ženy utekly od plotny a už se nikdy nevrátily."}
              {:text "Že by ženy umřely vyčerpáním."}]
-   :explanation "Ženy mohly závodit na Olympiádě v maratonu až v roce 1984."}
+   :note "Ženy mohly závodit na Olympiádě v maratonu až v roce 1984."}
   {:type :multiple
    :text "Kolik olympijských medailí získala Věra Čáslavská?"
    :choices [{:text "6"}
@@ -576,7 +576,7 @@
   {:type :yesno
    :text "Drží nejdéle trvající světový rekord v atletických disciplínách žena?"
    :correct? true
-   :explanation "Drží ho Jarmila Kratochvílová v běhu na 800 metrů od roku 1983."}
+   :note "Drží ho Jarmila Kratochvílová v běhu na 800 metrů od roku 1983."}
   {:type :multiple
    :text "Jak se jmenuje tenistka, která vyhrála soutěž žen ve dvouhře na Australian Open 2021? Její příjmení je stejné jako název japonského města, kde se narodila."
    :choices [{:text "Naomi Osaka" :correct? true}
@@ -601,7 +601,7 @@
              {:text "Ghana"}
              {:text "Jihoafrická republika"}
              {:text "Egypt"}]
-   :explanation "Byla zvolena roku 2005."}
+   :note "Byla zvolena roku 2005."}
   {:type :multiple
    :text [:<>
            [:img {:src "/img/burkini.jpg"}]
@@ -616,18 +616,18 @@
   {:type :yesno
    :text "Pokud je zavražděna žena, vrahem je v 84 % její partner."
    :correct? false
-   :explanation "Partner je vrahem v 38 % případů."}
+   :note "Partner je vrahem v 38 % případů."}
   {:type :multiple
    :text "Co je to “rodinné hlasování”?"
    :choices [{:text "Člen rodiny, typicky muž, kontroluje způsob hlasování ostatních členů rodiny, nejčastěji žen, ale i mladších členů." :correct? true}
              {:text "Rodina se demokraticky dohodne, jak hlasovat ve volbách."}
              {:text "Hlasování pro kandidáty podporující rodiny."}
              {:text "Trend hlasování pro své příbuzné."}]
-   :explanation "Tato praktika narušuje princip tajnosti hlasování."}
+   :note "Tato praktika narušuje princip tajnosti hlasování."}
   {:type :yesno
    :text "První žena objela svět na kole roku 1974."
    :correct? false
-   :explanation "První byla Annie Londonderry, která svět objela v letech 1894-1895."}
+   :note "První byla Annie Londonderry, která svět objela v letech 1894-1895."}
   {:type :sort
    :text "Seřaďte státy chronologicky podle roku, kdy v nich ženy získaly všeobecné volební právo."
    :items [{:text "Rusko" :sort-value 1917}
@@ -642,11 +642,11 @@
              {:text "Islám"}
              {:text "Pravoslaví"}
              {:text "Mormonství"}]
-   :explanation "Muži modlitbu říkají během Birchot ha-šachar – ranního požehnání."}
+   :note "Muži modlitbu říkají během Birchot ha-šachar – ranního požehnání."}
   {:type :yesno
    :text "Váha ženského mozku s věkem klesá průměrně o 2,7 gramu, zatímco u mužů je to o 2,2 gramu."
    :correct? false
-   :explanation "Je to naopak. Muži mají průměrně těžší mozek."}
+   :note "Je to naopak. Muži mají průměrně těžší mozek."}
   {:type :multiple
    :text "Co je to pinkwashing?"
    :choices [{:text "Druh klamavého marketingu využívající LGBT+ lidi a jejich zájmy" :correct? true}
@@ -679,7 +679,7 @@
   {:type :yesno
    :text "První československá ministryně byla zvolena ve volbách roku 1925."
    :correct? false
-   :explanation "Byla to Ludmila Jankovcová, která byla roku 1947 zvolena jako ministryně průmyslu."}
+   :note "Byla to Ludmila Jankovcová, která byla roku 1947 zvolena jako ministryně průmyslu."}
   {:type :yesno
    :text "Milada Horáková byla první žena v Československu, která byla odsouzena k trestu smrti v politickém procesu."
    :correct? true}
@@ -704,7 +704,7 @@
   {:type :yesno
    :text "V letech 2018-2022 ženy v Česku spáchaly 4,1-krát více sebevražd než muži."
    :correct? false
-   :explanation "Je to naopak."}
+   :note "Je to naopak."}
   {:type :yesno
    :text "Až do roku 1950 v Československu patřil veškerý majetek muži, dokonce i ten, který do manželství přinesla žena."
    :correct? true}
@@ -732,11 +732,11 @@
              {:text "15 let"}
              {:text "21 let"}
              {:text "25 let"}]
-   :explanation "Heterosexuální styk byl legální již od 15 let."}
+   :note "Heterosexuální styk byl legální již od 15 let."}
   {:type :yesno
    :text "Transgender lidé v 70. letech v Československu podstupovali toxikoterapii pomocí metamfetaminu."
    :correct? false
-   :explanation "Šlo o terapii pomocí LSD."}
+   :note "Šlo o terapii pomocí LSD."}
   {:type :multiple
    :text "Co bylo cílem politické strany Rovnost šancí?"
    :choices [{:text "Dohnat Makedonii" :correct? true}
@@ -763,11 +763,11 @@
   {:type :yesno
    :text "Ženy tvoří třetinu světové populace negramotných nad 15 let."
    :correct? false
-   :explanation "Ženy tvoří 2/3."}
+   :note "Ženy tvoří 2/3."}
   {:type :yesno
    :text "Nejmladší nositelkou Nobelovy ceny míru je žena."
    :correct? true
-   :explanation "Malála Júsufzaj cenu získala v roce 2014, když jí bylo 17 let."}
+   :note "Malála Júsufzaj cenu získala v roce 2014, když jí bylo 17 let."}
   {:type :open
    :text "Jak se říká diskuznímu panelu, který nezahrnuje ženy?"
    :answer "Manel"}
@@ -794,7 +794,7 @@
   {:type :yesno
    :text "Největší procentní rozdíl k roku 2022 mezi počtem žen a mužů v populaci je v Číně."
    :correct? false
-   :explanation [:span "Jde o Katar, kde " [:a {:href "https://ourworldindata.org/grapher/share-population-female?tab=table"} "ženy tvoří 27,49 % populace"] "."]}
+   :note [:span "Jde o Katar, kde " [:a {:href "https://ourworldindata.org/grapher/share-population-female?tab=table"} "ženy tvoří 27,49 % populace"] "."]}
   {:type :multiple
    :text "Co dle archaických nepálských zvyků nesmí dělat ženy během menstruace?"
    :choices [{:text "Dotýkat se mužů a dobytka" :correct? true}
@@ -804,7 +804,7 @@
   {:type :yesno
    :text "V Indonésii je panenství podmínkou pro vstup žen do armády nebo policie."
    :correct? false
-   :explanation "Tato podmínka byla zrušena roku 2021."}
+   :note "Tato podmínka byla zrušena roku 2021."}
   {:type :multiple
    :text "Kvůli čemu roku 2022 íránská mravnostní policie ubila dvaadvacetiletou Mahsu Amíní?"
    :choices [{:text "Měla nedostatečně zahalené vlasy" :correct? true}
@@ -846,7 +846,7 @@
              {:text "1948"}
              {:text "1990"}
              {:text "1920"}]
-   :explanation "Bylo to na Olympijských hrách ve Francii."}
+   :note "Bylo to na Olympijských hrách ve Francii."}
   {:type :yesno
    :text "Po anexi Sudet československý stát propustil všechny vdané ženy, aby uvolnil pracovní místa pro muže prchající ze Sudet."
    :correct? true}
@@ -861,7 +861,7 @@
           [:img {:src "/img/fdr.png"}]
           [:p "Na fotce je muž."]]
    :correct? true
-   :explanation "Je to asi tříletý Franklin Delano Roosevelt."}
+   :note "Je to asi tříletý Franklin Delano Roosevelt."}
   {:type :open
    :text "Jak se říká ženě zařazené do skupiny, aby zvýšila dojem její diverzity?"
    :answer "Token woman"}
@@ -929,18 +929,18 @@
              {:text "1976"}
              {:text "1983"}
              {:text "2005"}]
-   :explanation "Byla jí Valentina Vladimirovna Těreškovová ze Sovětského svazu."}
+   :note "Byla jí Valentina Vladimirovna Těreškovová ze Sovětského svazu."}
   {:type :yesno
    :text "USA vyslalo ženu do vesmíru dříve než SSSR."
    :correct? false
-   :explanation "SSSR vyslalo ženu do vesmíru již v roce 1963. USA až roku 1983."}
+   :note "SSSR vyslalo ženu do vesmíru již v roce 1963. USA až roku 1983."}
   {:type :multiple
    :text "Kolik tampónů dala NASA Sally Ride, první americké astronautce, na jeden týden ve vesmíru?"
    :choices [{:text "100" :correct? true}
              {:text "1"}
              {:text "10"}
              {:text "1000"}]
-   :explanation "Tampóny byly zabaleny tak, že jejich šňůrky byly spojeny jako proužek párků, aby neodplavaly."}
+   :note "Tampóny byly zabaleny tak, že jejich šňůrky byly spojeny jako proužek párků, aby neodplavaly."}
   {:type :multiple
    :text "Sally Ride byla nejen první americkou ženou ve vesmíru, ale také:"
    :choices [{:text "První LGBT+ osobou ve vesmíru" :correct? true}
@@ -953,14 +953,14 @@
              {:text "Irsko"}
              {:text "Maďarsko"}
              {:text "Česká republika"}]
-   :explanation "Stalo se tak v roce 2018."}
+   :note "Stalo se tak v roce 2018."}
   {:type :multiple
    :text "Která země má ve své ústavě napsáno, že ženino místo ve společnosti je především se starat o domácnost a rodinu?"
    :choices [{:text "Irsko" :correct? true}
              {:text "USA"}
              {:text "Rusko"}
              {:text "Indie"}]
-  :explanation "Irsko uspořádalo roku 2024 referendum o změně této části ústavy, ale 73,9 % hlasujících tuto změnu odmítlo."}
+  :note "Irsko uspořádalo roku 2024 referendum o změně této části ústavy, ale 73,9 % hlasujících tuto změnu odmítlo."}
   {:type :multiple
    :text [:<>
           [:p "Doplňte následující slogan, který se často skanduje na feministických protestech."]
@@ -993,7 +993,7 @@
              {:text "Jana Maláčová"}
              {:text "Phyllis Schlafly"}
              {:text "Simone de Beauvoir"}]
-   :explanation "Její knize The Feminine Mystique z roku 1963 je často připisováno, že podnítila druhou vlnu amerického feminismu ve 20. století."}
+   :note "Její knize The Feminine Mystique z roku 1963 je často připisováno, že podnítila druhou vlnu amerického feminismu ve 20. století."}
   {:type :multiple
    :text [:<>
           [:img {:src "/img/ruth_bader_ginsburg.jpg"}]
@@ -1002,7 +1002,7 @@
              {:text "Hilary Clinton"}
              {:text "Alexandria Ocasio-Cortez"}
              {:text "Miley Cyrus"}]
-   :explanation "Byla druhou soudkyní Nejvyššího soudu USA."}
+   :note "Byla druhou soudkyní Nejvyššího soudu USA."}
   {:type :multiple
    :text [:<>
           [:img {:src "/img/lenka_smerdova.jpg"}]
@@ -1019,29 +1019,29 @@
              {:text "Františka Plamínková"}
              {:text "Alice Masaryková"}
              {:text "Milada Horáková"}]
-   :explanation "Byla zvolena roku 1912. Ženy sice v té době volit nesměly, ale zákon nikde výslovně neuváděl, že nesmějí být voleny. Vikové-Kunětické ale české místodržitelství zabránilo ve výkonu mandátu."}
+   :note "Byla zvolena roku 1912. Ženy sice v té době volit nesměly, ale zákon nikde výslovně neuváděl, že nesmějí být voleny. Vikové-Kunětické ale české místodržitelství zabránilo ve výkonu mandátu."}
   {:type :percent-range
    :text "Kolik procent tvoří ženy v celkovém počtu zaměstnanectva Dopravního podniku hl. m. Prahy?"
    :numeric-answer 15}
   {:type :yesno
    :text "První žena začala pracovat jako řidička tramvají v Praze v roce 1915."
    :correct? false
-   :explanation "První ženy opravdu začaly u DPP pracovat v roce 1915, avšak jako průvodčí. Jako řidičky byly zaměstnány až během druhé světové války."}
+   :note "První ženy opravdu začaly u DPP pracovat v roce 1915, avšak jako průvodčí. Jako řidičky byly zaměstnány až během druhé světové války."}
   {:type :multiple
    :text "Která země, kde je většina obyvatel muslimská, měla jako první ženu zvolenou do čela demokratické vlády?"
    :choices [{:text "Pákistán" :correct? true}
              {:text "Afghánistán"}
              {:text "Írán"}
              {:text "Indie"}]
-   :explanation "Byla jí Bénazír Bhutto v roce 1988."}
+   :note "Byla jí Bénazír Bhutto v roce 1988."}
   {:type :yesno
    :text "Nekatolíci mohli na Karlově univerzitě studovat dříve než ženy."
    :correct? true
-   :explanation "První ženy byly připuštěny na přednášky od roku 1895. Nekatolíkům bylo studium umožněno od roku 1781."}
+   :note "První ženy byly připuštěny na přednášky od roku 1895. Nekatolíkům bylo studium umožněno od roku 1781."}
   {:type :yesno
    :text "Česká republika měla ženu lékařku (tj. řádně vystudovala lékařství a dosáhla promoce) dříve než USA."
    :correct? false
-   :explanation "První žena v USA se stala lékařkou roku 1849 zatímco v Česku to bylo až v roce 1902."}
+   :note "První žena v USA se stala lékařkou roku 1849 zatímco v Česku to bylo až v roce 1902."}
   {:type :multiple
    :text "Jaký obor vystudovala Marie Zdeňka Baborová, která se stala první doktorkou filozofie na Univerzitě Karlově?"
    :choices [{:text "Zoologii" :correct? true}
@@ -1075,7 +1075,7 @@
              {:text "Německo"}
              {:text "Chorvatsko"}
              {:text "Francie"}]
-   :explanation [:span "Lotyšsko má 50 %. Česká republika je s 27,6 % druhá nejhorší v EU ("
+   :note [:span "Lotyšsko má 50 %. Česká republika je s 27,6 % druhá nejhorší v EU ("
                  [:a {:href "https://genderaveda.cz/wp-content/uploads/2024/03/Postaveni-zen-v-ceske-vede-2021.pdf"} "zdroj"]
                  ")"]}
   {:type :multiple
@@ -1084,11 +1084,11 @@
              {:text "Učitelství"}
              {:text "Výroba udržitelné módy"}
              {:text "Knihovnictví"}]
-   :explanation "Nightingale se proslavila, když sloužila jako manažerka a školitelka zdravotních sester během krymské války, ve které organizovala péči o zraněné vojáky."}
+   :note "Nightingale se proslavila, když sloužila jako manažerka a školitelka zdravotních sester během krymské války, ve které organizovala péči o zraněné vojáky."}
   {:type :yesno
    :text "V současné době tvoří většinu válečných obětí muži."
    :correct? false
-   :explanation [:span "Odhaduje se, že téměř 90 % současných válečných obětí tvoří civilisté, z nichž většinu tvoří ženy a děti, ve srovnání s dobou před sto lety, kdy 90 % těch, kteří přišli o život, tvořili vojáci ("
+   :note [:span "Odhaduje se, že téměř 90 % současných válečných obětí tvoří civilisté, z nichž většinu tvoří ženy a děti, ve srovnání s dobou před sto lety, kdy 90 % těch, kteří přišli o život, tvořili vojáci ("
                  [:a {:href "https://www.un.org/womenwatch/daw/followup/session/presskit/fs5.htm"} "zdroj"]
                  ")."]}
   {:type :multiple
@@ -1099,7 +1099,7 @@
              {:text "Přežitím 45 dnů v pralese poté, co se tam ztratila."}
              {:text "Zabitím žraloka vlastníma rukama."}
              {:text "Natočením filmu o mužích horolezcích."}]
-   :explanation "Tabei byla také první ženou, která vylezla Seven Summits (nejvyšší vrcholy sedmi kontinentů)."}
+   :note "Tabei byla také první ženou, která vylezla Seven Summits (nejvyšší vrcholy sedmi kontinentů)."}
   {:type :multiple
    :text [:<>
           [:img {:src "/img/sarojini_naidu.png"}]
@@ -1130,7 +1130,7 @@
              {:text "Bohuslav Svoboda"}
              {:text "Roman Šmucler"}
              {:text "Miloš Zeman"}]
-   :explanation "Optimální věk pro první dítě je podle něj 24 let."}
+   :note "Optimální věk pro první dítě je podle něj 24 let."}
   {:type :multiple
    :text [:<>
           [:img {:src "/img/signal_for_help.png"}]
@@ -1139,34 +1139,34 @@
              {:text "Čtyři piva, prosím"}
              {:text "Jeden za všechny, všichni za jednoho!"}
              {:text "Vše je v pořádku"}]
-   :explanation "Znak byl vytvořen pro varování o domácím násilí během izolací za pandemie COVID-19."}
+   :note "Znak byl vytvořen pro varování o domácím násilí během izolací za pandemie COVID-19."}
   {:type :multiple
    :text "Jaký je smysl kampaně White Wednesdays?"
    :choices [{:text "Protest proti povinnému nošení hidžábu v Íránu" :correct? true}
              {:text "Připomínka bílého privilegia žen v západním světě"}
              {:text "Pieta za oběti domácího násilí"}
              {:text "White Lives Matter"}]
-   :explanation "Ženy symbolicky mávají bílým hidžábem jako vlajkou míru."}
+   :note "Ženy symbolicky mávají bílým hidžábem jako vlajkou míru."}
   {:type :yesno
    :text "Smí muž ženě pomoci do kabátu?"
    :correct? true}
   {:type :yesno
    :text "Žena může přijít pozdě, ale musí vypadat skvěle."
    :correct? false
-   :explanation "Podle Ladislava Špačka to ale platí."}
+   :note "Podle Ladislava Špačka to ale platí."}
   {:type :yesno
    :text "Žena nesedí u stolu proto, aby se najedla, ale aby byla krásná."
    :correct? false
-   :explanation "Podle Ladislava Špačka to ale platí."}
+   :note "Podle Ladislava Špačka to ale platí."}
   {:type :yesno
    :text "Podle lékařů na konci 19. století jízda na sedle kola ženy učila masturbaci."
    :correct? true}
   {:type :yesno
    :text "Podle Českého statistického úřadu je osobou v čele domácnosti vždy muž."
    :correct? false
-   :explanation "Platilo to do roku 2023. Dle nových pravidel může být osobou v čele žena, pokud má nejvyšší příjem."}
+   :note "Platilo to do roku 2023. Dle nových pravidel může být osobou v čele žena, pokud má nejvyšší příjem."}
   {:type :percent-range
    :text "Jaké je procentní zastoupení žen ve výzkumu v Česku (dle dat z roku 2019)?"
    :numeric-answer 27
-   :explanation "Česko mělo roku 2019 nejnižší podíl ženy ve výzkumu v EU."}
+   :note "Česko mělo roku 2019 nejnižší podíl ženy ve výzkumu v EU."}
 }
