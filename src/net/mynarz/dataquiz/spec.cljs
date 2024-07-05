@@ -20,6 +20,17 @@
 
 (s/def ::player-2 ::player-name)
 
+(s/def ::id string?)
+
+(s/def ::label string?)
+
+(s/def ::question-set
+  (s/keys :req-un [::id
+                   ::label]))
+
+(s/def ::question-sets
+  (s/coll-of ::question-set))
+
 (s/def ::next-player ::player)
 
 (s/def ::winner ::player)
@@ -46,7 +57,8 @@
 
 (s/def ::db
   (s/keys :req-un [::player-1
-                   ::player-2]
+                   ::player-2
+                   ::question-sets]
           :opt-un [::answer-revealed?
                    ::az/board-state
                    ::error

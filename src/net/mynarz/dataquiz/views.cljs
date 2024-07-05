@@ -137,7 +137,7 @@
 (defn questions-select-tab
   []
   (let [questions-url (r/atom nil)
-        choices [{:id "questions/femquiz.edn" :label "Fem-quiz"}]]
+        choices @(rf/subscribe [::subs/question-sets])]
     (fn []
       (let [loading? @(rf/subscribe [::subs/questions-loading?])]
         [rc/box

@@ -66,3 +66,8 @@
   (fn [{:keys [winner] :as db}]
     {:name (get db winner)
      :id winner}))
+
+(reg-sub
+  ::question-sets
+  (fn [{:keys [question-sets]}]
+    question-sets))

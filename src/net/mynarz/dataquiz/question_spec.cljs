@@ -14,7 +14,7 @@
 (s/def ::answer string?)
 
 (s/def ::percentage
-  (s/and number? pos? (partial >= 100)))
+  (s/and number? (comp not neg?) (partial >= 100)))
 
 (s/def ::choice
   (s/keys :req-un [::text]

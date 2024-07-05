@@ -39,10 +39,10 @@
      threshold))
 
 (defmethod guess-matches-answer? :percent-range
-  [{:keys [numeric-answer threshold]
+  [{:keys [percentage threshold]
     :or {threshold 5}}
    guess]
-  (<= (abs (- numeric-answer guess)) threshold))
+  (<= (abs (- percentage guess)) threshold))
 
 (defmethod guess-matches-answer? :sort
   [{:keys [items]}
@@ -58,7 +58,8 @@
   ::initialize
   (fn [{:keys [db]} _]
     {:db {:player-1 "Hráč 1"
-          :player-2 "Hráč 2"}
+          :player-2 "Hráč 2"
+          :question-sets [{:id "questions/femquiz.edn" :label "Fem-quiz"}]}
      :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
                                               :event-keys [[[::submit]
                                                             [enter-key]]]}]]]}))

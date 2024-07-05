@@ -121,14 +121,14 @@
                          :left (calculate-offset @sides guess)}]])))
 
 (defmethod question :percent-range
-  [{:keys [text numeric-answer]}
+  [{:keys [text percentage]}
    answer-revealed?]
   (let [guess @(rf/subscribe [::subs/guess])]
     [rc/v-box
      :children [[:div.question text]
                 [slider guess answer-revealed?]
                 (when answer-revealed?
-                  [note-view (gstring/format "Správná odpověď je %d %%." numeric-answer)])]]))
+                  [note-view (gstring/format "Správná odpověď je %d %%." percentage)])]]))
 
 (defn sortable-list
   [items answer-revealed?]
