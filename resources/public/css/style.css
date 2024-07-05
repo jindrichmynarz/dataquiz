@@ -270,7 +270,7 @@ ul.choices li button {
   height: 2em;
 }
 
-i.zmdi-close {
+.rc-modal-panel i.zmdi-close {
   cursor: pointer;
   font-size: 2em;
 }
