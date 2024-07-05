@@ -1177,4 +1177,8 @@
              {:text "I'm too old for this shit"}
              {:text "Votes for men"}
              {:text "Bike Kitchen Praha"}]}
+  {:type :yesno
+   :text "'Sufražetka' a 'sufražistka' jsou synonyma."
+   :correct? false
+   :note "Sufražetky používaly i formy protestu, které umírněné sufražistky odmítaly, například blokády dopravy."}
 }
