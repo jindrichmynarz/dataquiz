@@ -1,12 +1,34 @@
 (ns net.mynarz.dataquiz.coeffects
-  (:require [re-frame.core :as rf]))
+  (:require [clojure.string :as string]
+            [re-frame.core :as rf]))
+
+(defn split-by-commas
+  "Split string `s` by commas."
+  [s]
+  (string/split s #","))
+
+(defn load-question-ids
+  "Load question IDs from string `s` into a set of integers."
+  [s]
+  (if s
+    (->> s
+         split-by-commas
+         (map parse-long)
+         set)
+    #{}))
 
 (rf/reg-cofx
-   ::local-store
-   (fn [cofx local-store-key]
-      (assoc-in cofx
-                [::local-store local-store-key]
-                (js->clj (.getItem js/localStorage local-store-key)))))
+  ::questions-seen
+  (fn [{{:keys [question-set-id]} :db
+        :as cofx}]
+    (if question-set-id
+      (assoc cofx
+             ::questions-seen
+             (->> question-set-id
+                  (.getItem js/localStorage)
+                  js->clj
+                  load-question-ids))
+      cofx)))
 
 (rf/reg-cofx
   ::timeout

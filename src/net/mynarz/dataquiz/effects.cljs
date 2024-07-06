@@ -1,5 +1,6 @@
 (ns net.mynarz.dataquiz.effects
-  (:require [re-frame.core :as rf]
+  (:require [clojure.string :as string]
+            [re-frame.core :as rf]
             [reitit.frontend.easy :as rfe]))
 
 (rf/reg-fx
@@ -11,6 +12,13 @@
   ::delete-local-storage
   (fn [local-store-key]
     (.removeItem js/localStorage local-store-key)))
+
+(rf/reg-fx
+  ::set-questions-seen
+  (fn [[question-set-id questions-seen]]
+    (->> questions-seen
+         (string/join \,)
+         (.setItem js/localStorage question-set-id))))
 
 (rf/reg-fx
   ::navigate-to
