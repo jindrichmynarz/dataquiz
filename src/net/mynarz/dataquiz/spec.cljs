@@ -4,7 +4,7 @@
             [clojure.test.check.generators :as gen]
             [expound.alpha :as e]
             [net.mynarz.az-kviz.spec :as az]
-            [net.mynarz.dataquiz.questions-spec :as questions]
+            [net.mynarz.dataquiz.question-spec :as question]
             [reitit.core :as reitit]))
 
 (defn gen-one
@@ -22,6 +22,19 @@
 
 (s/def ::player-2 ::player-name)
 
+(s/def ::id string?)
+
+(s/def ::label string?)
+
+(s/def ::question-set
+  (s/keys :req-un [::id
+                   ::label]))
+
+(s/def ::question-set-id string?)
+
+(s/def ::question-sets
+  (s/coll-of ::question-set))
+
 (s/def ::next-player ::player)
 
 (s/def ::winner ::player)
@@ -30,7 +43,7 @@
 
 (s/def ::error-type keyword?)
 
-(s/def ::error-message ::questions/hiccup)
+(s/def ::error-message ::question/hiccup)
 
 (s/def ::error
   (s/keys :req-un [::error-type]
@@ -42,7 +55,7 @@
 (s/def ::guess
   (s/or :string string?
         :number number?
-        :items ::questions/items))
+        :items ::question/items))
 
 (s/def ::answer-revealed? boolean?)
 
@@ -63,7 +76,8 @@
 
 (s/def ::db
   (s/keys :req-un [::player-1
-                   ::player-2]
+                   ::player-2
+                   ::question-sets]
           :opt-un [::answer-revealed?
                    ::az/board-state
                    ::error
@@ -71,8 +85,9 @@
                    ::is-playing
                    ::loading?
                    ::next-player
-                   ::questions/question
-                   ::questions/questions
+                   ::question-set-id
+                   ::question/question
+                   ::question/questions
                    ::route
                    ::winner]))
 
@@ -82,4 +97,4 @@
     (e/expound-str spec data)))
 
 (def validate-questions
-  (partial validate ::questions/questions))
+  (partial validate ::question/questions))

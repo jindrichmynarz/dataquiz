@@ -39,10 +39,10 @@
      threshold))
 
 (defmethod guess-matches-answer? :percent-range
-  [{:keys [numeric-answer threshold]
+  [{:keys [percentage threshold]
     :or {threshold 5}}
    guess]
-  (<= (abs (- numeric-answer guess)) threshold))
+  (<= (abs (- percentage guess)) threshold))
 
 (defmethod guess-matches-answer? :sort
   [{:keys [items]}
@@ -58,7 +58,8 @@
   ::initialize
   (fn [{:keys [db]} _]
     {:db {:player-1 "Hráč 1"
-          :player-2 "Hráč 2"}
+          :player-2 "Hráč 2"
+          :question-sets [{:id "questions/femquiz.edn" :label "Fem-quiz"}]}
      :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
                                               :event-keys [[[::submit]
                                                             [enter-key]]]}]]]}))
@@ -101,19 +102,29 @@
   (fn [db _]
     (dissoc db :error :loading?)))
 
-(rf/reg-event-db
+(rf/reg-event-fx
   ::load-questions
-  (fn [db [_ questions]]
-    (let [sanitized-questions (normalize/sanitize-hiccup questions)]
-      (println (gstring/format "Máme %d otázek." (count sanitized-questions)))
-      (-> db
-          (assoc :questions sanitized-questions)
-          (dissoc :loading?)))))
+  [(rf/inject-cofx ::cofx/questions-seen)]
+  (fn [{:keys [db]
+        ::cofx/keys [questions-seen]}
+       [_ questions]]
+    (let [sanitized-questions (normalize/sanitize-hiccup questions)
+          filtered-questions (if questions-seen
+                               (->> sanitized-questions
+                                    (remove (comp questions-seen hash))
+                                    set)
+                               sanitized-questions)]
+      (println (gstring/format "Máme %d otázek." (count filtered-questions)))
+      {:db (-> db
+               (assoc :questions filtered-questions)
+               (dissoc :loading?))})))
 
 (rf/reg-event-fx
   ::download-questions
   (fn [{:keys [db]} [_ url]]
-    {:db (assoc db :loading? true)
+    {:db (assoc db
+                :loading? true
+                :question-set-id url)
      :fx [[:http-xhrio {:method :get
                         :on-failure [::load-questions-error]
                         :on-success [::load-questions]
@@ -157,7 +168,7 @@
 (rf/reg-event-db
   ::no-more-questions
   (fn [db _]
-    (assoc db :error [:<> "Otázky došly!" [:i.zmdi.zmdi-block]])))
+    (assoc db :error {:error-type :no-more-questions-error})))
 
 (rf/reg-event-fx
   ::has-player-won?
@@ -222,8 +233,10 @@
   ::pick-question
   [(rf/inject-cofx ::cofx/timeout {:id ::pick-question
                                    :event [::answer-question]
-                                   :ms 45000})]
-  (fn [{::cofx/keys [timeout]
+                                   :ms 45000})
+   (rf/inject-cofx ::cofx/questions-seen)]
+  (fn [{{:keys [question-set-id]} :db
+        ::cofx/keys [questions-seen timeout]
         :keys [db]}
        [_ status tile-id]]
     (let [[timeout-key timeout-id] (first timeout)
@@ -232,18 +245,20 @@
                         :questions
                         (filter (comp question-filter :type))
                         shuffle
-                        first)]
-      (if question
-        {:db (-> db
-                 (assoc :question (prepare-question question))
-                 (update :questions #(disj % question))
-                 (assoc-in [:timeout timeout-key] timeout-id)
-                 (cond->
-                   (= (:type question) :open)
-                   (assoc-in [:board-state tile-id :text] (normalize/abbreviate (:answer question)))
+                        first)
+          new-db (-> db
+                   (assoc :question (prepare-question question))
+                   (update :questions #(disj % question))
+                   (assoc-in [:timeout timeout-key] timeout-id)
+                   (cond->
+                     (= (:type question) :open)
+                     (assoc-in [:board-state tile-id :text] (normalize/abbreviate (:answer question)))
 
-                   (= (:type question) :sort)
-                   (assoc :guess (-> question :items shuffle))))}
+                     (= (:type question) :sort)
+                     (assoc :guess (-> question :items shuffle))))]
+      (if question
+        (cond-> {:db new-db}
+          question-set-id (assoc :fx [[::fx/set-questions-seen [question-set-id (conj questions-seen (hash question))]]]))
         {:fx [[:dispatch [::no-more-questions]]]}))))
 
 (rf/reg-event-fx
@@ -301,3 +316,8 @@
        [_ index]]
     (let [dragged-item (first (filter (comp #{:dragging} :status) items))]
       (update db :guess (partial insert-before dragged-item index)))))
+
+(rf/reg-event-fx
+  ::reset-question-set
+  (fn [_ [_ question-set-id]]
+    {:fx [[::fx/delete-local-storage question-set-id]]}))

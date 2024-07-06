@@ -3,7 +3,7 @@
             [goog.string.format]
             [net.mynarz.az-kviz.view :as az]
             [net.mynarz.dataquiz.events :as events]
-            [net.mynarz.dataquiz.question-views :refer [explanation-view question]]
+            [net.mynarz.dataquiz.question-views :as question-views]
             [net.mynarz.dataquiz.subscriptions :as subs]
             [re-com.core :as rc]
             [re-frame.core :as rf]
@@ -19,6 +19,7 @@
 (def error-modal
   (let [dispatch-modal #(rf/dispatch [::events/dispatch-error-modal])
         modals {:load-questions-error {:title "Chyba při načítání otázek!"}
+                :no-more-questions-error {:title "Otázky došly"}
                 :parse-questions-error {:title "Chybný formát otázek"}}]
     (fn []
       (let [{:keys [error-type error-message]} @(rf/subscribe [::subs/error])]
@@ -77,7 +78,7 @@
                                   "Nevím, dál!"])]
     (when data
       [:<>
-        (question data answer-revealed?)
+        (question-views/question data answer-revealed?)
         [:button#next
          {:on-click #(rf/dispatch event)
           :title title}
@@ -136,20 +137,26 @@
 
 (defn questions-select-tab
   []
-  (let [questions-url (r/atom nil)
-        choices [{:id "questions/femquiz.edn" :label "Fem-quiz"}]]
+  (let [choices @(rf/subscribe [::subs/question-sets])]
     (fn []
-      (let [loading? @(rf/subscribe [::subs/questions-loading?])]
-        [rc/box
-         :child [rc/single-dropdown
-                 :choices choices
-                 :class "questions-picker"
-                 :disabled? loading?
-                 :model questions-url
-                 :on-change (fn [url]
-                              (reset! questions-url url)
-                              (rf/dispatch [::events/download-questions url]))
-                 :placeholder "Vyber otázky"]]))))
+      (let [questions-url @(rf/subscribe [::subs/question-set-id])
+            loading? @(rf/subscribe [::subs/questions-loading?])
+            loaded? @(rf/subscribe [::subs/questions-loaded?])]
+        [rc/h-box
+         :children [[rc/single-dropdown
+                     :choices choices
+                     :class "questions-picker"
+                     :disabled? loading?
+                     :model questions-url
+                     :on-change (fn [url]
+                                  (rf/dispatch [::events/download-questions url]))
+                     :placeholder "Vyber otázky"]
+                    (when loaded?
+                      [rc/box
+                       :child [:button
+                               {:on-click #(rf/dispatch [::events/reset-question-set questions-url])
+                                :title "Zapomenout již hrané otázky"}
+                               [:i.zmdi.zmdi-refresh]]])]]))))
 
 (defn questions-upload-tab
   []

@@ -1,4 +1,4 @@
-(ns net.mynarz.dataquiz.questions-spec
+(ns net.mynarz.dataquiz.question-spec
   (:require [clojure.spec.alpha :as s]))
 
 (s/def ::hiccup
@@ -13,7 +13,8 @@
 
 (s/def ::answer string?)
 
-(s/def ::numeric-answer number?)
+(s/def ::percentage
+  (s/and number? (comp not neg?) (partial >= 100)))
 
 (s/def ::choice
   (s/keys :req-un [::text]
@@ -26,11 +27,11 @@
                :distinct true)
     (partial some :correct?)))
 
-(s/def ::explanation ::hiccup)
+(s/def ::note ::hiccup)
 
 (s/def ::question-base
   (s/keys :req-un [::text]
-          :opt-un [::explanation]))
+          :opt-un [::note]))
 
 (defmulti question :type)
 
@@ -47,7 +48,7 @@
   (s/and number? pos?))
 
 (defmethod question :percent-range [_]
-  (s/keys :req-un [::numeric-answer]
+  (s/keys :req-un [::percentage]
           :opt-un [::threshold]))
 
 (s/def ::sort-value
