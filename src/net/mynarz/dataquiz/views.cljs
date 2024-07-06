@@ -137,20 +137,26 @@
 
 (defn questions-select-tab
   []
-  (let [questions-url (r/atom nil)
-        choices @(rf/subscribe [::subs/question-sets])]
+  (let [choices @(rf/subscribe [::subs/question-sets])]
     (fn []
-      (let [loading? @(rf/subscribe [::subs/questions-loading?])]
-        [rc/box
-         :child [rc/single-dropdown
-                 :choices choices
-                 :class "questions-picker"
-                 :disabled? loading?
-                 :model questions-url
-                 :on-change (fn [url]
-                              (reset! questions-url url)
-                              (rf/dispatch [::events/download-questions url]))
-                 :placeholder "Vyber otázky"]]))))
+      (let [questions-url @(rf/subscribe [::subs/question-set-id])
+            loading? @(rf/subscribe [::subs/questions-loading?])
+            loaded? @(rf/subscribe [::subs/questions-loaded?])]
+        [rc/h-box
+         :children [[rc/single-dropdown
+                     :choices choices
+                     :class "questions-picker"
+                     :disabled? loading?
+                     :model questions-url
+                     :on-change (fn [url]
+                                  (rf/dispatch [::events/download-questions url]))
+                     :placeholder "Vyber otázky"]
+                    (when loaded?
+                      [rc/box
+                       :child [:button
+                               {:on-click #(rf/dispatch [::events/reset-question-set questions-url])
+                                :title "Zapomenout již hrané otázky"}
+                               [:i.zmdi.zmdi-refresh]]])]]))))
 
 (defn questions-upload-tab
   []

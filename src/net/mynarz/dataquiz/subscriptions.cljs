@@ -68,6 +68,11 @@
      :id winner}))
 
 (reg-sub
+  ::question-set-id
+  (fn [{:keys [question-set-id]}]
+    question-set-id))
+
+(reg-sub
   ::question-sets
   (fn [{:keys [question-sets]}]
     question-sets))

@@ -114,7 +114,9 @@
 (rf/reg-event-fx
   ::download-questions
   (fn [{:keys [db]} [_ url]]
-    {:db (assoc db :loading? true)
+    {:db (assoc db
+                :loading? true
+                :question-set-id url)
      :fx [[:http-xhrio {:method :get
                         :on-failure [::load-questions-error]
                         :on-success [::load-questions]
@@ -302,3 +304,8 @@
        [_ index]]
     (let [dragged-item (first (filter (comp #{:dragging} :status) items))]
       (update db :guess (partial insert-before dragged-item index)))))
+
+(rf/reg-event-fx
+  ::reset-question-set
+  (fn [_ [_ question-set-id]]
+    {:fx [[::fx/delete-local-storage question-set-id]]}))

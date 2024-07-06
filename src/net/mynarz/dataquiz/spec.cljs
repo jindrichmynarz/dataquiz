@@ -28,6 +28,8 @@
   (s/keys :req-un [::id
                    ::label]))
 
+(s/def ::question-set-id string?)
+
 (s/def ::question-sets
   (s/coll-of ::question-set))
 
@@ -66,6 +68,7 @@
                    ::is-playing
                    ::loading?
                    ::next-player
+                   ::question-set-id
                    ::question/question
                    ::question/questions
                    ::route
