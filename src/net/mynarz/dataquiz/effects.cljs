@@ -8,6 +8,11 @@
     (js/clearTimeout timeout-id)))
 
 (rf/reg-fx
+  ::delete-local-storage
+  (fn [local-store-key]
+    (.removeItem js/localStorage local-store-key)))
+
+(rf/reg-fx
   ::navigate-to
   (fn [route-id]
     (rfe/navigate route-id)))
