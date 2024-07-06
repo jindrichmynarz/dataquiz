@@ -9,6 +9,11 @@
     (js/clearTimeout timeout-id)))
 
 (rf/reg-fx
+  ::copy-to-clipboard
+  (fn [text]
+    (.writeText js/navigator.clipboard text)))
+
+(rf/reg-fx
   ::delete-local-storage
   (fn [local-store-key]
     (.removeItem js/localStorage local-store-key)))

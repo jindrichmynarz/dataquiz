@@ -5,6 +5,7 @@
             [net.mynarz.dataquiz.events :as events]
             [net.mynarz.dataquiz.question-views :as question-views]
             [net.mynarz.dataquiz.subscriptions :as subs]
+            ["qrcode-generator" :as qr]
             [re-com.core :as rc]
             [re-frame.core :as rf]
             [reagent.core :as r]
@@ -194,6 +195,34 @@
   []
   (navigation-button "Hrát" :enter))
 
+(defn game-qr-code
+  [game-url]
+  (let [qr-code (doto (qr. 0 "L")
+                  (.addData game-url)
+                  (.make))]
+   [:img {:src (.createDataURL qr-code 10 0)}]))
+
+(defn copy-button
+  [game-url]
+  [:button
+   {:on-click #(rf/dispatch [::events/copy-to-clipboard game-url])
+    :title "Zkopírovat odkaz na hru"}
+   [:i.zmdi.zmdi-copy]])
+
+(defn join-game
+  []
+  (let [game-url @(rf/subscribe [::subs/game-url])]
+    [rc/v-box
+     :align :center
+     :children [[game-qr-code game-url]
+                [:p
+                 [:input
+                  {:disabled "disabled"
+                   :type "text"
+                   :default-value game-url}]
+                 [copy-button game-url]]]
+     :gap "1em"]))
+
 (defn pick-questions
   []
   (let [loaded? @(rf/subscribe [::subs/questions-loaded?])]
@@ -203,7 +232,7 @@
                 [error-modal]
                 [title]
                 [questions-picker]
-                (when loaded? [lets-enter])
+                (when loaded? [join-game])
                 [footer]]
      :gap "2em"
      :justify :start]))
@@ -278,4 +307,4 @@
 (defn ui
   []
   (let [view @(rf/subscribe [::subs/view])]
-    [(or view enter)]))
+    [(or view pick-questions)]))

@@ -76,3 +76,8 @@
   ::question-sets
   (fn [{:keys [question-sets]}]
     question-sets))
+
+(reg-sub
+  ::game-url
+  (fn [{:keys [game-url]}]
+    game-url))

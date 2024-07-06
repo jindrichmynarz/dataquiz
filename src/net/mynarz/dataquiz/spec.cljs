@@ -7,10 +7,32 @@
             [net.mynarz.dataquiz.question-spec :as question]
             [reitit.core :as reitit]))
 
+(def game-id-length 8)
+
+(defn game-id-gen
+  "A generator of game IDs."
+  []
+  (gen/fmap (comp string/upper-case (partial apply str))
+            (gen/vector gen/char-alpha game-id-length)))
+
 (defn gen-one
   "Generate one value satisfying `spec`."
   [spec]
   (ffirst (s/exercise spec 1)))
+
+(defn iri?
+  "Test if `s` is a valid IRI."
+  [s]
+  (try (boolean (js/URL. s))
+       (catch js/TypeError _ false)))
+
+(defn validate
+  [spec data]
+  (when-not (s/valid? spec data)
+    (e/expound-str spec data)))
+
+(def validate-questions
+  (partial validate ::question/questions))
 
 (s/def ::player #{:player-1 :player-2})
 
@@ -59,14 +81,6 @@
 
 (s/def ::answer-revealed? boolean?)
 
-(def game-id-length 8)
-
-(defn game-id-gen
-  "A generator of game IDs."
-  []
-  (gen/fmap (comp string/upper-case (partial apply str))
-            (gen/vector gen/char-alpha game-id-length)))
-
 (s/def ::game-id
   (s/with-gen (s/and string?
                      (s/conformer seq)
@@ -74,8 +88,13 @@
                                 :count game-id-length))
               game-id-gen))
 
+(s/def ::game-url
+  (s/and string? iri?))
+
 (s/def ::db
-  (s/keys :req-un [::player-1
+  (s/keys :req-un [::game-id
+                   ::game-url
+                   ::player-1
                    ::player-2
                    ::question-sets]
           :opt-un [::answer-revealed?
@@ -90,11 +109,3 @@
                    ::question/questions
                    ::route
                    ::winner]))
-
-(defn validate
-  [spec data]
-  (when-not (s/valid? spec data)
-    (e/expound-str spec data)))
-
-(def validate-questions
-  (partial validate ::question/questions))

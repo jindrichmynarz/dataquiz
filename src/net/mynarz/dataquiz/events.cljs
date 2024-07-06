@@ -8,11 +8,12 @@
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
             [net.mynarz.dataquiz.normalize :as normalize]
-            [net.mynarz.dataquiz.spec :refer [validate-questions]]
+            [net.mynarz.dataquiz.spec :as spec]
             [re-frame.core :as rf]
             [re-pressed.core :as rp]
             [jtk-dvlp.re-frame.readfile-fx]
-            [reitit.frontend.controllers :as rfc]))
+            [reitit.frontend.controllers :as rfc]
+            [reitit.frontend.easy :as rfe]))
 
 (def status->question-filter
   {:default (complement #{:yesno})
@@ -56,13 +57,23 @@
 
 (rf/reg-event-fx
   ::initialize
-  (fn [{:keys [db]} _]
-    {:db {:player-1 "Hráč 1"
-          :player-2 "Hráč 2"
-          :question-sets [{:id "questions/femquiz.edn" :label "Fem-quiz"}]}
-     :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
-                                              :event-keys [[[::submit]
-                                                            [enter-key]]]}]]]}))
+  [(rf/inject-cofx ::cofx/origin)]
+  (fn [{:keys [db]
+        ::cofx/keys [origin]}
+       _]
+    (let [game-id (spec/gen-one ::spec/game-id)
+          ; FIXME: (rfe/href :enter game-id))]
+          ; Requires :enter route to have a path parameter for game-id
+          ; <https://cljdoc.org/d/metosin/reitit/0.7.0-alpha4/api/reitit.frontend.easy#href>
+          game-url (gstring/format "%s/%s" origin game-id)]
+      {:db {:game-id game-id
+            :game-url game-url
+            :player-1 "Hráč 1"
+            :player-2 "Hráč 2"
+            :question-sets [{:id "questions/femquiz.edn" :label "Fem-quiz"}]}
+       :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
+                                                :event-keys [[[::submit]
+                                                              [enter-key]]]}]]]})))
 
 (rf/reg-event-fx
   ::submit
@@ -135,7 +146,7 @@
   ::read-questions-from-edn
   (fn [{:keys [db]} [_ [{edn :content}]]]
     (let [questions (cljs.reader/read-string edn)
-          error (validate-questions questions)]
+          error (spec/validate-questions questions)]
       (if (nil? error)
         {:fx [[:dispatch [::load-questions questions]]]}
         {:db (-> db
@@ -321,3 +332,8 @@
   ::reset-question-set
   (fn [_ [_ question-set-id]]
     {:fx [[::fx/delete-local-storage question-set-id]]}))
+
+(rf/reg-event-fx
+  ::copy-to-clipboard
+  (fn [_ [_ text]]
+    {:fx [[::fx/copy-to-clipboard text]]}))
