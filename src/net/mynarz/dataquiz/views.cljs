@@ -200,7 +200,7 @@
   (let [qr-code (doto (qr. 0 "L")
                   (.addData game-url)
                   (.make))]
-   [:img {:src (.createDataURL qr-code 10 0)}]))
+   [:img.qr-code {:src (.createDataURL qr-code 10 0)}]))
 
 (defn copy-button
   [game-url]
