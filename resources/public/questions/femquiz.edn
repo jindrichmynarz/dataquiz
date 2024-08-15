@@ -282,14 +282,6 @@
    :text "Výskyt anorexie u mužů se v celosvětové populaci odhaduje na 0,3 %."
    :correct? true}
   {:type :multiple
-   :text [:<>
-          [:img {:src "/img/irena_hulova.jpg"}]
-          [:p "Irena Hůlová je význačná feministka, která pracuje pro Amnesty International jako:"]]
-   :choices [{:text "Vedoucí advokační činnosti" :correct? true}
-             {:text "Vedoucí lobbyingu" :correct? true}
-             {:text "Vedoucí advokátní činnosti"}
-             {:text "Vedoucí zeměkoule"}]}
-  {:type :multiple
    :text "Jak se jmenuje československý normalizační televizní seriál, který sleduje starosti obyčejné prodavačky Anny Holubové a jejích kolegyň z prodejny potravin?"
    :choices [{:text "Žena za pultem" :correct? true}
              {:text "Žena pod pultem"}
@@ -1182,4 +1174,59 @@
    :text "'Sufražetka' a 'sufražistka' jsou synonyma."
    :correct? false
    :note "Sufražetky používaly i formy protestu, které umírněné sufražistky odmítaly, například blokády dopravy."}
+  {:type :yesno
+   :text "Nová definice znásilnění schválená v červnu 2024 je založená na principu 'ano znamená ano'."
+   :correct? false
+   :note "Definice je založená na principu 'ne znamená ne'."}
+  {:type :yesno
+   :text "Sex se spícím se dle české legislativy znásilnění."
+   :correct? true
+   :note "Jde o zneužití bezbrannosti."}
+  {:type :yesno
+   :text "V Indiie je minimální věk pro vstup do manželství stejný pro muže i ženy."
+   :correct? false
+   :note "Ženy se mohou vdávat od 18 let, muži se mohou ženit od 21 let."}
+  {:type :percent-range
+   :text "Kolik procent žen je v Indii (nelegálně) provdáno před svým 18. rokem?"
+   :percentage 23}
+  {:type :multiple
+   :text "Jaký je minimální věk pro vstup do manželství v Somálsku?"
+   :choices [{:text "Žádný není" :correct? true}
+             {:text "18 let"}
+             {:text "15 let"}
+             {:text "25 let"}]
+   :note "Minimální věk pro vstup do manželství nestavují také v Rovníkové Guinee, Gambii, Saúdské Arábii, Jižním Súdánu a Jemenu."}
+  {:type :multiple
+   :text "Jaký je původní důvod toho, že si žena po svatbě brala manželovo příjmení?"
+   :choices [{:text "Na znamení toho, že se žena stala majetkem muže." :correct? true}
+             {:text "Kvůli společnému příjmení pro děti."}
+             {:text "Kvůli horší paměti mužů, kteří by měli problém si nové jméno zapamatovat."}
+             {:text "Ženy žádné příjmení neměly. Měli ho pouze muži."}]}
+  {:type :yesno
+   :text "První zemí, která zavedla bezpodmíněčná stejná dědická práva pro muže a ženy byl Island."
+   :correct? true
+   :note "Stalo se tak roku 1850."}
+  {:type :yesno
+   :text "Česká republika v současnosti (srpen 2024) předsedá Komisi OSN pro postavení žen."
+   :correct? false
+   :note "Předsedá jí Saúdská Arábie, navzdory hlasité kritice jejího zacházení se ženami."}
+  {:type :multiple
+   :text "Co je to 'zločin ze cti'?"
+   :choices [{:text "Akt násilí na ženě, o které muž tvrdí, že poškodila čest rodiny" :correct? true}
+             {:text "Akt násilí na ženě, ke které muž cítil moc citů"}
+             {:text "Odplata mafie za urážku její cti"}
+             {:text "Stětí draka, co unesl princeznu"}]}
+  {:type :yesno
+   :text "Do roku 1982 mohly hospody ve Velké Británii legálně odmítnout obsloužit ženy."
+   :correct? true}
+  {:type :percent-range
+   :text "Kolik procent cyklistek v Praze v současnosti tvoří ženy?"
+   :percentage 23
+   :note [:a {:href "https://mestemnakole.cz/2024/08/women-dont-cycle-a-cycling-training-course-to-improve-emancipation-on-the-road/"} "Zdroj"]}
+  {:type :multiple
+   :text "Co se kriticky označuje jako 'karcerární feminismus'?"
+   :choices [{:text "Propagování tvrdších trestů za zločiny související s genderem a násilí na ženách" :correct? true}
+             {:text "Neřízené bujení feminismu"}
+             {:text "Podpora zrušení segregace věznic dle genderu"}
+             {:text "Návrh rozdílných výší trestu dle genderu"}]}
 }
