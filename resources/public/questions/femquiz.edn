@@ -1229,4 +1229,67 @@
              {:text "Neřízené bujení feminismu"}
              {:text "Podpora zrušení segregace věznic dle genderu"}
              {:text "Návrh rozdílných výší trestu dle genderu"}]}
+  {:type :yesno
+   :text "Sdružení mladých příznivců Pirátské strany se jmenuje 'Mladé pirátstvo'."
+   :correct? true
+   :note "Sdružení přijalo genderově inkluzivní název roku 2021."}
+  {:type :yesno
+   :text "Zákon o regulaci reklamy explicitně zakazuje reklamu s prvky pornografie."
+   :correct? true}
+  {:type :yesno
+   :text "Na konci vlády Talibánu v Afghánistánu roku 2001 tvořily ženy jen třetinu studentstva."
+   :correct? false
+   :note "Mezi studenty nebyla ani jedna žena."}
+  {:type :yesno
+   :text "Daniela Drtinová si pro snahu záchrany 'normálního světa' vysloužila přízvisko 'Normální Daniela'."
+   :correct? false
+   :note "Přízvisko si udělila senátorka Daniela Kovářová."}
+  {:type :yesno
+   :text "Přestože Tálibán zakázal afgánským ženám sportovat, na olympiádě roku 2024 Afghánistán reprezentoval genderově vyvážený tým."
+   :correct? true
+   :note "Mezinárodní olympijský výbor sestavil šestičlenný tým afghánských sportovců a sportovkyň žijících v exilu."}
+  {:type :yesno
+   :text "Policie ČR má v současnosti (2024) ve vedení jen třetinu žen."
+   :correct? false
+   :note "Ve vedení policie ČR je žen jen desetina."}
+  {:type :yesno
+   :text [:<>
+          [:img {:src "/img/feminism_cz_google_trends.png"}]
+          [:p "Vrchol zájmu o feminismus dle počtu vyhledávání na Google byl v Česku v dubnu 2010."]]
+   :correct? true
+   :note "Co se stalo?"}
+  {:type :yesno
+   :text [:<>
+          [:img {:src "/img/communism_vs_feminism.png"}]
+          [:p "Graf ukazuje zájem o feminismus a komunismus dle počtu vyhledávání na Google. Feminismus je modře, komunismus červeně."]]
+   :correct? false
+   :note "Je to naopak. Komunismus je modře, feminismus červeně."}
+  {:type :yesno
+   :text "Zastoupení žen v článcích Wikipedie je vyšší ve sportu než v zábavním průmyslu."
+   :correct? false
+   :note [:p "Je to naopak, viz " [:a {:href "https://www.sciencedirect.com/science/article/abs/pii/S0165176521002457"} "zdroj"] "."]}
+  {:type :yesno
+   :text "Policie ČR doporučuje ženám jako prevenci sexuálního násilí 'nosit pohodlnou obuv a oděv, který nepřekáží při běhu'."
+   :correct? true}
+  {:type :yesno
+   :text "Římskokatolická církev dovoluje ženám sloužit jako kněží."
+   :correct? false
+   :note "Když roku 2002 přijalo kněžské svěcení sedm žen, byly následně Vatikánem exkomunikovány."}
+  {:type :yesno
+   :text "Služba źen u policie je Československu povolena od roku 1990."
+   :correct? false
+   :note "Byla povolena roku 1948."}
+  {:type :yesno
+   :text [:<>
+          [:p "Bible obsahuje následující slova:"]
+          [:blockquote "A žádejte svědectví dvou svědků z mužů vašich, a nemáte-li dva muže, pak vezměte jednoho muže a dvě ženy z těch, které uznáte za vhodné svědkyně; aby, kdyby jedna z nich se zmýlila, druhá ji mohla připomenout."]]
+   :correct? false
+   :note "Citát pochází z Koránu."}
+  {:type :yesno
+   :text "Česko je poslední zemí EU, kde je možné umisťovat děti do 3 let do ústavů."
+   :correct? true
+   :note "Od roku 2025 bude však provoz kojeneckých ústavů ukončen."}
+  {:type :yesno
+   :text "Při fyzických testech na vstup do Armády ČR musí kliky dělat jen muži."
+   :correct? true}
 }
