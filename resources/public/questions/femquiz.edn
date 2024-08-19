@@ -1292,4 +1292,19 @@
   {:type :yesno
    :text "Při fyzických testech na vstup do Armády ČR musí kliky dělat jen muži."
    :correct? true}
+  {:type :yesno
+   :text "Evidovaný počet uměle přerušených těhotenství v Československu roku 1989 přesáhl počet narozených dětí."
+   :correct? false
+   :note [:p "Uměle přerušená těhotenství ale tohoto roku dosáhla nejvyššího podílu ze všech evidovaných těhotenství za sledovanou dobu, totiž 42,46 % (" [:a {:href "https://www.uzis.cz/res/f/008377/potraty2020.pdf)"} "zdroj"] ")." ]}
+  {:type :yesno
+   :text "Při léčbě neplodného páru je pacientkou oficiálně jen žena."
+   :correct? true}
+  {:type :yesno
+   :text "Průzkumy veřejného mínění ukazují, že podpora stejnopohlavních manželství klesá."
+   :correct? false
+   :note "Podpora stejnopohlavních manželství v Česku vyrostla roku 2023 k historickém maximu 58 %."}
+  {:type :yesno
+   :text "Ukrajina roku 2022 uprostřed války s Ruskem schválila přijetí Istanbulské úmluvy."
+   :correct? true
+   :note "Bylo schváleno drtivou většinou 259 pro, 8 proti."}
 }
