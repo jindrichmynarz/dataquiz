@@ -1311,4 +1311,8 @@
    :text "Casanova ve svých pamětech navrhuje použití půlek kokosů jako antikoncepce."
    :correct? false
    :note "Navrhuje použití půlek částečně odšťavněných citrónů."}
+  {:type :yesno
+   :text "Manspreading označuje rozšiřování mužských privilegií."
+   :correct? false
+   :note "Označuje posed s roztaženýma nohama, zejména mužů opanujících veřejný prostor."}
 }
