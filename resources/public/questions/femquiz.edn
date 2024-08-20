@@ -1307,4 +1307,8 @@
    :text "Ukrajina roku 2022 uprostřed války s Ruskem schválila přijetí Istanbulské úmluvy."
    :correct? true
    :note "Bylo schváleno drtivou většinou 259 pro, 8 proti."}
+  {:type :yesno
+   :text "Casanova ve svých pamětech navrhuje použití půlek kokosů jako antikoncepce."
+   :correct? false
+   :note "Navrhuje použití půlek částečně odšťavněných citrónů."}
 }
