@@ -278,3 +278,7 @@ ul.choices li button {
   cursor: pointer;
   font-size: 2em;
 }
+
+.qr-code {
+  width: 50%;
+}
