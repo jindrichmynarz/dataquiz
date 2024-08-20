@@ -387,7 +387,7 @@
              {:text "Pokud je láska, obdiv a respekt k ženám feminismus…"}
              {:text "Pro ženy mám slabost."}]}
   {:type :multiple
-   :text "Která z těchto zemí má v současnosti (březen 2024) prezidentku?"
+   :text "Která z těchto zemí má v současnosti (srpen 2024) prezidentku?"
    :choices [{:text "Švýcarsko" :correct? true}
              {:text "Finsko"}
              {:text "Nepál"}
