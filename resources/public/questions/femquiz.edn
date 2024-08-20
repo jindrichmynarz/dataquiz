@@ -40,7 +40,8 @@
    :choices [{:text "Manželství homosexuálů a leseb, které se nazývá partnerství." :correct? true}
              {:text "Manželství pololidí"}
              {:text "Manželství s restriktivní předmanželskou smlouvou"}
-             {:text "Manželství pro všechny slušné lidi"}]}
+             {:text "Manželství pro všechny slušné lidi"}]
+   :note "Termín pochází od organizace Jsme fér, která tak označila návrh projednávaný pro manželství pro všechny ve sněmovně."}
   {:type :multiple
    :text "Jak dlouho průměrně trvá menstruace?"
    :choices [{:text "2-7 dní" :correct? true}
@@ -1042,10 +1043,10 @@
              {:text "Výpočetní techniku"}
              {:text "Lékařství"}]}
   {:type :percent-range
-   :text "Kolik procent žen je ve vládě České republiky k dubnu 2024?"
-   :percentage 11}
+   :text "Kolik procent žen je ve vládě České republiky k srpnu 2024?"
+   :percentage 5.5}
   {:type :percent-range
-   :text "Kolik procent žen je ve senátu České republiky k dubnu 2024?"
+   :text "Kolik procent žen je v senátu České republiky k dubnu 2024?"
    :percentage 18.5}
   {:type :percent-range
    :text "Kolik procent žen je v poslanecké sněmovně České republiky k dubnu 2024?"
@@ -1304,7 +1305,7 @@
    :correct? false
    :note "Podpora stejnopohlavních manželství v Česku vyrostla roku 2023 k historickém maximu 58 %."}
   {:type :yesno
-   :text "Ukrajina roku 2022 uprostřed války s Ruskem schválila přijetí Istanbulské úmluvy."
+   :text "Ukrajinský parlament roku 2022 uprostřed války s Ruskem schválila přijetí Istanbulské úmluvy."
    :correct? true
    :note "Bylo schváleno drtivou většinou 259 pro, 8 proti."}
   {:type :yesno
