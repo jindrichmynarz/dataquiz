@@ -689,7 +689,7 @@
              {:text "Ankopil"}
              {:text "Liberta"}]}
   {:type :percent-range
-   :text "Kolik procent žen nad 25 let bylo roku 1983 provdáno?"
+   :text "Kolik procent československých žen nad 25 let bylo roku 1983 provdáno?"
    :percentage 85}
   {:type :percent-range
    :text "Kolik procent pasažérů hromadné dopravy ve Francii tvoří ženy?"
