@@ -129,7 +129,7 @@
 (defn footer
   []
   [:footer
-    [:p "Vyrobil " [:a {:href "https://mynarz.net/#jindrich"} "Jindřich Mynarz"] "."]
+    [:p "Vyrobili " [:a {:href "https://mynarz.net/#jindrich"} "Jindřich Mynarz"] " a Irena Hůlová."]
     [:p [:a
          {:href "https://github.com/jindrichmynarz/dataquiz"}
          [:i.zmdi.zmdi-code]
@@ -250,7 +250,7 @@
       [rc/v-box
        :align :center
        :children [[winners-cup (get-in board-config [:tile-config :colours (:id winner)])]
-                  [:h2 (gstring/format "Vítězem se stává %s!" (:name winner))]]
+                  [:h2 (gstring/format "Vítězí %s!" (:name winner))]]
        :justify :start])))
 
 (defn verdict
