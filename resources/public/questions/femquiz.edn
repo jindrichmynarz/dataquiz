@@ -1316,4 +1316,7 @@
    :text "Manspreading označuje rozšiřování mužských privilegií."
    :correct? false
    :note "Označuje posed s roztaženýma nohama, zejména mužů opanujících veřejný prostor."}
+  {:type :yesno
+   :text "Mají svobodné ženy v Česku přístup k umělému oplodnění?"
+   :correct? false}
 }
