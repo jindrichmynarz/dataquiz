@@ -820,6 +820,9 @@
   {:type :yesno
    :text "Měl manžel v západním Německu do 60. let 20. století právo vypovědět pracovní místo své ženy bez jejího souhlasu?"
    :correct? true}
+  {:type :yesno
+   :text "Do roku 1977 v západním Německu platil zákon, podle něhož mohla být žena zaměstnaná, jen pokud to nebylo v rozporu s jejími povinnostmi v rodině a manželství."
+   :correct? true}
   {:type :multiple
    :text [:<>
           [:p "Kdo je autorem následujících slov?"]
