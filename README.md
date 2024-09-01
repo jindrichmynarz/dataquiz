@@ -1,6 +1,6 @@
 # dataquiz
 
-Data-driven quizes.
+Data-driven quizzes.
 
 ## Development
 
