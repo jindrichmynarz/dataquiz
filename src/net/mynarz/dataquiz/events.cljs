@@ -95,7 +95,7 @@
   ::load-questions-error
   (fn [db _]
     (-> db
-      (dissoc :questions)
+      (dissoc :data)
       (assoc :error {:error-type :load-questions-error}))))
 
 (rf/reg-event-db
@@ -108,8 +108,10 @@
   [(rf/inject-cofx ::cofx/questions-seen)]
   (fn [{:keys [db]
         ::cofx/keys [questions-seen]}
-       [_ questions]]
-    (let [sanitized-questions (normalize/sanitize-hiccup (:questions questions))
+       [_
+        {:as data
+         :keys [questions]}]]
+    (let [sanitized-questions (normalize/sanitize-hiccup questions)
           filtered-questions (if questions-seen
                                (->> sanitized-questions
                                     (remove (comp questions-seen hash))
@@ -117,7 +119,7 @@
                                sanitized-questions)]
       (println (gstring/format "Máme %d otázek." (count filtered-questions)))
       {:db (-> db
-               (assoc :questions filtered-questions)
+               (assoc :data (assoc data :questions filtered-questions))
                (dissoc :loading?))})))
 
 (rf/reg-event-fx
@@ -135,12 +137,12 @@
 (rf/reg-event-fx
   ::read-questions-from-edn
   (fn [{:keys [db]} [_ [{edn :content}]]]
-    (let [questions (-> edn cljs.reader/read-string :questions)
+    (let [questions (cljs.reader/read-string edn)
           error (validate-questions questions)]
       (if (nil? error)
         {:fx [[:dispatch [::load-questions questions]]]}
         {:db (-> db
-                 (dissoc :questions)
+                 (dissoc :data)
                  (assoc :error {:error-type :parse-questions-error
                                 :error-message error}))}))))
 
@@ -243,13 +245,14 @@
     (let [[timeout-key timeout-id] (first timeout)
           question-filter (status->question-filter status)
           question (->> db
+                        :data
                         :questions
                         (filter (comp question-filter :type))
                         shuffle
                         first)
           new-db (-> db
                    (assoc :question (prepare-question question))
-                   (update :questions #(disj % question))
+                   (update-in [:data :questions] #(disj % question))
                    (assoc-in [:timeout timeout-key] timeout-id)
                    (cond->
                      (= (:type question) :open)
@@ -259,7 +262,9 @@
                      (assoc :guess (-> question :items shuffle))))]
       (if question
         (cond-> {:db new-db}
-          question-set-id (assoc :fx [[::fx/set-questions-seen [question-set-id (conj questions-seen (hash question))]]]))
+          question-set-id (assoc :fx [[::fx/set-questions-seen [question-set-id (->> question
+                                                                                     hash
+                                                                                     (conj questions-seen))]]]))
         {:fx [[:dispatch [::no-more-questions]]]}))))
 
 (rf/reg-event-fx

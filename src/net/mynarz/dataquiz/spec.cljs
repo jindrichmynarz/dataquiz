@@ -70,7 +70,7 @@
                    ::next-player
                    ::question-set-id
                    ::question/question
-                   ::question/questions
+                   ::question/data
                    ::route
                    ::winner]))
 
@@ -80,4 +80,4 @@
     (e/expound-str spec data)))
 
 (def validate-questions
-  (partial validate ::question/questions))
+  (partial validate ::question/data))
