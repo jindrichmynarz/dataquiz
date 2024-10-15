@@ -76,3 +76,26 @@
   (s/coll-of ::question
              :min-count 1
              :distinct true))
+
+(s/def ::name string?)
+
+(defn url?
+  "Test if `s` is a valid URL"
+  [s]
+  (try (boolean (js/URL. s))
+       (catch js/TypeError _ false)))
+
+(s/def ::url (s/and string? url?))
+
+(s/def ::creator
+  (s/keys :req-un [::name]
+          :opt-un [::url]))
+
+(s/def ::creators
+  (s/coll-of ::creator
+             :min-count 1
+             :distinct true))
+
+(s/def ::data
+  (s/keys :req-un [::questions]
+          :opt-un [::creator]))

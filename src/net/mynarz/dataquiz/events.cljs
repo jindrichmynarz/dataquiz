@@ -59,7 +59,8 @@
   (fn [{:keys [db]} _]
     {:db {:player-1 "Hráč 1"
           :player-2 "Hráč 2"
-          :question-sets [{:id "questions/femquiz.edn" :label "Fem-quiz"}]}
+          :question-sets [{:id "https://mynarz.net/femquiz/femquiz.edn"
+                           :label "Fem-quiz"}]}
      :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
                                               :event-keys [[[::submit]
                                                             [enter-key]]]}]]]}))
@@ -108,7 +109,7 @@
   (fn [{:keys [db]
         ::cofx/keys [questions-seen]}
        [_ questions]]
-    (let [sanitized-questions (normalize/sanitize-hiccup questions)
+    (let [sanitized-questions (normalize/sanitize-hiccup (:questions questions))
           filtered-questions (if questions-seen
                                (->> sanitized-questions
                                     (remove (comp questions-seen hash))
@@ -134,7 +135,7 @@
 (rf/reg-event-fx
   ::read-questions-from-edn
   (fn [{:keys [db]} [_ [{edn :content}]]]
-    (let [questions (cljs.reader/read-string edn)
+    (let [questions (-> edn cljs.reader/read-string :questions)
           error (validate-questions questions)]
       (if (nil? error)
         {:fx [[:dispatch [::load-questions questions]]]}

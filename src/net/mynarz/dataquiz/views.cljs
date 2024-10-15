@@ -129,7 +129,7 @@
 (defn footer
   []
   [:footer
-    [:p "Vyrobili " [:a {:href "https://mynarz.net/#jindrich"} "Jindřich Mynarz"] " a Irena Hůlová."]
+    [:p "Vyrobil " [:a {:href "https://mynarz.net/#jindrich"} "Jindřich Mynarz"]]
     [:p [:a
          {:href "https://github.com/jindrichmynarz/dataquiz"}
          [:i.zmdi.zmdi-code]
