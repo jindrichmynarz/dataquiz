@@ -135,6 +135,24 @@
          [:i.zmdi.zmdi-code]
          "Zdrojový kód"]]])
 
+(defn creator-view
+  [{creator-name :name
+    creator-url :url}]
+  (with-meta
+    (if creator-url
+      [:a {:href creator-url} creator-name]
+      creator-name)
+    {:key creator-name}))
+
+(defn credits
+  []
+  (when-let [creators (->> [::subs/creators]
+                           rf/subscribe
+                           deref
+                           (map creator-view)
+                           (interpose " a "))]
+    [:p.credits "Otázky vytvořili " creators "."]))
+
 (defn questions-select-tab
   []
   (let [choices @(rf/subscribe [::subs/question-sets])]
@@ -142,21 +160,25 @@
       (let [questions-url @(rf/subscribe [::subs/question-set-id])
             loading? @(rf/subscribe [::subs/questions-loading?])
             loaded? @(rf/subscribe [::subs/questions-loaded?])]
-        [rc/h-box
-         :children [[rc/single-dropdown
-                     :choices choices
-                     :class "questions-picker"
-                     :disabled? loading?
-                     :model questions-url
-                     :on-change (fn [url]
-                                  (rf/dispatch [::events/download-questions url]))
-                     :placeholder "Vyber otázky"]
+        [rc/v-box
+         :children [[rc/h-box
+                     :children [[rc/single-dropdown
+                                 :choices choices
+                                 :class "questions-picker"
+                                 :disabled? loading?
+                                 :model questions-url
+                                 :on-change (fn [url]
+                                              (rf/dispatch [::events/download-questions url]))
+                                 :placeholder "Vyber otázky"]
+                                (when loaded?
+                                  [rc/box
+                                   :child [:button
+                                           {:on-click #(rf/dispatch [::events/reset-question-set questions-url])
+                                            :title "Zapomenout již hrané otázky"}
+                                           [:i.zmdi.zmdi-refresh]]])]]
                     (when loaded?
-                      [rc/box
-                       :child [:button
-                               {:on-click #(rf/dispatch [::events/reset-question-set questions-url])
-                                :title "Zapomenout již hrané otázky"}
-                               [:i.zmdi.zmdi-refresh]]])]]))))
+                      [credits])]
+         :max-width "50%"]))))
 
 (defn questions-upload-tab
   []
@@ -192,7 +214,7 @@
 
 (defn lets-enter
   []
-  (navigation-button "Hrát" :enter))
+  [rc/box :child (navigation-button "Hrát" :enter)])
 
 (defn pick-questions
   []

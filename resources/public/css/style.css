@@ -17,7 +17,7 @@ footer {
   padding-bottom: 1em;
 }
 
-footer a {
+footer a, .credits a {
   text-decoration: underline;
 }
 
@@ -277,4 +277,9 @@ ul.choices li button {
 .rc-modal-panel i.zmdi-close {
   cursor: pointer;
   font-size: 2em;
+}
+
+.credits {
+  font-size: .8em;
+  padding-top: .5em;
 }

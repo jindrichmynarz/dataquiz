@@ -19,15 +19,13 @@
 
 (reg-sub
   ::questions-loaded?
-  (fn [{:keys [questions]}]
+  (fn [{{:keys [questions]} :data}]
     (seq questions)))
 
 (reg-sub
   ::loading-message
   (fn [{:keys [loading?]}]
-    (when loading?
-      (rand-nth ["Začínám druhou směnu..."
-                 "Načítám otázky..."]))))
+    (when loading? "Načítám otázky...")))
 
 (reg-sub
   ::board
@@ -76,3 +74,8 @@
   ::question-sets
   (fn [{:keys [question-sets]}]
     question-sets))
+
+(reg-sub
+  ::creators
+  (fn [{{:keys [creators]} :data}]
+    creators))
