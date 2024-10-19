@@ -18,6 +18,17 @@
     #{}))
 
 (rf/reg-cofx
+  ::local-storage-language
+  (fn [cofx]
+    (assoc cofx ::local-storage-language (.getItem js/localStorage "language"))))
+
+(rf/reg-cofx
+  ::navigator-language
+  (fn [cofx _]
+    (when-let [language js/navigator.language]
+      (assoc cofx ::navigator-language (keyword (subs language 0 2))))))
+
+(rf/reg-cofx
   ::questions-seen
   (fn [{{:keys [question-set-id]} :db
         :as cofx}]

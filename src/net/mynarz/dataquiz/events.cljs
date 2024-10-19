@@ -7,6 +7,7 @@
             [net.mynarz.az-kviz.logic :as az]
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
+            [net.mynarz.dataquiz.i18n :as i18n]
             [net.mynarz.dataquiz.normalize :as normalize]
             [net.mynarz.dataquiz.spec :refer [validate-questions]]
             [re-frame.core :as rf]
@@ -56,15 +57,22 @@
 
 (rf/reg-event-fx
   ::initialize
-  (fn [{:keys [db]} _]
-    {:db {:player-1 "Hráč 1"
-          :player-2 "Hráč 2"
-          :question-sets [{:id "https://mynarz.net/femquiz/femquiz.edn"
-                           :label "Fem-quiz"}]
-          :side 7}
-     :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
-                                              :event-keys [[[::submit]
-                                                            [enter-key]]]}]]]}))
+  [(rf/inject-cofx ::cofx/local-storage-language)
+   (rf/inject-cofx ::cofx/navigator-language)]
+  (fn [{::cofx/keys [local-storage-language navigator-language]
+        :keys [db]}
+       _]
+    (let [language (keyword (or local-storage-language navigator-language))
+          tr (partial i18n/tr [(or language :cs)])]
+      {:db {:language language
+            :player-1 (tr [:player-n] [1])
+            :player-2 (tr [:player-n] [2])
+            :question-sets [{:id "https://mynarz.net/femquiz/femquiz.edn"
+                             :label "Fem-quiz"}]
+            :side 7}
+       :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
+                                                :event-keys [[[::submit]
+                                                              [enter-key]]]}]]]})))
 
 (rf/reg-event-fx
   ::submit
@@ -118,7 +126,7 @@
                                     (remove (comp questions-seen hash))
                                     set)
                                sanitized-questions)]
-      (println (gstring/format "Máme %d otázek." (count filtered-questions)))
+      (println (gstring/format "We have %d questions." (count filtered-questions)))
       {:db (-> db
                (assoc :data (assoc data :questions filtered-questions))
                (dissoc :loading?))})))
@@ -153,13 +161,14 @@
 
 (rf/reg-event-fx
   ::read-questions-from-file
-  (fn [{:keys [db]} [_ file]]
-    {:db (-> db
-             (assoc :loading? true)
-             (dissoc :data))
-     :fx [[:readfile {:files [file]
-                      :on-success [::read-questions-from-edn]
-                      :on-error [::load-questions-error]}]]}))
+  (fn [{:keys [db]} [_ event]]
+    (let [file (-> event .-target .-files first)]
+      {:db (-> db
+               (assoc :loading? true)
+               (dissoc :data))
+       :fx [[:readfile {:files [file]
+                        :on-success [::read-questions-from-edn]
+                        :on-error [::load-questions-error]}]]})))
 
 (rf/reg-event-db
   ::change-player-name
@@ -339,3 +348,10 @@
   ::change-board-side
   (fn [db [_ board-side]]
     (assoc db :side board-side)))
+
+(rf/reg-event-fx
+  ::toggle-language
+  (fn [{:keys [db]} _]
+    (let [language (-> db :language {:cs :en :en :cs})]
+      {:db (assoc db :language language)
+       :fx [[::fx/set-local-storage-language (name language)]]})))

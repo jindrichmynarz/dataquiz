@@ -1,5 +1,11 @@
 (ns net.mynarz.dataquiz.subscriptions
-  (:require [re-frame.core :refer [reg-sub subscribe]]))
+  (:require [net.mynarz.dataquiz.i18n :as i18n]
+            [re-frame.core :refer [reg-sub subscribe]]))
+
+(reg-sub
+  ::tr
+  (fn [{:keys [language]}]
+    (partial i18n/tr [(or language :cs)])))
 
 (reg-sub
   ::view
@@ -23,8 +29,10 @@
 
 (reg-sub
   ::loading-message
-  (fn [{:keys [loading?]}]
-    (when loading? "Načítám otázky...")))
+  :<- [::tr]
+  :<- [::questions-loading?]
+  (fn [[tr questions-loading?]]
+    (when questions-loading? (tr [:loading-questions]))))
 
 (reg-sub
   ::board
@@ -83,3 +91,8 @@
   ::creators
   (fn [{{:keys [creators]} :data}]
     creators))
+
+(reg-sub
+  ::language-switch-checked
+  (fn [{:keys [language]}]
+    (= language :en)))

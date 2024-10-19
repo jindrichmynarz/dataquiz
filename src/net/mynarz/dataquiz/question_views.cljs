@@ -26,10 +26,11 @@
       [:i.zmdi.zmdi-check]
       [:i.zmdi.zmdi-close])))
 
-(defmulti question :type)
+(defmulti question (fn [_ question] (:type question)))
 
 (defmethod question :yesno
-  [{:keys [correct? text note]}
+  [tr
+   {:keys [correct? text note]}
    answer-revealed?]
   (letfn [(answer [guess]
             #(rf/dispatch [::events/answer-question (= guess correct?)]))]
@@ -40,19 +41,20 @@
                        (if answer-revealed?
                          {:disabled true}
                          {:on-click (answer true)})
-                       "Ano"
+                       (tr [:question.yesno/yes])
                        (mark-answer answer-revealed? (true? correct?))]]
                  [:li [:button
                        (if answer-revealed?
                          {:disabled true}
                          {:on-click (answer false)})
-                       "Ne"
+                       (tr [:question.yesno/no])
                        (mark-answer answer-revealed? (false? correct?))]]]
                 (when (and answer-revealed? note)
                   [note-view note])]]))
 
 (defmethod question :multiple
-  [{:keys [text choices note]}
+  [tr
+   {:keys [text choices note]}
    answer-revealed?]
   [rc/v-box
    :children [[:div.question text]
@@ -67,7 +69,8 @@
                 [note-view note])]])
 
 (defmethod question :open
-  [{:keys [text answer]}
+  [tr
+   {:keys [text answer]}
    answer-revealed?]
   (let [guess @(rf/subscribe [::subs/guess])]
     [rc/v-box
@@ -81,7 +84,7 @@
                  :on-change #(rf/dispatch [::events/make-a-guess %])
                  :width "100%"]
                 (when answer-revealed?
-                  [note-view (gstring/format "Správná odpověď je %s." answer)])]]))
+                  [note-view (tr [:question.open/correct-answer] [answer])])]]))
 
 (defn calculate-offset
   [[left right] percentage]
@@ -121,14 +124,15 @@
                          :left (calculate-offset @sides guess)}]])))
 
 (defmethod question :percent-range
-  [{:keys [text percentage]}
+  [tr
+   {:keys [text percentage]}
    answer-revealed?]
   (let [guess @(rf/subscribe [::subs/guess])]
     [rc/v-box
      :children [[:div.question text]
                 [slider guess answer-revealed?]
                 (when answer-revealed?
-                  [note-view (gstring/format "Správná odpověď je %d %%." percentage)])]]))
+                  [note-view (tr [:question.percent-range/correct-answer] [percentage])])]]))
 
 (defn sortable-list
   [items answer-revealed?]
@@ -152,7 +156,8 @@
        :justify :between]])])
 
 (defmethod question :sort
-  [{:keys [text]}
+  [tr
+   {:keys [text]}
    answer-revealed?]
   (let [items @(rf/subscribe [::subs/guess])]
     [rc/v-box

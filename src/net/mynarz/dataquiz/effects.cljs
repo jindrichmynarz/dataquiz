@@ -14,6 +14,11 @@
     (.removeItem js/localStorage local-store-key)))
 
 (rf/reg-fx
+  ::set-local-storage-language
+  (fn [language]
+    (.setItem js/localStorage "language" language)))
+
+(rf/reg-fx
   ::set-questions-seen
   (fn [[question-set-id questions-seen]]
     (->> questions-seen

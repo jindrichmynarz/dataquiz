@@ -299,3 +299,47 @@ ul.choices li button {
 #advanced-options.shown #advanced-options-items {
   max-height: 100vh;
 }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #202020;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.switch::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+  background-color: white;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+input[type='checkbox'].checked + .switch::after {
+  transform: translateX(20px);
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+#lang-switch span {
+  display: inline-block;
+  padding: 0 4px;
+  vertical-align: top;
+}
+
+#lang-switch {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+}

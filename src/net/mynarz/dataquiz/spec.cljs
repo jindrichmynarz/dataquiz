@@ -2,6 +2,7 @@
   (:require [clojure.spec.alpha :as s]
             [expound.alpha :as e]
             [net.mynarz.az-kviz.spec :as az]
+            [net.mynarz.dataquiz.i18n :as i18n]
             [net.mynarz.dataquiz.question-spec :as question]
             [reitit.core :as reitit]))
 
@@ -57,6 +58,9 @@
 
 (s/def ::answer-revealed? boolean?)
 
+(s/def ::language
+  (-> i18n/dictionary keys set))
+
 (s/def ::db
   (s/keys :req-un [::player-1
                    ::player-2
@@ -67,6 +71,7 @@
                    ::error
                    ::guess
                    ::is-playing
+                   ::language
                    ::loading?
                    ::next-player
                    ::question-set-id
