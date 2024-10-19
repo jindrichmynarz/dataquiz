@@ -1,6 +1,5 @@
 (ns net.mynarz.dataquiz.subscriptions
-  (:require [net.mynarz.az-kviz.spec :as az]
-            [re-frame.core :refer [reg-sub subscribe]]))
+  (:require [re-frame.core :refer [reg-sub subscribe]]))
 
 (reg-sub
   ::view
@@ -31,6 +30,11 @@
   ::board
   (fn [{:keys [board-state]}]
     board-state))
+
+(reg-sub
+  ::board-side
+  (fn [{:keys [side]}]
+    side))
 
 (reg-sub
   ::player-name

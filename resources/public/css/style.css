@@ -283,3 +283,19 @@ ul.choices li button {
   font-size: .8em;
   padding-top: .5em;
 }
+
+#advanced-options label {
+  cursor: pointer;
+  padding: 1em;
+  padding-bottom: 0;
+}
+
+#advanced-options-items {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .25s ease-in-out;
+}
+
+#advanced-options.shown #advanced-options-items {
+  max-height: 100vh;
+}

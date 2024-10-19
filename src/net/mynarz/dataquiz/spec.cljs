@@ -63,6 +63,7 @@
                    ::question-sets]
           :opt-un [::answer-revealed?
                    ::az/board-state
+                   ::az/side
                    ::error
                    ::guess
                    ::is-playing

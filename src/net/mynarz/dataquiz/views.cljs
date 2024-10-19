@@ -39,8 +39,9 @@
 
 (defn board
   []
-  (let [state @(rf/subscribe [::subs/board])]
-    [az/board board-config state]))
+  (let [state @(rf/subscribe [::subs/board])
+        board-side @(rf/subscribe [::subs/board-side])]
+    [az/board (assoc board-config :side board-side) state]))
 
 (defn player-name
   []
@@ -230,6 +231,43 @@
      :gap "2em"
      :justify :start]))
 
+(defn board-size-selector
+  []
+  (let [board-side (rf/subscribe [::subs/board-side])]
+    [rc/h-box
+     :align :center
+     :children [[rc/box :child [:span "Velikost hracího pole:"]]
+                [rc/horizontal-bar-tabs
+                 :model @board-side
+                 :on-change #(rf/dispatch [::events/change-board-side %])
+                 :tabs [{:id 7
+                         :label "Originální"}
+                        {:id 4
+                         :label "Malá"}]]]
+     :gap ".5em"]))
+
+(defn advanced-options-items
+  [shown?]
+  [rc/v-box
+   :attr {:class-name (when @shown? "shown")
+          :id "advanced-options-items"}
+   :children [[board-size-selector]]])
+
+(def advanced-options
+  (let [shown? (r/atom false)]
+    (fn []
+      [rc/v-box
+       :align :center
+       :attr {:id "advanced-options"}
+       :class (when @shown? "shown")
+       :children [[rc/box :child [:label
+                                  {:on-click #(swap! shown? not)}
+                                  (if @shown?
+                                    [:i.zmdi.zmdi-hc-fw.zmdi-chevron-down]
+                                    [:i.zmdi.zmdi-hc-fw.zmdi-chevron-right])
+                                  "Pokročilé nastavení"]]
+                  [advanced-options-items shown?]]])))
+
 (defn enter
   []
   [rc/v-box
@@ -238,6 +276,8 @@
    :children [[title]
               [enter-player-name :player-1]
               [enter-player-name :player-2]
+              [advanced-options]
+              [rc/gap :size "1em"]
               [lets-play]
               [footer]]
    :justify :start])

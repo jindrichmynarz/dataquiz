@@ -60,7 +60,8 @@
     {:db {:player-1 "Hráč 1"
           :player-2 "Hráč 2"
           :question-sets [{:id "https://mynarz.net/femquiz/femquiz.edn"
-                           :label "Fem-quiz"}]}
+                           :label "Fem-quiz"}]
+          :side 7}
      :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
                                               :event-keys [[[::submit]
                                                             [enter-key]]]}]]]}))
@@ -161,11 +162,11 @@
 
 (rf/reg-event-db
   ::start-game
-  (fn [db _]
+  (fn [{:keys [side] :as db} _]
     (-> db
         unset-question
         (dissoc :winner)
-        (assoc :board-state (az/init-board-state)
+        (assoc :board-state (az/init-board-state side)
                :is-playing (rand-nth [:player-1 :player-2])))))
 
 (rf/reg-event-db
@@ -327,3 +328,8 @@
   ::reset-question-set
   (fn [_ [_ question-set-id]]
     {:fx [[::fx/delete-local-storage question-set-id]]}))
+
+(rf/reg-event-db
+  ::change-board-side
+  (fn [db [_ board-side]]
+    (assoc db :side board-side)))
