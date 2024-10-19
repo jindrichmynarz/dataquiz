@@ -7,7 +7,7 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: docker://timbru31/java-node:latest
+      - uses: docker://theasp/clojurescript-nodejs:shadow-cljs
       - uses: actions/checkout@v4
       - name: run tests
         run: "npm install && npm run test"
