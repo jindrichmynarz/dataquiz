@@ -138,19 +138,25 @@
 (rf/reg-event-fx
   ::read-questions-from-edn
   (fn [{:keys [db]} [_ [{edn :content}]]]
-    (let [questions (cljs.reader/read-string edn)
-          error (validate-questions questions)]
-      (if (nil? error)
-        {:fx [[:dispatch [::load-questions questions]]]}
+    (let [questions (try
+                      (let [questions (cljs.reader/read-string edn)]
+                        {:questions questions
+                         :error (validate-questions questions)})
+                      (catch js/Error error
+                        {:error (.toString error)}))]
+      (if (-> questions :error nil?)
+        {:fx [[:dispatch [::load-questions (:questions questions)]]]}
         {:db (-> db
                  (dissoc :data)
                  (assoc :error {:error-type :parse-questions-error
-                                :error-message error}))}))))
+                                :error-message (:error questions)}))}))))
 
 (rf/reg-event-fx
   ::read-questions-from-file
   (fn [{:keys [db]} [_ file]]
-    {:db (assoc db :loading? true)
+    {:db (-> db
+             (assoc :loading? true)
+             (dissoc :data))
      :fx [[:readfile {:files [file]
                       :on-success [::read-questions-from-edn]
                       :on-error [::load-questions-error]}]]}))
