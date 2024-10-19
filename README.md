@@ -114,3 +114,9 @@ Apart from questions, you can include metadata describing the questions. Here is
 This application is built by [Shadow CLJS](https://shadow-cljs.github.io/docs/UsersGuide.html). You can run the development build via `npm run watch`. Tests can be run via `npm run test`.
 
 It is implemented in [ClojureScript](https://clojurescript.org) as a [re-frame](https://day8.github.io/re-frame/re-frame/) application.
+
+## License
+
+Copyright © 2024 Jindřich Mynarz
+
+Distributed under the terms of the Eclipse Public License 2.0.
