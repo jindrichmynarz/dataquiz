@@ -24,7 +24,7 @@ Here is an example multiple choice question:
 {
   :type :multiple
   :text [:<>
-          [:audio {:autoplay "autoplay" :src "https://cdn.freesound.org/previews/155/155115_199526-lq.mp3"}]
+          [:audio {:autoPlay "autoplay" :src "https://cdn.freesound.org/previews/155/155115_199526-lq.mp3"}]
           [:p "What is the name of the animal making this sound?"]]
   :choices [
     {:text "Ferret" :correct? true}
@@ -32,7 +32,7 @@ Here is an example multiple choice question:
     {:text "Chipmunk"}
     {:text "Your drunken uncle"}
   ]
-  :note [:p [:a {:href "https://freesound.org/s/155115/"} "Ferret by J.Zazvurek"] "-- License: Attribution 4.0"]
+  :note [:p [:a {:href "https://freesound.org/s/155115/"} "Ferret by J.Zazvurek"] " - License: Attribution 4.0"]
 }
 ```
 
