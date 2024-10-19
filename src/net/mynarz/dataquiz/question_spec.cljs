@@ -98,4 +98,4 @@
 
 (s/def ::data
   (s/keys :req-un [::questions]
-          :opt-un [::creator]))
+          :opt-un [::creators]))
