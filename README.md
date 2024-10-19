@@ -8,6 +8,8 @@ Quiz questions are provided as data to dataquiz. They are written in the [EDN fo
 
 The format of the questions is defined formally in [this specification](https://github.com/jindrichmynarz/dataquiz/blob/develop/src/net/mynarz/dataquiz/question_spec.cljs) using [clojure.spec](https://clojure.org/guides/spec).
 
+Example questions about feminism (in Czech) are available [here](https://github.com/jindrichmynarz/femquiz/blob/gh-pages/femquiz.edn).
+
 ### Question types
 
 dataquiz supports several types of questions specified by the `:type` key.
