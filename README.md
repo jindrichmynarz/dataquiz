@@ -105,9 +105,9 @@ Here is an example percentage range question:
 
 Apart from questions, you can include metadata describing the questions. Here is the currently supported metadata:
 
-| Key        | Description                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------------- |
-| `:creator` | Zero or more creators represented in nested maps, each with one `:name` and optional `:url` |
+| Key         | Description                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------- |
+| `:creators` | Zero or more creators represented in nested maps, each with one `:name` and optional `:url` |
 
 ## Development
 
