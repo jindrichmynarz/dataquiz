@@ -4,6 +4,7 @@
             [clojure.test.check.generators :as gen]
             [expound.alpha :as e]
             [net.mynarz.az-kviz.spec :as az]
+            [net.mynarz.dataquiz.i18n :as i18n]
             [net.mynarz.dataquiz.question-spec :as question]
             [reitit.core :as reitit]))
 
@@ -91,6 +92,9 @@
 (s/def ::game-url
   (s/and string? iri?))
 
+(s/def ::language
+  (-> i18n/dictionary keys set))
+
 (s/def ::db
   (s/keys :req-un [::game-id
                    ::game-url
@@ -99,13 +103,23 @@
                    ::question-sets]
           :opt-un [::answer-revealed?
                    ::az/board-state
+                   ::az/side
                    ::error
                    ::guess
                    ::is-playing
+                   ::language
                    ::loading?
                    ::next-player
                    ::question-set-id
                    ::question/question
-                   ::question/questions
+                   ::question/data
                    ::route
                    ::winner]))
+
+(defn validate
+  [spec data]
+  (when-not (s/valid? spec data)
+    (e/expound-str spec data)))
+
+(def validate-questions
+  (partial validate ::question/data))

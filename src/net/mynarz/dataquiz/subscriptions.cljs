@@ -1,6 +1,11 @@
 (ns net.mynarz.dataquiz.subscriptions
-  (:require [net.mynarz.az-kviz.spec :as az]
+  (:require [net.mynarz.dataquiz.i18n :as i18n]
             [re-frame.core :refer [reg-sub subscribe]]))
+
+(reg-sub
+  ::tr
+  (fn [{:keys [language]}]
+    (partial i18n/tr [(or language :cs)])))
 
 (reg-sub
   ::view
@@ -19,20 +24,25 @@
 
 (reg-sub
   ::questions-loaded?
-  (fn [{:keys [questions]}]
+  (fn [{{:keys [questions]} :data}]
     (seq questions)))
 
 (reg-sub
   ::loading-message
-  (fn [{:keys [loading?]}]
-    (when loading?
-      (rand-nth ["Začínám druhou směnu..."
-                 "Načítám otázky..."]))))
+  :<- [::tr]
+  :<- [::questions-loading?]
+  (fn [[tr questions-loading?]]
+    (when questions-loading? (tr [:loading-questions]))))
 
 (reg-sub
   ::board
   (fn [{:keys [board-state]}]
     board-state))
+
+(reg-sub
+  ::board-side
+  (fn [{:keys [side]}]
+    side))
 
 (reg-sub
   ::player-name
@@ -81,3 +91,13 @@
   ::game-url
   (fn [{:keys [game-url]}]
     game-url))
+
+(reg-sub
+  ::creators
+  (fn [{{:keys [creators]} :data}]
+    creators))
+
+(reg-sub
+  ::language-switch-checked
+  (fn [{:keys [language]}]
+    (= language :en)))

@@ -1,5 +1,6 @@
 (ns net.mynarz.dataquiz.views
-  (:require [goog.string :as gstring]
+  (:require [clojure.string :as string]
+            [goog.string :as gstring]
             [goog.string.format]
             [net.mynarz.az-kviz.view :as az]
             [net.mynarz.dataquiz.events :as events]
@@ -18,11 +19,8 @@
                  :hex-shade 0.6}})
 
 (def error-modal
-  (let [dispatch-modal #(rf/dispatch [::events/dispatch-error-modal])
-        modals {:load-questions-error {:title "Chyba při načítání otázek!"}
-                :no-more-questions-error {:title "Otázky došly"}
-                :parse-questions-error {:title "Chybný formát otázek"}}]
-    (fn []
+  (let [dispatch-modal #(rf/dispatch [::events/dispatch-error-modal])]
+    (fn [tr]
       (let [{:keys [error-type error-message]} @(rf/subscribe [::subs/error])]
         (when error-type
           [rc/modal-panel
@@ -30,18 +28,19 @@
            :child [rc/v-box
                    :children [[rc/h-box
                                :align :center
-                               :children [[:h2 (get-in modals [error-type :title])]
+                               :children [[:h2 (tr [(keyword "modals" (name error-type))])]
                                           [:i.zmdi.zmdi-close
                                            {:on-click dispatch-modal
-                                            :title "Zavřít"}]]
+                                            :title (tr [:close])}]]
                                :justify :between]
                               (when error-message
                                 [:pre error-message])]]])))))
 
 (defn board
   []
-  (let [state @(rf/subscribe [::subs/board])]
-    [az/board board-config state]))
+  (let [state @(rf/subscribe [::subs/board])
+        board-side @(rf/subscribe [::subs/board-side])]
+    [az/board (assoc board-config :side board-side) state]))
 
 (defn player-name
   []
@@ -60,38 +59,38 @@
           [:div.progress-shade]])]))
 
 (defn question-box
-  []
+  [tr]
   (let [data @(rf/subscribe [::subs/question])
         answer-revealed? @(rf/subscribe [::subs/answer-revealed?])
         [event icon title] (cond answer-revealed?
                                  [[::events/next-question]
                                   [:i.zmdi.zmdi-play]
-                                  "Další otázka"]
+                                  (tr [:question-box/next-question])]
 
                                  (#{:open :percent-range :sort} (:type data))
                                  [[::events/answer-question]
                                   [:i.zmdi.zmdi-check]
-                                  "Hádej"]
+                                  (tr [:question-box/guess])]
 
                                  :else
                                  [[::events/answer-question false]
                                   [:i.zmdi.zmdi-skip-next]
-                                  "Nevím, dál!"])]
+                                  (tr [:question-box/skip-question])])]
     (when data
       [:<>
-        (question-views/question data answer-revealed?)
+        (question-views/question tr data answer-revealed?)
         [:button#next
          {:on-click #(rf/dispatch event)
           :title title}
          icon]])))
 
 (defn controls
-  []
+  [tr]
   [rc/v-box
    :class "controls"
    :children [[player-name]
               [timer]
-              [question-box]]])
+              [question-box tr]]])
 
 (defn navigation-button
   [text href]
@@ -101,12 +100,12 @@
    :label text])
 
 (defn lets-play
-  []
-  (navigation-button "Hrát" :play))
+  [tr]
+  (navigation-button (tr [:play]) :play))
 
 (defn lets-play-again
-  []
-  (navigation-button "Hrát znovu" :enter))
+  [tr]
+  (navigation-button (tr [:play-again]) :enter))
 
 (defn enter-player-name
   [player]
@@ -128,72 +127,89 @@
         :child [:h2.loading loading-message]])))
 
 (defn footer
-  []
+  [tr]
   [:footer
-    [:p "Vyrobil " [:a {:href "https://mynarz.net/#jindrich"} "Jindřich Mynarz"] "."]
+    [:p (tr [:footer/made-by]) " " [:a {:href "https://mynarz.net/#jindrich"} "Jindřich Mynarz"]]
     [:p [:a
          {:href "https://github.com/jindrichmynarz/dataquiz"}
          [:i.zmdi.zmdi-code]
-         "Zdrojový kód"]]])
+         (tr [:footer/source-code])]]])
+
+(defn creator-view
+  [{creator-name :name
+    creator-url :url}]
+  (with-meta
+    (if creator-url
+      [:a {:href creator-url} creator-name]
+      creator-name)
+    {:key creator-name}))
+
+(defn credits
+  [tr]
+  (when-let [creators (->> [::subs/creators]
+                           rf/subscribe
+                           deref
+                           (map creator-view)
+                           (interpose (str " " (tr [:credits/and]) " ")))]
+    [:p.credits (tr [:credits/questions-created-by]) " " creators "."]))
 
 (defn questions-select-tab
-  []
+  [tr]
   (let [choices @(rf/subscribe [::subs/question-sets])]
-    (fn []
+    (fn [tr]
       (let [questions-url @(rf/subscribe [::subs/question-set-id])
             loading? @(rf/subscribe [::subs/questions-loading?])
             loaded? @(rf/subscribe [::subs/questions-loaded?])]
-        [rc/h-box
-         :children [[rc/single-dropdown
-                     :choices choices
-                     :class "questions-picker"
-                     :disabled? loading?
-                     :model questions-url
-                     :on-change (fn [url]
-                                  (rf/dispatch [::events/download-questions url]))
-                     :placeholder "Vyber otázky"]
+        [rc/v-box
+         :children [[rc/h-box
+                     :children [[rc/single-dropdown
+                                 :choices choices
+                                 :class "questions-picker"
+                                 :disabled? loading?
+                                 :model questions-url
+                                 :on-change (fn [url]
+                                              (rf/dispatch [::events/download-questions url]))
+                                 :placeholder (tr [:questions-picker/pick-questions])]
+                                (when loaded?
+                                  [rc/box
+                                   :child [:button
+                                           {:on-click #(rf/dispatch [::events/reset-question-set questions-url])
+                                            :title (tr [:questions-picker/forget-questions-played])}
+                                           [:i.zmdi.zmdi-refresh]]])]]
                     (when loaded?
-                      [rc/box
-                       :child [:button
-                               {:on-click #(rf/dispatch [::events/reset-question-set questions-url])
-                                :title "Zapomenout již hrané otázky"}
-                               [:i.zmdi.zmdi-refresh]]])]]))))
+                      [credits tr])]
+         :max-width "50%"]))))
 
 (defn questions-upload-tab
   []
   [rc/box
    :child [:input#questions-upload
            {:accept ".edn"
-            :on-change (fn [event]
-                         (let [file (-> event
-                                        .-target
-                                        .-files
-                                        first)]
-                           (rf/dispatch [::events/read-questions-from-file file])))
+            :on-change #(rf/dispatch [::events/read-questions-from-file %])
             :type "file"}]])
 
 (defn questions-picker
-  []
+  [tr]
   (let [selected-tab (r/atom ::select-tab)]
-    (fn []
+    (fn [tr]
       [rc/v-box
        :align :center
        :children [[rc/horizontal-tabs
                    :model selected-tab
                    :tabs [{:id ::select-tab
-                           :label "Vyber otázky"}
+                           :label (tr [:questions-picker/pick-questions])}
                           {:id ::input-tab
-                           :label "Nahrát otázky"}]
+                           :label (tr [:questions-picker/load-questions])}]
                    :on-change #(reset! selected-tab %)]
                   (case @selected-tab
-                    ::select-tab [questions-select-tab]
+                    ::select-tab [questions-select-tab tr]
                     ::input-tab [questions-upload-tab])]
        :class "enter"
        :min-width "50%"])))
 
 (defn lets-enter
-  []
-  (navigation-button "Hrát" :enter))
+  [tr]
+  [rc/box :child (navigation-button (tr [:play]) :enter)])
 
 (defn game-qr-code
   [game-url]
@@ -237,17 +253,60 @@
      :gap "2em"
      :justify :start]))
 
-(defn enter
-  []
+(defn board-size-selector
+  [tr]
+  (let [board-side (rf/subscribe [::subs/board-side])]
+    [rc/h-box
+     :align :center
+     :children [[rc/box :child [:span (tr [:advanced-options/board-size]) ":"]]
+                [rc/horizontal-bar-tabs
+                 :model @board-side
+                 :on-change #(rf/dispatch [::events/change-board-side %])
+                 :tabs [{:id 7
+                         :label (tr [:advanced-options/original-size])}
+                        {:id 4
+                         :label (tr [:advanced-options/small-size])}]]]
+     :gap ".5em"]))
+
+(defn advanced-options-items
+  [tr shown?]
   [rc/v-box
-   :align :center
-   :class "enter"
-   :children [[title]
-              [enter-player-name :player-1]
-              [enter-player-name :player-2]
-              [lets-play]
-              [footer]]
-   :justify :start])
+   :attr {:class-name (when @shown? "shown")
+          :id "advanced-options-items"}
+   :children [[board-size-selector tr]]])
+
+(def advanced-options
+  (let [shown? (r/atom false)]
+    (fn [tr]
+      [rc/v-box
+       :align :center
+       :attr {:id "advanced-options"}
+       :class (when @shown? "shown")
+       :children [[rc/box :child [:label
+                                  {:on-click #(swap! shown? not)}
+                                  (if @shown?
+                                    [:i.zmdi.zmdi-hc-fw.zmdi-chevron-down]
+                                    [:i.zmdi.zmdi-hc-fw.zmdi-chevron-right])
+                                  (tr [:advanced-options/label])]]
+                  [advanced-options-items tr shown?]]])))
+
+(defn lang-switch-input
+  []
+  (let [language-switch-checked @(rf/subscribe [::subs/language-switch-checked])]
+    [:input
+     {:class-name (string/join " " (cond-> ["offscreen"]
+                                      language-switch-checked (conj "checked")))
+      :id "lang-toggle"
+      :on-change #(rf/dispatch [::events/toggle-language])
+      :type "checkbox"}]))
+
+(defn lang-switch
+  [tr]
+  [:p#lang-switch [:span "CS"]
+                  [lang-switch-input]
+                  [:label.switch {:for "lang-toggle"
+                                  :title (tr [:switch-lang])}]
+                  [:span "EN"]])
 
 (defn winners-cup
   "Winner's cup coloured with the colour of the winning player."
@@ -273,38 +332,68 @@
             :style {:fill "#fff"}}]])
 
 (defn winner-box
-  []
+  [tr]
   (let [winner @(rf/subscribe [::subs/winner])]
     (when winner
       [rc/v-box
        :align :center
        :children [[winners-cup (get-in board-config [:tile-config :colours (:id winner)])]
-                  [:h2 (gstring/format "Vítězem se stává %s!" (:name winner))]]
+                  [:h2 (tr [:winner-heading] [(:name winner)])]]
        :justify :start])))
 
-(defn verdict
-  []
-  (rc/h-box
-    :align :center
-    :children [[rc/box
-                :class "board-won"
-                :child [board]
-                :max-width "50%"]
-               [rc/v-box
-                :align :center
-                :children [[winner-box]
-                           [lets-play-again]]
-                :gap "4em"]]
-    :justify :center))
+(defn pick-questions
+  [tr]
+  (let [loaded? @(rf/subscribe [::subs/questions-loaded?])]
+    [rc/v-box
+     :align :center
+     :children [[loading-modal]
+                [error-modal tr]
+                [title]
+                [lang-switch tr]
+                [questions-picker tr]
+                (when loaded? [lets-enter tr])
+                [footer tr]]
+     :gap "2em"
+     :justify :start]))
+
+(defn enter
+  [tr]
+  [rc/v-box
+   :align :center
+   :class "enter"
+   :children [[title]
+              [enter-player-name :player-1]
+              [enter-player-name :player-2]
+              [advanced-options tr]
+              [rc/gap :size "1em"]
+              [lets-play tr]
+              [footer tr]]
+   :justify :start])
 
 (defn play
-  []
-  (rc/h-box
-    :children [[error-modal]
-               [board]
-               [controls]]))
+  [tr]
+  [rc/h-box
+   :children [[error-modal tr]
+              [board]
+              [controls tr]]])
+
+(defn verdict
+  [tr]
+  [rc/h-box
+   :align :center
+   :children [[rc/box
+               :class "board-won"
+               :child [board]
+               :max-width "50%"]
+              [rc/v-box
+               :align :center
+               :children [[winner-box tr]
+                          [lets-play-again tr]]
+               :gap "4em"]]
+   :justify :center])
 
 (defn ui
   []
-  (let [view @(rf/subscribe [::subs/view])]
-    [(or view pick-questions)]))
+  (let [view @(rf/subscribe [::subs/view])
+        tr @(rf/subscribe [::subs/tr])]
+    [(or view pick-questions) tr]))

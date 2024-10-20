@@ -7,6 +7,7 @@
             [net.mynarz.az-kviz.logic :as az]
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
+            [net.mynarz.dataquiz.i18n :as i18n]
             [net.mynarz.dataquiz.normalize :as normalize]
             [net.mynarz.dataquiz.spec :as spec]
             [re-frame.core :as rf]
@@ -57,20 +58,27 @@
 
 (rf/reg-event-fx
   ::initialize
-  [(rf/inject-cofx ::cofx/origin)]
-  (fn [{:keys [db]
-        ::cofx/keys [origin]}
+  [(rf/inject-cofx ::cofx/origin)
+   (rf/inject-cofx ::cofx/local-storage-language)
+   (rf/inject-cofx ::cofx/navigator-language)]
+  (fn [{::cofx/keys [local-storage-language navigator-language origin]
+        :keys [db]}
        _]
-    (let [game-id (spec/gen-one ::spec/game-id)
+    (let [language (keyword (or local-storage-language navigator-language))
+          tr (partial i18n/tr [(or language :cs)])
+          game-id (spec/gen-one ::spec/game-id)
           ; FIXME: (rfe/href :enter game-id))]
           ; Requires :enter route to have a path parameter for game-id
           ; <https://cljdoc.org/d/metosin/reitit/0.7.0-alpha4/api/reitit.frontend.easy#href>
           game-url (gstring/format "%s/%s" origin game-id)]
       {:db {:game-id game-id
             :game-url game-url
-            :player-1 "Hráč 1"
-            :player-2 "Hráč 2"
-            :question-sets [{:id "questions/femquiz.edn" :label "Fem-quiz"}]}
+            :language language
+            :player-1 (tr [:player-n] [1])
+            :player-2 (tr [:player-n] [2])
+            :question-sets [{:id "https://mynarz.net/femquiz/femquiz.edn"
+                             :label "Fem-quiz"}]
+            :side 7}
        :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
                                                 :event-keys [[[::submit]
                                                               [enter-key]]]}]]]})))
@@ -105,7 +113,7 @@
   ::load-questions-error
   (fn [db _]
     (-> db
-      (dissoc :questions)
+      (dissoc :data)
       (assoc :error {:error-type :load-questions-error}))))
 
 (rf/reg-event-db
@@ -118,16 +126,18 @@
   [(rf/inject-cofx ::cofx/questions-seen)]
   (fn [{:keys [db]
         ::cofx/keys [questions-seen]}
-       [_ questions]]
+       [_
+        {:as data
+         :keys [questions]}]]
     (let [sanitized-questions (normalize/sanitize-hiccup questions)
           filtered-questions (if questions-seen
                                (->> sanitized-questions
                                     (remove (comp questions-seen hash))
                                     set)
                                sanitized-questions)]
-      (println (gstring/format "Máme %d otázek." (count filtered-questions)))
+      (println (gstring/format "We have %d questions." (count filtered-questions)))
       {:db (-> db
-               (assoc :questions filtered-questions)
+               (assoc :data (assoc data :questions filtered-questions))
                (dissoc :loading?))})))
 
 (rf/reg-event-fx
@@ -145,22 +155,29 @@
 (rf/reg-event-fx
   ::read-questions-from-edn
   (fn [{:keys [db]} [_ [{edn :content}]]]
-    (let [questions (cljs.reader/read-string edn)
-          error (spec/validate-questions questions)]
-      (if (nil? error)
-        {:fx [[:dispatch [::load-questions questions]]]}
+    (let [questions (try
+                      (let [questions (cljs.reader/read-string edn)]
+                        {:questions questions
+                         :error (validate-questions questions)})
+                      (catch js/Error error
+                        {:error (.toString error)}))]
+      (if (-> questions :error nil?)
+        {:fx [[:dispatch [::load-questions (:questions questions)]]]}
         {:db (-> db
-                 (dissoc :questions)
+                 (dissoc :data)
                  (assoc :error {:error-type :parse-questions-error
-                                :error-message error}))}))))
+                                :error-message (:error questions)}))}))))
 
 (rf/reg-event-fx
   ::read-questions-from-file
-  (fn [{:keys [db]} [_ file]]
-    {:db (assoc db :loading? true)
-     :fx [[:readfile {:files [file]
-                      :on-success [::read-questions-from-edn]
-                      :on-error [::load-questions-error]}]]}))
+  (fn [{:keys [db]} [_ event]]
+    (let [file (-> event .-target .-files first)]
+      {:db (-> db
+               (assoc :loading? true)
+               (dissoc :data))
+       :fx [[:readfile {:files [file]
+                        :on-success [::read-questions-from-edn]
+                        :on-error [::load-questions-error]}]]})))
 
 (rf/reg-event-db
   ::change-player-name
@@ -169,11 +186,11 @@
 
 (rf/reg-event-db
   ::start-game
-  (fn [db _]
+  (fn [{:keys [side] :as db} _]
     (-> db
         unset-question
         (dissoc :winner)
-        (assoc :board-state (az/init-board-state)
+        (assoc :board-state (az/init-board-state side)
                :is-playing (rand-nth [:player-1 :player-2])))))
 
 (rf/reg-event-db
@@ -253,13 +270,14 @@
     (let [[timeout-key timeout-id] (first timeout)
           question-filter (status->question-filter status)
           question (->> db
+                        :data
                         :questions
                         (filter (comp question-filter :type))
                         shuffle
                         first)
           new-db (-> db
                    (assoc :question (prepare-question question))
-                   (update :questions #(disj % question))
+                   (update-in [:data :questions] #(disj % question))
                    (assoc-in [:timeout timeout-key] timeout-id)
                    (cond->
                      (= (:type question) :open)
@@ -269,7 +287,9 @@
                      (assoc :guess (-> question :items shuffle))))]
       (if question
         (cond-> {:db new-db}
-          question-set-id (assoc :fx [[::fx/set-questions-seen [question-set-id (conj questions-seen (hash question))]]]))
+          question-set-id (assoc :fx [[::fx/set-questions-seen [question-set-id (->> question
+                                                                                     hash
+                                                                                     (conj questions-seen))]]]))
         {:fx [[:dispatch [::no-more-questions]]]}))))
 
 (rf/reg-event-fx
@@ -337,3 +357,15 @@
   ::copy-to-clipboard
   (fn [_ [_ text]]
     {:fx [[::fx/copy-to-clipboard text]]}))
+
+(rf/reg-event-db
+  ::change-board-side
+  (fn [db [_ board-side]]
+    (assoc db :side board-side)))
+
+(rf/reg-event-fx
+  ::toggle-language
+  (fn [{:keys [db]} _]
+    (let [language (-> db :language {:cs :en :en :cs})]
+      {:db (assoc db :language language)
+       :fx [[::fx/set-local-storage-language (name language)]]})))
