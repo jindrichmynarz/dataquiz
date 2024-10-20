@@ -5,7 +5,7 @@
  :builds {:client {:target :browser
                    :output-dir "resources/public/js"
                    :modules {:client {:init-fn net.mynarz.dataquiz.core/main}}
-                   :release {:compiler-options {:optimizations :simple}}}
+                   :release {:compiler-options {:optimizations :advanced}}}
           :test {:target :node-test
                  :autorun true
                  :output-to "out/node-tests.js"}}}
