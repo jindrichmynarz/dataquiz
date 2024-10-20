@@ -233,9 +233,10 @@
      :children [[game-qr-code game-url]
                 [:p
                  [:input
-                  {:disabled "disabled"
-                   :type "text"
-                   :default-value game-url}]
+                  {:default-value game-url
+                   :disabled "disabled"
+                   :size (count game-url)
+                   :type "text"}]
                  [copy-button tr game-url]]]
      :gap "1em"]))
 
@@ -350,6 +351,7 @@
    :children [[title]
               [enter-player-name :player-1]
               [enter-player-name :player-2]
+              [join-game tr]
               [advanced-options tr]
               [rc/gap :size "1em"]
               [lets-play tr]
