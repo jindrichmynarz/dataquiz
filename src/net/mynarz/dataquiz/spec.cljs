@@ -32,9 +32,6 @@
   (when-not (s/valid? spec data)
     (e/expound-str spec data)))
 
-(def validate-questions
-  (partial validate ::question/questions))
-
 (s/def ::player #{:player-1 :player-2})
 
 (s/def ::is-playing ::player)
@@ -115,11 +112,6 @@
                    ::question/data
                    ::route
                    ::winner]))
-
-(defn validate
-  [spec data]
-  (when-not (s/valid? spec data)
-    (e/expound-str spec data)))
 
 (def validate-questions
   (partial validate ::question/data))

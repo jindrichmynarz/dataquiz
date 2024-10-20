@@ -158,7 +158,7 @@
     (let [questions (try
                       (let [questions (cljs.reader/read-string edn)]
                         {:questions questions
-                         :error (validate-questions questions)})
+                         :error (spec/validate-questions questions)})
                       (catch js/Error error
                         {:error (.toString error)}))]
       (if (-> questions :error nil?)

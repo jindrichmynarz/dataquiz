@@ -239,20 +239,6 @@
                  [copy-button game-url]]]
      :gap "1em"]))
 
-(defn pick-questions
-  []
-  (let [loaded? @(rf/subscribe [::subs/questions-loaded?])]
-    [rc/v-box
-     :align :center
-     :children [[loading-modal]
-                [error-modal]
-                [title]
-                [questions-picker]
-                (when loaded? [join-game])
-                [footer]]
-     :gap "2em"
-     :justify :start]))
-
 (defn board-size-selector
   [tr]
   (let [board-side (rf/subscribe [::subs/board-side])]
