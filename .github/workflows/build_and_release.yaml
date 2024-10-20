@@ -5,7 +5,7 @@ on:
       - develop
 jobs:
   test:
-    uses: ./.github/workflows/tests.yml
+    uses: ./.github/workflows/test.yaml
   build:
     name: Build app
     runs-on: ubuntu-latest
