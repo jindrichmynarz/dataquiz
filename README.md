@@ -64,7 +64,7 @@ Here is an example open question:
 }
 ```
 
-When the question is shown, initial letters of each word of the answer are displayed as a hint. Character case of the answer does not matter and minor typos can be tolerated, depending on the length of the answer (computed by the [Jaro-Winkler distance](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)).
+When the question is shown, initial letters of each word of the answer are displayed as a hint. Character case of the answer or its diacritical marks do not matter and minor typos can be tolerated, depending on the length of the answer (computed by the [Jaro-Winkler distance](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance)).
 
 #### Sorting question
 
