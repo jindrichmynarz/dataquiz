@@ -6,7 +6,7 @@ on:
   pull_request:
     branches:
       - develop
-  workflow_call
+  workflow_call:
 jobs:
   test:
     name: Tests
