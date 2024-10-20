@@ -7,6 +7,7 @@
                            :original-size "Originální"
                            :small-size "Malá"}
         :close "Zavřít"
+        :copy-game-url "Zkopírovat odkaz na hru"
         :credits {:and "a"
                   :questions-created-by "Otázky vytvořili"}
         :footer {:made-by "Vyrobil"
@@ -35,6 +36,7 @@
                            :original-size "Original"
                            :small-size "Small"}
         :close "Close"
+        :copy-game-url "Copy the game's URL"
         :credits {:and "and"
                   :questions-created-by "The questions were created by"}
         :footer {:made-by "Made by"

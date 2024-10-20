@@ -219,14 +219,14 @@
    [:img.qr-code {:src (.createDataURL qr-code 10 0)}]))
 
 (defn copy-button
-  [game-url]
+  [tr game-url]
   [:button
    {:on-click #(rf/dispatch [::events/copy-to-clipboard game-url])
-    :title "Zkopírovat odkaz na hru"}
+    :title (tr [:copy-game-url])}
    [:i.zmdi.zmdi-copy]])
 
 (defn join-game
-  []
+  [tr]
   (let [game-url @(rf/subscribe [::subs/game-url])]
     [rc/v-box
      :align :center
@@ -236,7 +236,7 @@
                   {:disabled "disabled"
                    :type "text"
                    :default-value game-url}]
-                 [copy-button game-url]]]
+                 [copy-button tr game-url]]]
      :gap "1em"]))
 
 (defn board-size-selector
