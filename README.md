@@ -1,6 +1,6 @@
 # dataquiz
 
-Data-driven quizzes.
+Data-driven quizzes available at <https://mynarz.net/dataquiz/>.
 
 ## Questions
 
