@@ -27,6 +27,7 @@ jobs:
           cache: npm
       - uses: actions/setup-java@v4
         with:
+          distribution: zulu
           java-version: "11"
       - name: Install clojure
         uses: DeLaGuardo/setup-clojure@12.5

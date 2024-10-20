@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
+          distribution: zulu
           java-version: "11"
       - name: Install clojure
         uses: DeLaGuardo/setup-clojure@12.5
