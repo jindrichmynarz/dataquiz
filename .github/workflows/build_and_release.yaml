@@ -1,0 +1,41 @@
+name: Build and Release
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  test:
+    uses: ./.github/workflows/tests.yml
+  build:
+    name: Build app
+    runs-on: ubuntu-latest
+    needs:
+      - test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Prepare Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "11"
+      - name: Install clojure
+        uses: DeLaGuardo/setup-clojure@12.5
+        with:
+          cli: latest
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run release
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: resources/public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
