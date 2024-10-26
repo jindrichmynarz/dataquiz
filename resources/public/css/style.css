@@ -5,6 +5,7 @@ h1 {
 
 #app {
   width: 80%;
+  word-break: break-word;
 }
 
 footer {
