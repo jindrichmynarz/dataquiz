@@ -148,6 +148,7 @@
        :on-drag-end #(rf/dispatch [::events/drag-end index])
        :style {:cursor (if answer-revealed? "initial" "grab")}}
       [rc/h-box
+       :align :center
        :children [(if (vector? text)
                     text
                     [:div text])

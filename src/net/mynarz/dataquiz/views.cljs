@@ -76,7 +76,7 @@
                                   [:i.zmdi.zmdi-skip-next]
                                   (tr [:question-box/skip-question])])]
     (when data
-      [:<>
+      [:div#question-box
         (question-views/question tr data answer-revealed?)
         [:button#next
          {:on-click #(rf/dispatch event)
@@ -194,6 +194,7 @@
       [rc/v-box
        :align :center
        :children [[rc/horizontal-tabs
+                   :class "questions-picker-tabs"
                    :model selected-tab
                    :tabs [{:id ::select-tab
                            :label (tr [:questions-picker/pick-questions])}
@@ -304,9 +305,9 @@
     [rc/v-box
      :align :center
      :children [[loading-modal]
+                [lang-switch tr]
                 [error-modal tr]
                 [title]
-                [lang-switch tr]
                 [questions-picker tr]
                 (when loaded? [lets-enter tr])
                 [footer tr]]
@@ -318,7 +319,8 @@
   [rc/v-box
    :align :center
    :class "enter"
-   :children [[title]
+   :children [[lang-switch tr]
+              [title]
               [enter-player-name :player-1]
               [enter-player-name :player-2]
               [advanced-options tr]
@@ -329,10 +331,10 @@
 
 (defn play
   [tr]
-  [rc/h-box
-   :children [[error-modal tr]
-              [board]
-              [controls tr]]])
+  [:div#play
+   [error-modal tr]
+   [board]
+   [controls tr]])
 
 (defn verdict
   [tr]
