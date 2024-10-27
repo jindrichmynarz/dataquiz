@@ -27,6 +27,7 @@
                        :skip-question "Nevím, dál!"}
         :questions-picker {:forget-questions-played "Zapomenout již hrané otázky"
                            :load-questions "Nahrát otázky"
+                           :make-your-own [:span "Vytvoř si " [:a {:href "https://github.com/jindrichmynarz/dataquiz?tab=readme-ov-file#questions"} "vlastní otázky"] "."]
                            :pick-questions "Vyber otázky"}
         :switch-lang "Přepni jazyk"
         :winner-heading "Vítězí %1!"}
@@ -55,6 +56,7 @@
                        :skip-question "Skip question"}
         :questions-picker {:forget-questions-played "Forget the already played questions"
                            :load-questions "Load questions"
+                           :make-your-own [:span "Make your " [:a {:href "https://github.com/jindrichmynarz/dataquiz?tab=readme-ov-file#questions"} "own questions"] "."]
                            :pick-questions "Pick questions"}
         :switch-lang "Switch the language"
         :winner-heading "%1 wins!"}})

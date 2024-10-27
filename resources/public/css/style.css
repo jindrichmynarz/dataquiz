@@ -375,3 +375,11 @@ input[type='checkbox'].checked + .switch::after {
   gap: 2rem;
   padding: .5rem 1rem;
 }
+
+.questions-upload-tab a {
+  text-decoration: underline;
+}
+
+.questions-upload-tab a:hover, .questions-upload-tab a:focus {
+  text-decoration: none;
+}

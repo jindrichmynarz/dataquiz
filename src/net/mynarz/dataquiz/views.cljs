@@ -180,12 +180,14 @@
          :max-width "50%"]))))
 
 (defn questions-upload-tab
-  []
-  [rc/box
-   :child [:input#questions-upload
-           {:accept ".edn"
-            :on-change #(rf/dispatch [::events/read-questions-from-file %])
-            :type "file"}]])
+  [tr]
+  [rc/v-box
+   :class "questions-upload-tab"
+   :children [[:p [:input#questions-upload
+                   {:accept ".edn"
+                    :on-change #(rf/dispatch [::events/read-questions-from-file %])
+                    :type "file"}]]
+              [:p [:i.zmdi.zmdi-info] (tr [:questions-picker/make-your-own])]]])
 
 (defn questions-picker
   [tr]
@@ -203,7 +205,7 @@
                    :on-change #(reset! selected-tab %)]
                   (case @selected-tab
                     ::select-tab [questions-select-tab tr]
-                    ::input-tab [questions-upload-tab])]
+                    ::input-tab [questions-upload-tab tr])]
        :class "enter"
        :min-width "50%"])))
 
