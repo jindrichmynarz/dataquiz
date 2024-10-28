@@ -77,7 +77,7 @@
                                   [:i.zmdi.zmdi-skip-next]
                                   (tr [:question-box/skip-question])])]
     (when data
-      [:<>
+      [:div#question-box
         (question-views/question tr data answer-revealed?)
         [:button#next
          {:on-click #(rf/dispatch event)
@@ -181,12 +181,14 @@
          :max-width "50%"]))))
 
 (defn questions-upload-tab
-  []
-  [rc/box
-   :child [:input#questions-upload
-           {:accept ".edn"
-            :on-change #(rf/dispatch [::events/read-questions-from-file %])
-            :type "file"}]])
+  [tr]
+  [rc/v-box
+   :class "questions-upload-tab"
+   :children [[:p [:input#questions-upload
+                   {:accept ".edn"
+                    :on-change #(rf/dispatch [::events/read-questions-from-file %])
+                    :type "file"}]]
+              [:p [:i.zmdi.zmdi-info] (tr [:questions-picker/make-your-own])]]])
 
 (defn questions-picker
   [tr]
@@ -195,6 +197,7 @@
       [rc/v-box
        :align :center
        :children [[rc/horizontal-tabs
+                   :class "questions-picker-tabs"
                    :model selected-tab
                    :tabs [{:id ::select-tab
                            :label (tr [:questions-picker/pick-questions])}
@@ -203,7 +206,7 @@
                    :on-change #(reset! selected-tab %)]
                   (case @selected-tab
                     ::select-tab [questions-select-tab tr]
-                    ::input-tab [questions-upload-tab])]
+                    ::input-tab [questions-upload-tab tr])]
        :class "enter"
        :min-width "50%"])))
 
@@ -334,9 +337,9 @@
     [rc/v-box
      :align :center
      :children [[loading-modal]
+                [lang-switch tr]
                 [error-modal tr]
                 [title]
-                [lang-switch tr]
                 [questions-picker tr]
                 (when loaded? [lets-enter tr])
                 [footer tr]]
@@ -348,7 +351,8 @@
   [rc/v-box
    :align :center
    :class "enter"
-   :children [[title]
+   :children [[lang-switch tr]
+              [title]
               [enter-player-name :player-1]
               [enter-player-name :player-2]
               [join-game tr]
@@ -360,10 +364,10 @@
 
 (defn play
   [tr]
-  [rc/h-box
-   :children [[error-modal tr]
-              [board]
-              [controls tr]]])
+  [:div#play
+   [error-modal tr]
+   [board]
+   [controls tr]])
 
 (defn verdict
   [tr]

@@ -4,9 +4,8 @@ h1 {
 }
 
 #app {
-  height: 100vh;
   width: 80%;
-  min-width: 700px;
+  word-break: break-word;
 }
 
 footer {
@@ -62,7 +61,6 @@ a:hover, a:focus {
 }
 
 .controls {
-  width: 50%;
   justify-items: start;
 }
 
@@ -217,22 +215,29 @@ ul.choices li button {
 
 .sortable-list {
   display: flex;
-  flex: 0 0 auto;
   flex-direction: column;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
   max-width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, .125);
 }
 
 .sortable-list li {
   list-style-type: none;
-  display: block;
-  margin: 0;
   padding: 0.75rem 1.25rem;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, .125);
   margin-bottom: -1px;
+  gap: .5rem;
+}
+
+.sortable-list li div {
+  flex-basis: 100%;
+}
+
+.sortable-list li div.sort-value {
+  flex-basis: 20%;
 }
 
 .sortable-list li:first-child {
@@ -266,7 +271,7 @@ ul.choices li button {
 }
 
 .questions-picker {
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
 }
 
 .questions-picker .chosen-single {
@@ -284,14 +289,12 @@ ul.choices li button {
 }
 
 .credits {
-  font-size: .8em;
   padding-top: .5em;
 }
 
 #advanced-options label {
   cursor: pointer;
   padding: 1em;
-  padding-bottom: 0;
 }
 
 #advanced-options-items {
@@ -346,4 +349,41 @@ input[type='checkbox'].checked + .switch::after {
   position: fixed;
   top: 1em;
   right: 1em;
+}
+
+#play {
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#play > * {
+  flex: 1;
+  width: 50%;
+}
+
+@media (max-width: 950px) or (orientation: portrait) {
+  #play {
+    flex-direction: column;
+    align-items: center;
+  }
+  #play > * {
+    width: 100%;
+  }
+}
+
+#question-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: .5rem 1rem;
+}
+
+.questions-upload-tab a {
+  text-decoration: underline;
+}
+
+.questions-upload-tab a:hover, .questions-upload-tab a:focus {
+  text-decoration: none;
 }
