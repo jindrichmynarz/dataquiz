@@ -12,6 +12,8 @@
                   :questions-created-by "Otázky vytvořili"}
         :footer {:made-by "Vyrobil"
                  :source-code "Zdrojový kód"}
+        :join-game {:how-to "Naskenuj QR kód"
+                    :title "Připoj se ke hře"}
         :loading-questions "Načítám otázky..."
         :modals {:load-questions-error "Chyba při načítání otázek!"
                  :no-more-questions-error "Otázky došly"
@@ -42,6 +44,8 @@
                   :questions-created-by "The questions were created by"}
         :footer {:made-by "Made by"
                  :source-code "Source code"}
+        :join-game {:how-to "Scan the QR code"
+                    :title "Join the game"}
         :loading-questions "Loading questions..."
         :modals {:load-questions-error "Error loading questions!"
                  :no-more-questions-error "There are no more questions."
