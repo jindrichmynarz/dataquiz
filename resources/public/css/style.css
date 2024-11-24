@@ -285,7 +285,7 @@ ul.choices li button {
 }
 
 .qr-code {
-  width: 50%;
+  image-rendering: crisp-edges;
 }
 
 .credits {
@@ -386,4 +386,9 @@ input[type='checkbox'].checked + .switch::after {
 
 .questions-upload-tab a:hover, .questions-upload-tab a:focus {
   text-decoration: none;
+}
+
+#wifi-exercise {
+  width: 100px;
+  image-rendering: crisp-edges;
 }
