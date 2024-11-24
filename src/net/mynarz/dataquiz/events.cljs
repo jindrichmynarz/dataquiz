@@ -7,6 +7,7 @@
             [net.mynarz.az-kviz.logic :as az]
             [net.mynarz.dataquiz.coeffects :as cofx]
             [net.mynarz.dataquiz.effects :as fx]
+            [net.mynarz.dataquiz.firebase :as firebase]
             [net.mynarz.dataquiz.i18n :as i18n]
             [net.mynarz.dataquiz.normalize :as normalize]
             [net.mynarz.dataquiz.spec :as spec]
@@ -67,10 +68,7 @@
     (let [language (keyword (or local-storage-language navigator-language))
           tr (partial i18n/tr [(or language :cs)])
           game-id (spec/gen-one ::spec/game-id)
-          ; FIXME: (rfe/href :enter game-id))]
-          ; Requires :enter route to have a path parameter for game-id
-          ; <https://cljdoc.org/d/metosin/reitit/0.7.0-alpha4/api/reitit.frontend.easy#href>
-          game-url (gstring/format "%s/%s" origin game-id)]
+          game-url (str origin "/" (rfe/href :enter {:game-id game-id}))]
       {:db {:game-id game-id
             :game-url game-url
             :language language
