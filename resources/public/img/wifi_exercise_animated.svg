@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 32 56">
+    <path d="M16 .248C9.71.248 4.046 2.716-.03 6.686L2.03 8.81c3.525-3.43 8.463-5.56 13.973-5.56 5.51 0 10.445 2.13 13.97 5.56l2.06-2.124c-4.077-3.97-9.74-6.438-16.03-6.438z" id="wifi3"/>
+    <path d="M16 6.248c-4.49 0-8.668 1.762-11.656 4.75l2.125 2.125C8.88 10.71 12.29 9.248 16 9.248c3.71 0 7.148 1.456 9.563 3.78l2.064-2.155C24.642 8 20.492 6.248 16.002 6.248z" id="wifi2"/>
+    <path d="M16 12.248c-2.735 0-5.28 1.155-7.063 2.938l2.126 2.125c1.216-1.214 3.07-2.06 4.937-2.06 1.865 0 3.72.845 4.938 2.063l2.125-2.124c-1.783-1.785-4.328-2.94-7.063-2.94z" id="wifi1"/>
+    <path d="M16.002 18.218c-2.165 0-3.92 1.755-3.92 3.92 0 2.164 1.756 3.918 3.92 3.917 2.164 0 3.918-1.754 3.918-3.918 0-1.27-.616-2.46-1.652-3.194-.02-.013-.036-.028-.055-.04-.207-.14-.426-.263-.656-.362h-.002c-.49-.21-1.02-.32-1.553-.32z" id="head"/>
+    <path d="M10.523 27.62v26.16c.186 1.027.96 1.817 1.915 1.952.625.08 1.33-.077 1.876-.546.547-.47.86-1.094.86-1.8v-9.384h1.562v9.307c0 1.25.86 2.263 1.955 2.42h.393c.627 0 1.173-.154 1.564-.545.47-.404.756-.926.83-1.51V27.62z" id="body"/>
+    <path d="M2.612 22.568s5.238 6.708 13.948 6.708 12.83-6.708 12.83-6.708"
+          id="arms"
+          fill="none"
+          fill-rule="evenodd"
+          stroke="#000"
+          stroke-width="5"
+          stroke-linecap="round"/>
+
+    <animate xlink:href="#arms"
+             attributeName="d"
+             attributeType="XML"
+             values="M2.612 27.318s5.238 1.458 13.948 1.458 12.83-1.458 12.83-1.458;
+                     M2.612 22.568s5.238 6.708 13.948 6.708 12.83-6.708 12.83-6.708;
+                     M2.612 27.318s5.238 1.458 13.948 1.458 12.83-1.458 12.83-1.458"
+             dur="5s"
+             repeatCount="indefinite"/>
+    <animate xlink:href="#wifi1"
+             attributeName="opacity"
+             attributeType="XML"
+             values="0; 1; 0; 0"
+             dur="5s"
+             keyTimes="0; 0.05; 0.6; 1"
+             calcMode="discrete"
+             repeatCount="indefinite"/>
+    <animate xlink:href="#wifi2"
+             attributeName="opacity"
+             attributeType="XML"
+             values="0; 1; 0; 0"
+             dur="5s"
+             keyTimes="0; 0.25; 0.6; 1"
+             calcMode="discrete"
+             repeatCount="indefinite"/>
+    <animate xlink:href="#wifi3"
+             attributeName="opacity"
+             attributeType="XML"
+             values="0; 1; 0; 0"
+             dur="5s"
+             keyTimes="0; 0.45; 0.6; 1"
+             calcMode="discrete"
+             repeatCount="indefinite"/>
+</svg>
