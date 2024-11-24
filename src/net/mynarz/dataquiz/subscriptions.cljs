@@ -88,6 +88,11 @@
     question-sets))
 
 (reg-sub
+  ::game-id
+  (fn [{:keys [game-id]}]
+    game-id))
+
+(reg-sub
   ::game-url
   (fn [{:keys [game-url]}]
     game-url))
