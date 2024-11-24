@@ -93,15 +93,18 @@
               [question-box tr]]])
 
 (defn navigation-button
-  [text href]
-  [rc/hyperlink-href
-   :class "button"
-   :href (rfe/href href)
-   :label text])
+  ([text href]
+   (navigation-button text href nil))
+  ([text href params]
+   [rc/hyperlink-href
+    :class "button"
+    :href (rfe/href href params)
+    :label text]))
 
 (defn lets-play
   [tr]
-  (navigation-button (tr [:play]) :play))
+  (let [game-id @(rf/subscribe [::subs/game-id])]
+    (navigation-button (tr [:play]) :waiting-lobby {:game-id game-id})))
 
 (defn lets-play-again
   [tr]
@@ -212,7 +215,7 @@
 
 (defn lets-enter
   [tr]
-  [rc/box :child (navigation-button (tr [:play]) :enter)])
+  [rc/box :child (navigation-button (tr [:play]) :join-game)])
 
 (defn game-qr-code
   [game-url]
@@ -227,21 +230,6 @@
    {:on-click #(rf/dispatch [::events/copy-to-clipboard game-url])
     :title (tr [:copy-game-url])}
    [:i.zmdi.zmdi-copy]])
-
-(defn join-game
-  [tr]
-  (let [game-url @(rf/subscribe [::subs/game-url])]
-    [rc/v-box
-     :align :center
-     :children [[game-qr-code game-url]
-                [:p
-                 [:input
-                  {:default-value game-url
-                   :disabled "disabled"
-                   :size (count game-url)
-                   :type "text"}]
-                 [copy-button tr game-url]]]
-     :gap "1em"]))
 
 (defn board-size-selector
   [tr]
@@ -341,10 +329,31 @@
                 [error-modal tr]
                 [title]
                 [questions-picker tr]
+                (when loaded? [advanced-options tr])
                 (when loaded? [lets-enter tr])
                 [footer tr]]
      :gap "2em"
      :justify :start]))
+
+(defn join-game
+  [tr]
+  (let [game-url @(rf/subscribe [::subs/game-url])]
+    [rc/v-box
+     :align :center
+     :children [[lang-switch tr]
+                [title]
+                [:h2 (tr [:join-game/title])]
+                [:p (tr [:join-game/how-to])]
+                [game-qr-code game-url]
+                [:p
+                 [:input
+                  {:default-value game-url
+                   :disabled "disabled"
+                   :size (count game-url)
+                   :type "text"}]
+                 [copy-button tr game-url]]
+                [footer tr]]
+     :gap "1em"]))
 
 (defn enter
   [tr]
@@ -354,10 +363,18 @@
    :children [[lang-switch tr]
               [title]
               [enter-player-name :player-1]
-              [enter-player-name :player-2]
-              [join-game tr]
-              [advanced-options tr]
               [rc/gap :size "1em"]
+              [lets-play tr]
+              [footer tr]]
+   :justify :start])
+
+(defn waiting-lobby
+  [tr]
+  [rc/v-box
+   :align :center
+   :children [[lang-switch tr]
+              [title]
+              [:p [:img#wifi-exercise {:src "/img/wifi_exercise_animated.svg"}]]
               [lets-play tr]
               [footer tr]]
    :justify :start])
