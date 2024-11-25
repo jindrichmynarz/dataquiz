@@ -1,6 +1,6 @@
 (ns net.mynarz.dataquiz.subscriptions
   (:require [net.mynarz.dataquiz.i18n :as i18n]
-            [re-frame.core :refer [reg-sub subscribe]]))
+            [re-frame.core :refer [reg-sub]]))
 
 (reg-sub
   ::tr
