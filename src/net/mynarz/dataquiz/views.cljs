@@ -224,7 +224,7 @@
                  :on-change #(rf/dispatch [::events/change-board-side %])
                  :tabs [{:id 7
                          :label (tr [:advanced-options/original-size])}
-                        {:id 4
+                        {:id 5
                          :label (tr [:advanced-options/small-size])}]]]
      :gap ".5em"]))
 
