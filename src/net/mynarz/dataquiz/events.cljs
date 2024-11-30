@@ -68,7 +68,7 @@
             :player-1 (tr [:player-n] [1])
             :player-2 (tr [:player-n] [2])
             :question-sets [{:id "https://mynarz.net/femquiz/femquiz.edn"
-                             :label "Fem-quiz"}]
+                             :label "Fem-quiz (cz)"}]
             :side 7}
        :fx [[:dispatch [::rp/set-keydown-rules {:always-listen-keys [enter-key]
                                                 :event-keys [[[::submit]
