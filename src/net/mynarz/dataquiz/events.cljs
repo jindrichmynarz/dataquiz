@@ -81,6 +81,9 @@
     (when-let [effect (cond (= route-name :enter)
                             [::fx/navigate-to :play]
 
+                            (= route-name :pick-questions)
+                            [::fx/navigate-to :enter]
+
                             (and (= route-name :play)
                                  question
                                  (not answer-revealed?))
