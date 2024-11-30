@@ -107,8 +107,8 @@
   ::load-questions-error
   (fn [db _]
     (-> db
-      (dissoc :data)
-      (assoc :error {:error-type :load-questions-error}))))
+        (dissoc :data)
+        (assoc :error {:error-type :load-questions-error}))))
 
 (rf/reg-event-db
   ::dispatch-error-modal
@@ -176,7 +176,12 @@
 (rf/reg-event-db
   ::change-player-name
   (fn [db [_ player player-name]]
-    (assoc db player player-name)))
+    (if (->> player
+             toggle-players
+             (get db)
+             (= player-name))
+      (assoc db :error {:error-type :matching-player-names})
+      (assoc db player player-name))))
 
 (rf/reg-event-db
   ::start-game

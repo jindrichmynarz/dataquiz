@@ -13,6 +13,7 @@
                  :source-code "Zdrojový kód"}
         :loading-questions "Načítám otázky..."
         :modals {:load-questions-error "Chyba při načítání otázek!"
+                 :matching-player-names "Hráči musí mít odlišná jména!"
                  :no-more-questions-error "Otázky došly"
                  :parse-questions-error "Chybný formát otázek"}
         :play "Hrát"
@@ -42,6 +43,7 @@
                  :source-code "Source code"}
         :loading-questions "Loading questions..."
         :modals {:load-questions-error "Error loading questions!"
+                 :matching-player-names "The players must have different names!"
                  :no-more-questions-error "There are no more questions."
                  :parse-questions-error "Wrong format of the questions"}
         :play "Play"

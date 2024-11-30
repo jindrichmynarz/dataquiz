@@ -321,7 +321,8 @@
   [rc/v-box
    :align :center
    :class "enter"
-   :children [[lang-switch tr]
+   :children [[error-modal tr]
+              [lang-switch tr]
               [title]
               [enter-player-name :player-1]
               [enter-player-name :player-2]
