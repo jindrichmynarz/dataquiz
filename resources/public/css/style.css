@@ -184,8 +184,8 @@ ul.choices li button {
 #next {
   align-self: end;
   font-size: 2em;
-  width: 20%;
   min-height: 1.5em;
+  padding: 0 1em;
 }
 
 .note {
