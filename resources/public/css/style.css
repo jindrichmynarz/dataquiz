@@ -78,6 +78,7 @@ a:hover, a:focus {
 
 .question img {
   max-width: 500px;
+  max-height: 50%;
 }
 
 .question blockquote {
