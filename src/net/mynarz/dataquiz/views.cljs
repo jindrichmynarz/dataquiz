@@ -271,7 +271,7 @@
 (defn winners-cup
   "Winner's cup coloured with the colour of the winning player."
   [colour]
-  [:svg {:width 250 :height 250}
+  [:svg {:viewBox "0 0 250 250"}
     [:defs
      [:linearGradient
        {:gradientUnits "userSpaceOnUse"
@@ -341,18 +341,11 @@
 
 (defn verdict
   [tr]
-  [rc/h-box
-   :align :center
-   :children [[rc/box
-               :class "board-won"
-               :child [board]
-               :max-width "50%"]
-              [rc/v-box
-               :align :center
-               :children [[winner-box tr]
-                          [lets-play-again tr]]
-               :gap "4em"]]
-   :justify :center])
+  [:div#verdict
+   [board]
+   [:div#winner
+    [winner-box tr]
+    [lets-play-again tr]]])
 
 (defn ui
   []
