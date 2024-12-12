@@ -86,42 +86,25 @@
                 (when answer-revealed?
                   [note-view (tr [:question.open/correct-answer] [answer])])]]))
 
-(defn calculate-offset
-  [[left right] percentage]
-  (let [range-knob-radius 5] ; TODO: How to calculate the slider's knob radius dynamically?
-    (->> (/ percentage 100)
-         (* (- right left (* range-knob-radius 2)))
-         (+ left range-knob-radius)
-         js/Math.round
-         (gstring/format "%dpx"))))
-
 (defn slider
   [guess answer-revealed?]
-  (let [sides (atom nil)
-        set-sides! (fn [node]
-                     (when node
-                       (let [bounding-rect (.getBoundingClientRect node)]
-                         (reset! sides [(.-left bounding-rect) (.-right bounding-rect)]))))]
-    (fn [guess answer-revealed?]
-      [rc/popover-anchor-wrapper
-       :attr {:ref set-sides!}
-       :class "guess"
-       :position :below-center
-       :showing? true
-       :anchor [rc/slider
-                :disabled? answer-revealed?
-                :max 100
-                :min 0
-                :model (or guess 50)
-                :on-change #(rf/dispatch [::events/make-a-guess %])
-                :parts {:wrapper {:style {:width "100%"}}}
-                :width "100%"]
-       :popover [rc/popover-content-wrapper
-                 :body (gstring/format "%d %%" guess)
-                 :close-button? false
-                 :on-cancel nil
-                 :style {:position "fixed"
-                         :left (calculate-offset @sides guess)}]])))
+  (let [guess-or-default (or guess 50)
+        [current-player _] @(rf/subscribe [::subs/current-player])]
+    [rc/h-box
+     :align :center
+     :class "slider"
+     :children [[rc/slider
+                 :class current-player
+                 :disabled? answer-revealed?
+                 :max 100
+                 :min 0
+                 :model guess-or-default
+                 :on-change #(rf/dispatch [::events/make-a-guess %])
+                 :parts {:wrapper {:style {:flex "1 1 auto"}}}
+                 :width "100%"]
+                [rc/box
+                 :child [:span (gstring/format "%d %%" guess-or-default)]
+                 :width "3em"]]]))
 
 (defmethod question :percent-range
   [tr

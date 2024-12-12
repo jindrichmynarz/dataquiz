@@ -210,10 +210,6 @@ ul.choices li button {
   font-size: 1.5em;
 }
 
-.guess:has(.rc-slider) {
-  margin-bottom: 2em;
-}
-
 .sortable-list {
   display: flex;
   flex-direction: column;
@@ -391,4 +387,17 @@ input[type='checkbox'].checked + .switch::after {
 
 .questions-upload-tab a:hover, .questions-upload-tab a:focus {
   text-decoration: none;
+}
+
+.slider {
+  font-size: 1.5em;
+  gap: .5em;
+}
+
+.slider .player-1 {
+  accent-color: #fc4349;
+}
+
+.slider .player-2 {
+  accent-color: #1e60a2;
 }
