@@ -77,22 +77,23 @@
 (rf/reg-event-fx
   ::submit
   (fn [{{{{route-name :name} :data} :route
-         :keys [answer-revealed? question]} :db} _]
-    (when-let [effect (cond (= route-name :enter)
-                            [::fx/navigate-to :play]
+         :keys [answer-revealed? error question]} :db} _]
+    (when-not error
+      (when-let [effect (cond (= route-name :enter)
+                              [::fx/navigate-to :play]
 
-                            (= route-name :pick-questions)
-                            [::fx/navigate-to :enter]
+                              (= route-name :pick-questions)
+                              [::fx/navigate-to :enter]
 
-                            (and (= route-name :play)
-                                 question
-                                 (not answer-revealed?))
-                            [:dispatch [::answer-question]]
+                              (and (= route-name :play)
+                                   question
+                                   (not answer-revealed?))
+                              [:dispatch [::answer-question]]
 
-                            (and (= route-name :play)
-                                 answer-revealed?)
-                            [:dispatch [::next-question]])]
-      {:fx [effect]})))
+                              (and (= route-name :play)
+                                   answer-revealed?)
+                              [:dispatch [::next-question]])]
+        {:fx [effect]}))))
 
 (rf/reg-event-db
   ::change-route
